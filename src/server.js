@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const { getConfiguration } = require("./configuration");
 const { buildThemeZip } = require("./build");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/dainty-vs-latest.zip", async (_req, res) => {
   const [_, configuration] = await getConfiguration({});

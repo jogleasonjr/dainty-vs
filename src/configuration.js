@@ -55,7 +55,7 @@ async function readConfigurationJson() {
 
   if (!(await exists(filename))) {
     await createConfigurationJson();
-    return {};
+    return "{}";
   } else {
     return await readFile(filename, "utf8");
   }

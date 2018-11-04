@@ -1,0 +1,6 @@
+{
+  "alias": "dainty-vs",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
