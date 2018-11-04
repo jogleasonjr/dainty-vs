@@ -12,7 +12,7 @@ For more information, see https://dainty-vs.now.sh.
 
 Run `npm run build` to generate the color theme files. This produces `dist/dainty.vstheme` and `dist/dainty.vssettings`.
 
-`configuration.json` is used for configuration, and the file is created with default values if it doesn’t exist. The format of `configuration.json` is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blog/master/configuration-schema.json).
+`configuration.json` is used for configuration, and the file is created with default values if it doesn’t exist. The format of `configuration.json` is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
 ## Server usage
 
@@ -24,8 +24,8 @@ Run `npm run start` to start Express server. These are the available routes:
 | GET    | /dainty-latest.zip            | Generates the latest version of Dainty with default configuration |
 | GET    | /dainty-latest-configured.zip | Generates the latest version of Dainty with custom configuration. |
 
-Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blog/master/configuration-schema.json).
+Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
 ## License
 
-Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blog/master/license.md).
+Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).
