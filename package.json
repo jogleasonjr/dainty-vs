@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "node src/cli.js",
+    "start": "node src/server.js",
+    "dev-cli": "nodemon --exec npm run build -e js,html"
+  },
+  "dependencies": {
+    "ajv": "6.5.4",
+    "better-avj-errors": "0.4.0-alpha.3",
+    "body-parser": "1.18.3",
+    "chroma-js": "1.4.0",
+    "express": "4.16.4",
+    "html-minifier": "3.5.21",
+    "node-zip": "1.1.1",
+    "replace-once": "1.0.0",
+    "uuid": "3.3.2",
+    "xml-js": "1.6.8"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.5"
+  }
+}

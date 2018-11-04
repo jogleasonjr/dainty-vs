@@ -1,0 +1,15 @@
+<UserSettings>
+	<ApplicationIdentity version="15.0"/>
+	<ToolsOptions/>
+	<Category name="IndentGuide_Styles" Category="{6443b4d2-311b-41b6-aec3-1dc34df670fa}" Package="{959beb25-6c38-440a-a37f-5d6717e9a41b}" RegisteredName="IndentGuide_Styles" PackageName="Indent Guides Package">
+		<PropertyValue name="(Default)" ExtendInwardsOnly="True" VisibleAligned="True" VisibleUnaligned="False" VisibleAtTextEnd="False" VisibleEmpty="True" VisibleEmptyAtEnd="True">(Default).Default;(Default).0;(Default).Unaligned</PropertyValue>
+		<PropertyValue name="CaretHandler">IndentGuide.CaretNearestLeft2</PropertyValue>
+		<PropertyValue name="(Default).Default" Keys="Visible;LineStyle;LineColor;HighlightStyle;HighlightColor" Visible="True" LineStyle="Solid" LineColor="DEFAULT_DEFAULT_LINE_COLOR" HighlightStyle="Solid" HighlightColor="DEFAULT_DEFAULT_HIGHLIGHT_COLOR"/>
+		<PropertyValue name="(Default).0" Keys="Visible;LineStyle;LineColor;HighlightStyle;HighlightColor" Visible="False" LineStyle="Dotted" LineColor="DimGray" HighlightStyle="DottedGlow" HighlightColor="DodgerBlue"/>
+		<PropertyValue name="(Default).Unaligned" Keys="Visible;LineStyle;LineColor;HighlightStyle;HighlightColor" Visible="True" LineStyle="Solid" LineColor="DEFAULT_UNALIGNED_LINE_COLOR" HighlightStyle="Solid" HighlightColor="DEFAULT_UNALIGNED_HIGHLIGHT_COLOR"/>
+		<PropertyValue name="Version">983040</PropertyValue>
+		<PropertyValue name="Themes">(Default);</PropertyValue>
+		<PropertyValue name="Visible">1</PropertyValue>
+	</Category>
+</UserSettings>
+	

@@ -1,0 +1,112 @@
+{
+  "$id": "https://dainty-vs.now.sh/configuration-schema.json",
+  "type": "object",
+  "title": "Dainty customization",
+  "required": ["editor", "environment", "extensions"],
+  "additionalProperties": false,
+  "properties": {
+    "editor": {
+      "$id": "#/properties/editor",
+      "type": "object",
+      "title": "Visual Studio editor",
+      "default": {},
+      "required": ["fontFamily"],
+      "additionalProperties": false,
+      "properties": {
+        "fontFamily": {
+          "$id": "#/properties/editor/properties/fontFamily",
+          "type": "string",
+          "title": "Editor, console, and output windows font",
+          "default": "Consolas"
+        }
+      }
+    },
+    "environment": {
+      "$id": "#/properties/environment",
+      "type": "object",
+      "title": "Visual Studio environment",
+      "default": {},
+      "required": [
+        "accentColor",
+        "additionalBackgroundContrast",
+        "additionalTextContrast",
+        "monochromaticText",
+        "transparentBorders",
+        "transparentScrollbarContainers",
+        "transparentToolWindowGrips"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "accentColor": {
+          "$id": "#/properties/environment/properties/accentColor",
+          "type": "string",
+          "enum": ["gray", "blue", "transparent"],
+          "title": "Active file tab, file tab border, and status bar background",
+          "default": "gray"
+        },
+        "additionalBackgroundContrast": {
+          "$id": "#/properties/environment/properties/additionalBackgroundContrast",
+          "type": "boolean",
+          "title": "Additional contrast for environment background",
+          "default": false
+        },
+        "additionalTextContrast": {
+          "$id": "#/properties/environment/properties/additionalTextContrast",
+          "type": "boolean",
+          "title": "Additional contrast for environment text",
+          "default": true
+        },
+        "monochromaticText": {
+          "$id": "#/properties/environment/properties/monochromaticText",
+          "type": "boolean",
+          "title": "Monochromatic (instead of grayscale) environment text",
+          "default": true
+        },
+        "transparentBorders": {
+          "$id": "#/properties/environment/properties/transparentBorders",
+          "type": "boolean",
+          "title": "Transparent environment borders",
+          "default": false
+        },
+        "transparentScrollbarContainers": {
+          "$id": "#/properties/environment/properties/transparentScrollbarContainers",
+          "type": "boolean",
+          "title": "Transparent scrollbar containers",
+          "default": false
+        },
+        "transparentToolWindowGrips": {
+          "$id": "#/properties/environment/properties/transparentToolWindowGrips",
+          "type": "boolean",
+          "title": "Transparent tool window grip handles",
+          "default": true
+        }
+      }
+    },
+    "extensions": {
+      "$id": "#/properties/extensions",
+      "type": "object",
+      "title": "Visual Studio extensions",
+      "default": {},
+      "required": ["indentGuides"],
+      "additionalProperties": false,
+      "properties": {
+        "indentGuides": {
+          "$id": "#/properties/extensions/properties/indentGuides",
+          "type": "object",
+          "title": "Indent Guides extension",
+          "default": {},
+          "required": ["includeSettings"],
+          "additionalProperties": false,
+          "properties": {
+            "includeSettings": {
+              "$id": "#/properties/extensions/properties/indentGuides/properties/includeSettings",
+              "type": "boolean",
+              "title": "Include settings for Indent Guides extension",
+              "default": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

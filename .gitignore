@@ -1,0 +1,4 @@
+dist
+node_modules
+public/index.html
+configuration.json
