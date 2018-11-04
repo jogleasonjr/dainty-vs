@@ -18,11 +18,11 @@ Run `npm run build` to generate the color theme files. This produces `dist/daint
 
 Run `npm run start` to start Express server. These are the available routes:
 
-| Method | Route                         | Description                                                       |
-| ------ | ----------------------------- | ----------------------------------------------------------------- |
-| GET    | /                             | Dainty for Visual Studio website                                  |
-| GET    | /dainty-latest.zip            | Generates the latest version of Dainty with default configuration |
-| GET    | /dainty-latest-configured.zip | Generates the latest version of Dainty with custom configuration. |
+| Method | Route                           | Description                                                       |
+| ------ | ------------------------------- | ----------------------------------------------------------------- |
+| GET    | `/`                             | Dainty for Visual Studio website                                  |
+| GET    | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
+| GET    | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration. |
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
