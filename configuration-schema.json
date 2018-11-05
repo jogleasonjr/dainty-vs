@@ -56,6 +56,18 @@
           "title": "Additional contrast for environment text",
           "default": true
         },
+        "additionalCommentsContrast": {
+          "$id": "#/properties/environment/properties/additionalCommentsContrast",
+          "type": "boolean",
+          "title": "Additional contrast for comments",
+          "default": false
+        },
+        "additionalScrollbarsContrast": {
+          "$id": "#/properties/environment/properties/additionalScrollbarsContrast",
+          "type": "boolean",
+          "title": "Additional contrast for scrollbars",
+          "default": true
+        },
         "monochromaticText": {
           "$id": "#/properties/environment/properties/monochromaticText",
           "type": "boolean",

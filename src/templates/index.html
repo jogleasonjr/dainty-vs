@@ -530,6 +530,24 @@
       background-color: "purpleLight"
     }
 
+    .configuration-info {
+      font-style: italic;
+      color: "bg16";
+      text-align: center;
+    }
+
+    .configuration-info a {
+      color: "bg24";
+    }
+
+    .configuration-info a:hover {
+      color: "bg28";
+    }
+
+    .configuration-info code {
+      color: "bg16";
+    }
+
     /* https://github.com/tholman/github-corners */
 
     .github-corner:hover .octo-arm {
@@ -612,7 +630,7 @@
     }
 
     .ckbx-style-8 input[type=checkbox]:checked + label:before {
-      background: "b18";
+      background: "b20";
     }
 
     .ckbx-style-8 input[type=checkbox]:checked + label:after {
@@ -712,24 +730,17 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Monochromatic (instead of grayscale) environment text</label>
+                <label>Additional contrast for scrollbars</label>
                 <div class="ckbx-style-8">
-                  <input type="checkbox" id="environment_monochromaticText" checked>
-                  <label for="environment_monochromaticText"></label>
+                  <input type="checkbox" id="environment_additionalScrollbarsContrast" checked>
+                  <label for="environment_additionalScrollbarsContrast"></label>
                 </div>
               </div>
               <div class="form-group">
-                <label>Transparent environment borders</label>
+                <label>Additional contrast for comments</label>
                 <div class="ckbx-style-8">
-                  <input type="checkbox" id="environment_transparentBorders">
-                  <label for="environment_transparentBorders"></label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Transparent scrollbar containers</label>
-                <div class="ckbx-style-8">
-                  <input type="checkbox" id="environment_transparentScrollbarContainers">
-                  <label for="environment_transparentScrollbarContainers"></label>
+                  <input type="checkbox" id="environment_additionalCommentsContrast">
+                  <label for="environment_additionalCommentsContrast"></label>
                 </div>
               </div>
               <div class="form-group">
@@ -747,6 +758,12 @@
                   <input type="checkbox" id="extensions_indentGuides_includeSettings">
                   <label for="extensions_indentGuides_includeSettings"></label>
                 </div>
+              </div>
+            </div>
+            <div class="form-section">
+              <div class="configuration-info">
+                For additional settings, <a href="https://github.com/alexanderte/dainty-vs">clone the
+                  repository</a> and edit <code>configuration.json</code>.
               </div>
             </div>
             <div class="form-section" style="text-align: center;">
@@ -968,9 +985,11 @@
           accentColor: $("#environment_accentColor").value,
           additionalBackgroundContrast: $("#environment_additionalBackgroundContrast").checked,
           additionalTextContrast: $("#environment_additionalTextContrast").checked,
-          monochromaticText: $("#environment_monochromaticText").checked,
-          transparentBorders: $("#environment_transparentBorders").checked,
-          transparentScrollbarContainers: $("#environment_transparentScrollbarContainers").checked,
+          additionalScrollbarsContrast: $("#environment_additionalScrollbarsContrast").checked,
+          additionalCommentsContrast: $("#environment_additionalCommentsContrast").checked,
+          monochromaticText: true,
+          transparentBorders: false,
+          transparentScrollbarContainers: false,
           transparentToolWindowGrips: $("#environment_transparentToolWindowGrips").checked,
         },
         extensions: {

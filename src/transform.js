@@ -12,8 +12,8 @@ const readFile = util.promisify(fs.readFile);
 const { grays, blueGrays, blues } = colors;
 
 function getThemeReplacements(configuration) {
-  const c = configuration.environment.additionalTextContrast ? 2 : 0;
-  const cb = configuration.environment.additionalTextContrast ? 1 : 0;
+  const c = configuration.environment.additionalTextContrast ? 4 : 0;
+  const cb = configuration.environment.additionalTextContrast ? 2 : 0;
 
   const environmentBackgroundColor = configuration.environment
     .additionalBackgroundContrast
@@ -23,10 +23,10 @@ function getThemeReplacements(configuration) {
     configuration.environment.accentColor === "transparent"
       ? environmentBackgroundColor
       : configuration.environment.accentColor === "blue"
-        ? blues[0]
+        ? blues[8]
         : configuration.environment.additionalBackgroundContrast
-          ? blueGrays[6 + cb * 2]
-          : blueGrays[5 + cb * 2];
+          ? blueGrays[6 + cb]
+          : blueGrays[5 + cb];
 
   return [
     // # Backgrounds
@@ -79,13 +79,28 @@ function getThemeReplacements(configuration) {
     ],
 
     // Scrollbar
-    ["#686868", blueGrays[4]],
+    [
+      "#686868",
+      configuration.environment.additionalScrollbarContrast
+        ? blueGrays[6]
+        : blueGrays[4]
+    ],
 
     // Scrollbar hover
-    ["#9e9e9e", blueGrays[6]],
+    [
+      "#9e9e9e",
+      configuration.environment.additionalScrollbarContrast
+        ? blueGrays[8]
+        : blueGrays[6]
+    ],
 
     // Scrollbar active
-    ["#efebef", blueGrays[8]],
+    [
+      "#efebef",
+      configuration.environment.additionalScrollbarContrast
+        ? blueGrays[10]
+        : blueGrays[8]
+    ],
 
     // Scrollbar glyph disabled
     ["#555558", blueGrays[4]],
@@ -151,7 +166,7 @@ function getThemeReplacements(configuration) {
     ["#606060", colors.blues[20]],
 
     // Notification badge
-    ["#8631c7", colors.blues[16]],
+    ["#8631c7", colors.blues[8]],
 
     // # Foregrounds
 
@@ -180,8 +195,8 @@ function getThemeReplacements(configuration) {
     [
       "#0097fb",
       configuration.environment.monochromaticText
-        ? blueGrays[28 + c * 2]
-        : grays[28 + c]
+        ? blueGrays[32 + c]
+        : grays[31 + c]
     ],
 
     // launchSettings.json property
@@ -191,54 +206,64 @@ function getThemeReplacements(configuration) {
     ["#dcdcdc", grays[32]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
-    ["#ffffff", blues[39]],
+    ["#ffffff", blues[36]],
 
     // `<` and `>`
     [
       "#808080",
-      configuration.environment.monochromaticText ? blueGrays[16] : grays[16]
+      configuration.environment.monochromaticText ? blueGrays[20] : grays[19]
     ],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
     [
       "#f1f1f1",
       configuration.environment.monochromaticText
-        ? blueGrays[24 + c * 2]
-        : grays[24 + c]
+        ? blueGrays[28 + c]
+        : grays[27 + c]
     ],
 
     // Inactive tabs in tool windows, tool window titles
     [
       "#d0d0d0",
       configuration.environment.monochromaticText
-        ? blueGrays[18 + c * 2]
-        : grays[19 + c]
+        ? blueGrays[24 + c]
+        : grays[23 + c]
     ],
 
     // `Microsoft Visual Studio`
     [
       "#999999",
       configuration.environment.monochromaticText
-        ? blueGrays[18 + c * 2]
+        ? blueGrays[20 + c]
         : grays[19 + c]
     ],
 
     // Disabled menu item
-    ["#656565", blueGrays[16 + c * 2]],
+    ["#656565", blueGrays[16 + c]],
 
     // Inactive tabs hover in tool windows
     [
       "#55aaff",
       configuration.environment.monochromaticText
-        ? blueGrays[32 + c * 2]
-        : grays[32 + c]
+        ? blueGrays[32 + c]
+        : grays[31 + c]
     ],
 
     // Comments
-    ["#57a64a", blueGrays[16]],
+    [
+      "#57a64a",
+      configuration.environment.additionalTextContrast
+        ? blueGrays[20]
+        : blueGrays[16]
+    ],
 
     // XML doc comment
-    ["#608b4e", blueGrays[16]],
+    [
+      "#608b4e",
+      configuration.environment.additionalTextContrast
+        ? blueGrays[20]
+        : blueGrays[16]
+    ],
 
     // Numbers
     ["#b5cea8", colors.greenLighter],
@@ -253,7 +278,7 @@ function getThemeReplacements(configuration) {
     ["#d69d85", colors.deepOrangeLight],
 
     // Start page heading
-    ["#84ceff", colors.blueGrays[32]],
+    ["#84ceff", colors.blueGrays[36]],
 
     // `Import Theme` hover
     ["#88ccfe", colors.blueGrays[36]]
