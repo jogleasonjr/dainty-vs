@@ -81,7 +81,7 @@ function getThemeReplacements(configuration) {
     // Scrollbar
     [
       "#686868",
-      configuration.environment.additionalScrollbarContrast
+      configuration.environment.additionalScrollbarsContrast
         ? blueGrays[6]
         : blueGrays[4]
     ],
@@ -89,7 +89,7 @@ function getThemeReplacements(configuration) {
     // Scrollbar hover
     [
       "#9e9e9e",
-      configuration.environment.additionalScrollbarContrast
+      configuration.environment.additionalScrollbarsContrast
         ? blueGrays[8]
         : blueGrays[6]
     ],
@@ -97,7 +97,7 @@ function getThemeReplacements(configuration) {
     // Scrollbar active
     [
       "#efebef",
-      configuration.environment.additionalScrollbarContrast
+      configuration.environment.additionalScrollbarsContrast
         ? blueGrays[10]
         : blueGrays[8]
     ],
@@ -252,7 +252,7 @@ function getThemeReplacements(configuration) {
     // Comments
     [
       "#57a64a",
-      configuration.environment.additionalTextContrast
+      configuration.environment.additionalCommentsContrast
         ? blueGrays[20]
         : blueGrays[16]
     ],
@@ -260,7 +260,7 @@ function getThemeReplacements(configuration) {
     // XML doc comment
     [
       "#608b4e",
-      configuration.environment.additionalTextContrast
+      configuration.environment.additionalCommentsContrast
         ? blueGrays[20]
         : blueGrays[16]
     ],
