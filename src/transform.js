@@ -1,6 +1,6 @@
 const fs = require("fs");
 const uuidv1 = require("uuid/v1");
-const { colors } = require("./colors");
+const { generateColorPalette } = require("./colors");
 const { toRGBString, RGBToBGR } = require("./utils");
 const path = require("path");
 const util = require("util");
@@ -9,6 +9,7 @@ const replaceOnce = require("replace-once");
 
 const readFile = util.promisify(fs.readFile);
 
+const colors = generateColorPalette();
 const { grays, blueGrays, blues } = colors;
 
 function getThemeReplacements(configuration) {
@@ -67,7 +68,7 @@ function getThemeReplacements(configuration) {
     // Breakpoints bar
     ["#333333", blueGrays[1]],
 
-    // Search Solution Explorer, Quick Launch, Package Manager
+    // Search Solution Explorer, Quick Launch, Package Manager, menu separator line and borders around menu/menu item
     ["#333337", blueGrays[0]],
 
     // Scrollbar containers
@@ -207,6 +208,8 @@ function getThemeReplacements(configuration) {
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
     ["#ffffff", blues[36]],
+
+    ["#d0e6f5", blues[36]], // Close and pin icons on active tab
 
     // `<` and `>`
     [
