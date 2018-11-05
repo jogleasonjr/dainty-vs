@@ -169,6 +169,12 @@ function getThemeReplacements(configuration) {
     // Notification badge
     ["#8631c7", colors.blues[8]],
 
+    // `100%` box arrow hover
+    ["#1f1f20", colors.blueGrays[16]],
+
+    // Inactive tool window glyph hover
+    ["#393939", colors.blueGrays[4]],
+
     // # Foregrounds
 
     // Start page `NEW`
