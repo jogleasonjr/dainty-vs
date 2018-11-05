@@ -11,7 +11,7 @@ const defaultColors = {
     // Custom
     "#111527",
     // Material Blue 50
-    "#e3f2fd"
+    desaturate("#e3f2fd", 0.125)
   ],
   blues: [
     // Custom
