@@ -9,9 +9,9 @@ const defaultColors = {
   ],
   blueGrays: [
     // Custom
-    "#111527",
+    "#1b1e2b",
     // Material Blue 50
-    desaturate("#e3f2fd", 0.125)
+    desaturate("#e3f2fd", 0.0625)
   ],
   blues: [
     // Custom
@@ -34,17 +34,17 @@ const defaultColors = {
   amberLighter: desaturate("#ffecb3", 0.875)
 };
 
-function desaturate(color, amount = 0.25) {
+function desaturate(color, amount = 0.1875) {
   return chroma(color)
     .desaturate(amount)
     .hex();
 }
 
-function generateScale(colors) {
+function generateScale(colors, n = 40) {
   return chroma
     .scale(colors)
     .mode("lch")
-    .colors(40);
+    .colors(n);
 }
 
 function generateColorPalette(colors = defaultColors) {
