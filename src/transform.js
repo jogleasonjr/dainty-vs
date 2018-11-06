@@ -175,6 +175,24 @@ function getThemeReplacements(configuration) {
     // Inactive tool window glyph hover
     ["#393939", colors.blueGrays[4]],
 
+    // Team Explorer `Changes` label
+    ["#2d2d2d", colors.blueGrays[4]],
+
+    // Team Explorer `Changes` label icon
+    ["#3d3d3d", colors.blueGrays[8]],
+
+    // Team Explorer `Changes` label icon hover
+    ["#525252", colors.blueGrays[12]],
+
+    // Team Explorer `Changes` icon
+    ["#c8c8c8", colors.blues[36]],
+
+    // Team Explorer `Settings` blue indicator
+    ["#0079ce", colors.blues[20]],
+
+    // Team Explorer `Changes` red indicator
+    ["#f05033", colors.greenLighter],
+
     // # Foregrounds
 
     // Start page `NEW`
