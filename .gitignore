@@ -1,4 +1,6 @@
+.vs
 dist
 node_modules
 public/index.html
+public/coverage.html
 configuration.json

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const chroma = require("chroma-js");
 const util = require("util");
+const replaceOnce = require("replace-once");
 
 const writeFile = util.promisify(fs.writeFile);
 
@@ -24,12 +25,16 @@ async function writeFileLog(...args) {
   console.log(`Done writing to \`${args[0]}\`.`);
 }
 
+// In: "#00cc44"
+// Out: "0, 204, 68"
 function toRGBString(colorHex) {
   return chroma(colorHex)
     .rgb()
     .join(", ");
 }
 
+// In: "#00cc44"
+// Out: "#44cc00"
 function RGBToBGR(colorHex) {
   return (
     colorHex[0] +
@@ -42,10 +47,69 @@ function RGBToBGR(colorHex) {
   );
 }
 
+// In: "8000CC44"
+// Out: "#00CC4480"
+function toColorHex(str) {
+  if (str[0] === "F" && str[1] === "F") {
+    return `#${str.substr(2).toLowerCase()}`;
+  } else {
+    return `#${str.substr(2)}${str.substr(0, 2)}`.toLowerCase();
+  }
+}
+
+// In: "#00CC4480"
+// Out: "80CC4400"
+function toVsColorHex(str) {
+  if (str.length === 9) {
+    return `${str.substr(7, 2)}${str.substr(1, 6)}`.toUpperCase();
+  } else {
+    return `FF${str.substr(1, 6)}`.toUpperCase();
+  }
+}
+
+function identity(value) {
+  return value;
+}
+
+function applyReplacements(
+  content,
+  replacements,
+  prepareFind = identity,
+  prepareReplace = identity
+) {
+  const find = replacements.map(r => prepareFind(r[0]));
+  const replace = replacements.map(r => prepareReplace(r[1]));
+
+  return replaceOnce(content, find, replace, "g");
+}
+
+function generateColorReplacements(colors) {
+  let replacements = [];
+
+  for (const key of Object.keys(colors)) {
+    if (typeof colors[key] === "object") {
+      for (let i = 0; i < colors[key].length; i++) {
+        replacements.push([
+          `"${key === "blueGrays" ? "bg" : key[0]}${i}"`,
+          colors[key][i]
+        ]);
+      }
+    } else {
+      replacements.push([`"${key}"`, colors[key]]);
+    }
+  }
+
+  return replacements;
+}
+
 module.exports = {
   cloneDeep,
   writeFileLog,
   toRGBString,
   RGBToBGR,
-  zip
+  toColorHex,
+  toVsColorHex,
+  applyReplacements,
+  zip,
+  generateColorReplacements
 };

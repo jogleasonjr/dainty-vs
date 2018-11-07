@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dainty for Visual Studio – Coverage</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+      }
+
+      body {
+        background-color: "bg0";
+        color: "g32";
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        line-height: 1.875;
+        margin: 0;
+        font-weight: 300;
+        font-size: 18px;
+      }
+
+      @media (max-width: 1023.98px) {
+        body {
+          margin-top: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        body {
+          margin-top: 64px;
+        }
+      }
+
+      h1 {
+        margin-bottom: 32px;
+      }
+
+      h2,
+      h3,
+      p {
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2,
+      h3,
+      th {
+        color: "b36";
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+
+      @media (max-width: 1023.98px) {
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      a {
+        color: "b28";
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: "b32";
+      }
+
+      main {
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1055.98px) {
+        main {
+          padding: 0 16px;
+        }
+      }
+
+      section {
+        margin-bottom: 64px;
+      }
+
+      code {
+        font-family: "Roboto Mono", SFMono-Regular, Consolas, Liberation Mono,
+          Menlo, Courier, monospace;
+        color: "g36";
+        font-size: 14px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 1440px;
+        font-size: 14px;
+      }
+
+      tr {
+        border-bottom: 1px solid "bg6";
+      }
+
+      th {
+        text-align: left;
+        font-weight: 400;
+      }
+
+      th,
+      td {
+        padding: 8px;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 16px;
+      }
+
+      ul > li:before {
+        display: inline-block;
+        content: "–";
+        width: 18px;
+        margin-left: -18px;
+        color: "g22";
+      }
+
+      button {
+        border: 0;
+        font-family: inherit;
+        font-weight: 300;
+        transition: transform 0.125s ease, background-color 0.125s ease,
+          color 0.125s ease;
+        padding: 0 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        height: 52px;
+      }
+
+      button.primary {
+        background-color: "b8";
+        color: "bg34";
+        font-size: 18px;
+      }
+
+      button.large {
+        font-size: 18px;
+      }
+
+      button:not(.large) {
+        font-size: 16px;
+        position: relative;
+        top: -1px;
+      }
+
+      button:not(.primary) {
+        background-color: transparent;
+        color: "g30";
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      button.primary:hover {
+        background-color: "b10";
+      }
+
+      button:not(.primary):hover {
+        background-color: "bg2";
+      }
+
+      button.primary:active {
+        transform: scale(0.985);
+      }
+
+      .button-group button {
+        margin-right: 8px;
+      }
+
+      tr.category-expand,
+      tr.category-collapse {
+        display: none;
+      }
+
+      tr.category-expand.visible,
+      tr.category-collapse.visible {
+        display: table-row;
+      }
+
+      td.toggle-category {
+        cursor: pointer;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main><!-- INSERT_CONTENT --></main>
+    <script>
+      var $ = document.querySelector.bind(document);
+      var $$ = document.querySelectorAll.bind(document);
+
+      function toggleCategory(category) {
+        const expandNodes = $$(
+          `.category.category-${category}.category-expand`
+        );
+        const collapseNodes = $$(
+          `.category.category-${category}.category-collapse`
+        );
+
+        expandNodes.forEach(value => {
+          value.classList.toggle("visible");
+        });
+
+        collapseNodes.forEach(value => {
+          value.classList.toggle("visible");
+        });
+      }
+    </script>
+  </body>
+</html>

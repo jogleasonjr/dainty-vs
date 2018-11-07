@@ -1,9 +1,9 @@
 const { getConfigurationJson } = require("./configuration");
-const { buildThemeFiles, buildWebsite } = require("./build");
+const { buildThemeFiles, buildIndex, buildCoverage } = require("./build");
 
 (async () => {
   if (process.env.NODE_ENV === "production") {
-    await buildWebsite();
+    await buildIndex();
     return;
   }
 
@@ -14,5 +14,9 @@ const { buildThemeFiles, buildWebsite } = require("./build");
     return;
   }
 
-  await Promise.all([buildThemeFiles(configuration), buildWebsite()]);
+  await Promise.all([
+    buildThemeFiles(configuration),
+    buildIndex(),
+    buildCoverage()
+  ]);
 })();

@@ -1,21 +1,25 @@
 const fs = require("fs");
 const util = require("util");
 const path = require("path");
+const minify = require("html-minifier").minify;
 const {
   transformTheme,
   transformSettings,
-  transformIndex
+  transformIndex,
+  transformCoverage
 } = require("./transform");
 const { zip, writeFileLog } = require("./utils");
-var minify = require("html-minifier").minify;
+const { generateColorPalette } = require("./colors");
 
 const exists = util.promisify(fs.exists);
 const mkdir = util.promisify(fs.mkdir);
 
+const colors = generateColorPalette();
+
 async function buildThemeZip(configuration) {
   const [vstheme, vssettings] = await Promise.all([
-    transformTheme(configuration),
-    transformSettings(configuration)
+    transformTheme(configuration, colors),
+    transformSettings(configuration, colors)
   ]);
 
   return zip([["dainty.vstheme", vstheme], ["dainty.vssettings", vssettings]]);
@@ -27,10 +31,15 @@ async function buildThemeFiles(configuration) {
 
   await createDistDirectory();
 
-  const [vstheme, vssettings] = await Promise.all([
-    transformTheme(configuration),
-    transformSettings(configuration)
+  const [[error, vstheme], vssettings] = await Promise.all([
+    transformTheme(configuration, colors),
+    transformSettings(configuration, colors)
   ]);
+
+  if (error) {
+    console.error(error);
+    return;
+  }
 
   await Promise.all([
     writeFileLog(vsthemeTarget, vstheme),
@@ -46,10 +55,10 @@ async function createDistDirectory() {
   }
 }
 
-async function buildWebsite(configuration) {
+async function buildIndex() {
   const indexTarget = path.join(__dirname, "../public/index.html");
 
-  const index = await transformIndex(configuration);
+  const index = await transformIndex(colors);
 
   writeFileLog(
     indexTarget,
@@ -61,8 +70,38 @@ async function buildWebsite(configuration) {
   );
 }
 
+async function buildIndex() {
+  const target = path.join(__dirname, "../public/index.html");
+  const data = await transformIndex(colors);
+
+  writeFileLog(
+    target,
+    minify(data, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true
+    })
+  );
+}
+
+async function buildCoverage() {
+  const target = path.join(__dirname, "../public/coverage.html");
+  const data = await transformCoverage(colors);
+
+  writeFileLog(
+    target,
+    data
+    /*minify(data, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true
+    })*/
+  );
+}
+
 module.exports = {
   buildThemeZip,
   buildThemeFiles,
-  buildWebsite
+  buildIndex,
+  buildCoverage
 };
