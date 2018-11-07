@@ -1,7 +1,12 @@
 function getCategoryReplacements(colors) {
+  const { grays, blueGrays, blues } = colors;
+
   return {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, colors.deepOrangeLight]
+    },
+    "Text Editor Text Marker Items": {
+      "Current Statement": ["#eff284", null] // Revert
     }
   };
 }
@@ -188,6 +193,9 @@ function getSearchReplaceReplacements(configuration, colors) {
 
     // Team Explorer `Changes` red indicator
     ["#f05033", colors.greenLighter],
+
+    // Diagnostic Tools tab hover
+    ["#555555", colors.blueGrays[4]],
 
     // # Foregrounds
 
