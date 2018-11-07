@@ -1,13 +1,5 @@
 function getCategoryReplacements(colors) {
-  const { blues } = colors;
-
-  return {
-    CommonControls: {
-      FocusVisual: [null, "#252526"],
-      ButtonBorder: [blues[0], null],
-      ButtonDefault: [blues[20], blues[39]]
-    }
-  };
+  return {};
 }
 
 function getSearchReplaceReplacements(configuration, colors) {
