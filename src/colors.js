@@ -19,7 +19,7 @@ const defaultColors = {
     // Material Blue 700
     desaturate("#1976d2"),
     // Material Blue 50
-    desaturate("#e3f2fd")
+    "#e3f2fd"
   ],
   // Material Green A100
   greenLighter: desaturate("#b9f6ca"),
