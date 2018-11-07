@@ -206,10 +206,10 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#3399ff", blues[24]],
 
     // `using`, `public class`
-    ["#569cd6", blues[24]],
+    ["#569cd6", blues[26]],
 
     // `form`, `option` (bold)
-    ["#008080", blues[24]],
+    ["#008080", blues[26]],
 
     // `&nbsp;`
     ["#00a0a0", blues[32]],

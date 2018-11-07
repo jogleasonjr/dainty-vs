@@ -9,15 +9,15 @@ const defaultColors = {
   ],
   blueGrays: [
     // Custom
-    "#181e2b",
+    "#161b25",
     // Material Blue 50
     desaturate("#e3f2fd")
   ],
   blues: [
     // Custom
     "#07224f",
-    // Material Blue 600
-    desaturate("#1e88e5"),
+    // Material Blue 700
+    desaturate("#1976d2"),
     // Material Blue 50
     desaturate("#e3f2fd")
   ],
