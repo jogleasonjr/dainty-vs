@@ -1,5 +1,9 @@
 function getCategoryReplacements(colors) {
-  return {};
+  return {
+    "ColorizedSignatureHelp colors": {
+      "HTML Attribute Value": [null, colors.deepOrangeLight]
+    }
+  };
 }
 
 function getSearchReplaceReplacements(configuration, colors) {

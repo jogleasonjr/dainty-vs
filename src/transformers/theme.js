@@ -64,6 +64,15 @@ function applyCategoryReplacements(xmlContent, categoryReplacements) {
         continue;
       }
 
+      if (
+        !Array.isArray(colorsGroupReplacements) ||
+        colorsGroupReplacements.length !== 2
+      ) {
+        throw new Error(
+          `Colors group for \`${categoryName}.${colorsGroupName}\` must be an array consisting of two elements; one with background color, and one with foreground color.`
+        );
+      }
+
       let backgroundElement = colorsGroup.elements.find(
         e => e.name === "Background"
       );
