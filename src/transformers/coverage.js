@@ -12,47 +12,73 @@ const readFile = util.promisify(fs.readFile);
 
 async function transformCoverage(colors) {
   const source = path.join(__dirname, "../templates/coverage.html");
-  const themeSource = path.join(__dirname, "../templates/dark.vstheme");
+  const darkThemeSource = path.join(__dirname, "../templates/dark.vstheme");
+  const daintyThemeSource = path.join(__dirname, "../../dist/dainty.vstheme");
 
   console.log(`Transforming \`${source}\`…`);
 
   const sourceContent = await readFile(source, "utf8");
-  const content = await readFile(themeSource, "utf8");
-  const contentJs = convert.xml2js(content);
-  const categories = contentJs.elements[0].elements[0].elements;
 
-  let html = [];
+  function sortCategories(a, b) {
+    return b.elements.length - a.elements.length;
+  }
 
-  html.push(`
-  <section>
-  <h2>Categories</h2>
-  <table>
-    <thead>
-      <tr>
-        <th style="width: calc(4 / 20 * 100%);">Category</th>
-        <th style="width: calc(4 / 20 * 100%);">Color</th>
-        <th style="width: calc(3 / 20 * 100%);">Background</th>
-        <th style="width: calc(3 / 20 * 100%);">Foreground</th>
-        <th style="width: calc(6 / 20 * 100%);">Rendered</th>
-      </tr>
-    </thead>
-  <tbody>`);
+  const darkContent = await readFile(darkThemeSource, "utf8");
+  const darkCategories = convert
+    .xml2js(darkContent)
+    .elements[0].elements[0].elements.sort(sortCategories);
+
+  const daintyContent = await readFile(daintyThemeSource, "utf8");
+  const daintyCategories = convert
+    .xml2js(daintyContent)
+    .elements[0].elements[0].elements.sort(sortCategories);
+
+  let html = [
+    `
+    <h1>Coverage</h1>
+    <section>
+    <h2>Categories</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Category</th>
+          <th style="width: 20%;">Color</th>
+          <th style="width: 10%;">Dark Background</th>
+          <th style="width: 10%;">Dark Foreground</th>
+          <th style="width: 10%;">Dark Rendered</th>
+          <th style="width: 10%;">Dainty Background</th>
+          <th style="width: 10%;">Dainty Foreground</th>
+          <th style="width: 10%;">Dainty Rendered</th>
+        </tr>
+      </thead>
+    <tbody>`
+  ];
 
   let colorsMap = [];
   let typesMap = [];
 
-  for (const [categoryIndex, category] of categories
-    .sort((a, b) => b.elements.length - a.elements.length)
-    .entries()) {
+  for (const [categoryIndex, category] of darkCategories.entries()) {
     for (const [colorsGroupIndex, colorsGroup] of category.elements.entries()) {
       let foregroundColor;
       let backgroundColor;
+      let daintyForegroundColor;
+      let daintyBackgroundColor;
 
-      for (color of colorsGroup.elements) {
+      for ([colorIndex, color] of colorsGroup.elements.entries()) {
         if (color.name === "Foreground") {
           foregroundColor = toColorHex(color.attributes.Source);
+          daintyForegroundColor = toColorHex(
+            daintyCategories[categoryIndex].elements[colorsGroupIndex].elements[
+              colorIndex
+            ].attributes.Source
+          );
         } else if (color.name === "Background") {
           backgroundColor = toColorHex(color.attributes.Source);
+          daintyBackgroundColor = toColorHex(
+            daintyCategories[categoryIndex].elements[colorsGroupIndex].elements[
+              colorIndex
+            ].attributes.Source
+          );
         } else {
           throw new Exception(
             `${color.name} is not a recognized color element name.`
@@ -95,6 +121,15 @@ async function transformCoverage(colors) {
         styles.push(`color: ${foregroundColor};`);
       }
 
+      let daintyStyles = [];
+
+      if (daintyBackgroundColor) {
+        daintyStyles.push(`background-color: ${daintyBackgroundColor};`);
+      }
+      if (daintyForegroundColor) {
+        daintyStyles.push(`color: ${daintyForegroundColor};`);
+      }
+
       function cssClass(categoryName) {
         return categoryName.replace(/\-|\s|\.|/g, "").toLowerCase();
       }
@@ -107,11 +142,11 @@ async function transformCoverage(colors) {
       <tr class="category category-collapse category-${cssClass(
         category.attributes.Name
       )} visible">
-      <td colspan="5" class="toggle-category" onClick="toggleCategory('${cssClass(
-        category.attributes.Name
-      )}')">
-        <i>${categoryAndLength}</i>
-      </td>
+        <td colspan="8" class="toggle-category" onClick="toggleCategory('${cssClass(
+          category.attributes.Name
+        )}')">
+          <i>${categoryAndLength}</i>
+        </td>
       </tr>`;
 
       html.push(
@@ -120,23 +155,41 @@ async function transformCoverage(colors) {
         <tr class="category category-expand category-${cssClass(
           category.attributes.Name
         )}">
-          <td class="toggle-category" style="width: calc(4 / 20 * 100%);" onClick="toggleCategory('${cssClass(
+          <td class="toggle-category" style="width: 20%;" onClick="toggleCategory('${cssClass(
             category.attributes.Name
           )}')">
             ${colorsGroupIndex === 0 ? categoryAndLength : ""}
           </td>
-          <td style="width: calc(4 / 20 * 100%);">
+          <td style="width: 20%;">
             ${colorsGroup.attributes.Name}
           </td>
-          <td style="width: calc(3 / 20 * 100%);">
+          <td style="width: 10%;">
             ${backgroundColor ? backgroundColor : ""}
           </td>
-          <td style="width: calc(3 / 20 * 100%);">
+          <td style="width: 10%;">
             ${foregroundColor ? foregroundColor : ""}
           </td>
-          <td style="width: calc(6 / 20 * 100%); ${styles.join(
-            " "
-          )}">Lorem ipsum</td></tr>`
+          <td style="width: 10%; ${styles.join(" ")}">Lorem ipsum</td>
+          <td style="width: 10%;">
+            ${
+              daintyBackgroundColor
+                ? daintyBackgroundColor === backgroundColor
+                  ? `<span class="dim">${daintyBackgroundColor}</span>`
+                  : daintyBackgroundColor
+                : ""
+            }
+          </td>
+          <td style="width: 10%;">
+          ${
+            daintyForegroundColor
+              ? daintyForegroundColor === foregroundColor
+                ? `<span class="dim">${daintyForegroundColor}</span>`
+                : daintyForegroundColor
+              : ""
+          }
+        </td>
+          <td style="width: 10%; ${daintyStyles.join(" ")}">Lorem ipsum</td>
+        </tr>`
       );
     }
   }

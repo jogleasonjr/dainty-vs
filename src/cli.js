@@ -14,9 +14,7 @@ const { buildThemeFiles, buildIndex, buildCoverage } = require("./build");
     return;
   }
 
-  await Promise.all([
-    buildThemeFiles(configuration),
-    buildIndex(),
-    buildCoverage()
-  ]);
+  await Promise.all([buildThemeFiles(configuration), buildIndex()]);
+
+  await buildCoverage();
 })();
