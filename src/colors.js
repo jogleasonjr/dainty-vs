@@ -21,6 +21,10 @@ const defaultColors = {
     // Material Blue 50
     "#e3f2fd"
   ],
+
+  // Material Blue A100
+  blueLighter: desaturate("#82b1ff"),
+
   // Material Green A100
   greenLighter: desaturate("#b9f6ca"),
 
@@ -52,6 +56,7 @@ function generateColorPalette(colors = defaultColors) {
     grays: generateScale(colors.grays),
     blueGrays: generateScale(colors.blueGrays),
     blues: generateScale(colors.blues),
+    blueLighter: colors.blueLighter,
     greenLighter: colors.greenLighter,
     deepOrangeLight: colors.deepOrangeLight,
     purpleLight: colors.purpleLight,
