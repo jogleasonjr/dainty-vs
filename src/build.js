@@ -17,7 +17,7 @@ const mkdir = util.promisify(fs.mkdir);
 const colors = generateColorPalette();
 
 async function buildThemeZip(configuration) {
-  const [vstheme, vssettings] = await Promise.all([
+  const [[_, vstheme], vssettings] = await Promise.all([
     transformTheme(configuration, colors),
     transformSettings(configuration, colors)
   ]);
