@@ -20,10 +20,10 @@ Run `npm run start` to start Express server. These are the available routes:
 
 | Method | Route                           | Description                                                       |
 | ------ | ------------------------------- | ----------------------------------------------------------------- |
-| GET    | `/`                             | Landing page                                                      |
-| GET    | `/coverage.html`                | Coverage page                                                     |
-| GET    | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
-| GET    | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration  |
+| `GET`  | `/`                             | Landing page                                                      |
+| `GET`  | `/coverage.html`                | Coverage page                                                     |
+| `GET`  | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
+| `POST` | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration  |
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
