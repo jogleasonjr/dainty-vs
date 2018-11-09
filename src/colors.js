@@ -27,7 +27,7 @@ const defaultColors = {
   blueLighter: "#82b1ff",
 
   // Material Green A100
-  greenLighter: "#b9f6ca",
+  greenLighter: desaturate("#b9f6ca", 0.25),
 
   // Material Deep Orange 200
   deepOrangeLight: brighten(desaturate("#ffab91", 1.375), 0.0625),
