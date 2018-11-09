@@ -8,37 +8,39 @@ const defaultColors = {
     "#fafafa"
   ],
   blueGrays: [
-    // Custom
-    "#1b1f26",
+    // Material Theme Ocean
+    "#0f111a",
     // Material Blue 50
-    desaturate("#e3f2fd")
+    "#e3f2fd"
   ],
   blues: [
     // Custom
-    "#07224f",
+    "#082847",
+
     // Material Blue 700
-    desaturate("#1976d2"),
+    "#1976d2",
     // Material Blue 50
     "#e3f2fd"
   ],
 
   // Material Blue A100
-  blueLighter: desaturate("#82b1ff"),
+  blueLighter: "#82b1ff",
 
   // Material Green A100
-  greenLighter: desaturate("#b9f6ca"),
+  greenLighter: "#b9f6ca",
 
   // Material Deep Orange 200
-  deepOrangeLight: desaturate("#ffab91", 0.875),
+  deepOrangeLight: desaturate("#ffab91", 0.625),
+  // deepOrangeLight: desaturate("#ffddc1", 0.5),
 
   // Material Purple 200
-  purpleLight: desaturate("#ce93d8"),
+  purpleLight: "#ce93d8",
 
   // Material Amber 100
-  amberLighter: desaturate("#ffecb3", 0.875)
+  amberLighter: "#ffecb3"
 };
 
-function desaturate(color, amount = 0.1875) {
+function desaturate(color, amount) {
   return chroma(color)
     .desaturate(amount)
     .hex();
