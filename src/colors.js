@@ -33,7 +33,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Custom
-  deepOrangeLight: "#f5cfc4",
+  deepOrangeLighter: "#f5cfc4",
 
   // Material Purple 200
   purpleLight: "#ce93d8",
@@ -83,8 +83,8 @@ function generateColorPalette(colors, configuration) {
       colors.greenLighter,
       configuration.colors.process.desaturate * 0.25
     ),
-    deepOrangeLight: desaturate(
-      colors.deepOrangeLight,
+    deepOrangeLighter: desaturate(
+      colors.deepOrangeLighter,
       configuration.colors.process.desaturate * 0.25
     ),
     purpleLight: desaturate(

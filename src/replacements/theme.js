@@ -3,7 +3,7 @@ function getCategoryReplacements(colors) {
 
   return {
     "ColorizedSignatureHelp colors": {
-      "HTML Attribute Value": [null, colors.deepOrangeLight]
+      "HTML Attribute Value": [null, colors.deepOrangeLighter]
     },
     "Text Editor Text Marker Items": {
       "Current Statement": ["#eff284", null] // Revert
@@ -306,7 +306,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#c563bd", colors.purpleLight],
 
     // Strings
-    ["#d69d85", colors.deepOrangeLight],
+    ["#d69d85", colors.deepOrangeLighter],
 
     // Start page heading
     ["#84ceff", colors.blueGrays[36]],
