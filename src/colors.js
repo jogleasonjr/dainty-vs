@@ -4,12 +4,14 @@ const defaultColors = {
   grays: [
     // Material Grey 900
     "#212121",
+
     // Material Grey 50
     "#fafafa"
   ],
   blueGrays: [
     // Material Theme Ocean
     "#0f111a",
+
     // Material Blue 50
     desaturate("#e3f2fd", 0.15625)
   ],
@@ -19,6 +21,7 @@ const defaultColors = {
 
     // Material Blue 700
     "#1976d2",
+
     // Material Blue 50
     "#e3f2fd"
   ],
@@ -27,10 +30,10 @@ const defaultColors = {
   blueLighter: "#82b1ff",
 
   // Material Green A100
-  greenLighter: desaturate("#b9f6ca", 0.25),
+  greenLighter: "#b9f6ca",
 
-  // Material Deep Orange 200
-  deepOrangeLight: brighten(desaturate("#ffab91", 1.375), 0.0625),
+  // Custom
+  deepOrangeLight: "#f5cfc4",
 
   // Material Purple 200
   purpleLight: "#ce93d8",
@@ -42,12 +45,6 @@ const defaultColors = {
 function desaturate(color, amount) {
   return chroma(color)
     .desaturate(amount)
-    .hex();
-}
-
-function brighten(color, amount) {
-  return chroma(color)
-    .brighten(amount)
     .hex();
 }
 
@@ -67,14 +64,10 @@ function generateColorPalette(colors, configuration) {
   ].concat(colors.blueGrays.slice(1));
 
   return {
-    grays: generateScale(
-      newGrays.map(c =>
-        desaturate(c, configuration.colors.process.desaturate * 0.125)
-      )
-    ),
+    grays: generateScale(newGrays),
     blueGrays: generateScale(
       newBlueGrays.map(c =>
-        desaturate(c, configuration.colors.process.desaturate * 0.125)
+        desaturate(c, configuration.colors.process.desaturate * 0.03125)
       )
     ),
     blues: generateScale(
@@ -88,11 +81,11 @@ function generateColorPalette(colors, configuration) {
     ),
     greenLighter: desaturate(
       colors.greenLighter,
-      configuration.colors.process.desaturate * 0.5
+      configuration.colors.process.desaturate * 0.25
     ),
     deepOrangeLight: desaturate(
       colors.deepOrangeLight,
-      configuration.colors.process.desaturate * 0.125
+      configuration.colors.process.desaturate * 0.25
     ),
     purpleLight: desaturate(
       colors.purpleLight,

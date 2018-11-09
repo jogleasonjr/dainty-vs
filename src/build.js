@@ -6,6 +6,7 @@ const {
   transformTheme,
   transformSettings,
   transformIndex,
+  transformSyntax,
   transformCoverage
 } = require("./transform");
 const { zip, writeFileLog } = require("./utils");
@@ -53,13 +54,12 @@ async function createDistDirectory() {
 }
 
 async function buildIndex(colors) {
-  const indexTarget = path.join(__dirname, "../public/index.html");
-
-  const index = await transformIndex(colors);
+  const target = path.join(__dirname, "../public/index.html");
+  const data = await transformIndex(colors);
 
   writeFileLog(
-    indexTarget,
-    minify(index, {
+    target,
+    minify(data, {
       collapseWhitespace: true,
       minifyCSS: true,
       minifyJS: true
@@ -67,24 +67,22 @@ async function buildIndex(colors) {
   );
 }
 
+async function buildSyntax(colors) {
+  const target = path.join(__dirname, "../public/syntax.html");
+  const data = await transformSyntax(colors);
+  writeFileLog(target, data);
+}
+
 async function buildCoverage(colors) {
   const target = path.join(__dirname, "../public/coverage.html");
   const data = await transformCoverage(colors);
-
-  writeFileLog(
-    target,
-    data
-    /*minify(data, {
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true
-    })*/
-  );
+  writeFileLog(target, data);
 }
 
 module.exports = {
   buildThemeZip,
   buildThemeFiles,
   buildIndex,
+  buildSyntax,
   buildCoverage
 };

@@ -2,5 +2,6 @@
 dist
 node_modules
 public/index.html
+public/syntax.html
 public/coverage.html
 configuration.json

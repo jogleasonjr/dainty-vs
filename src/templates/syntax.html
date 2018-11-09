@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dainty for Visual Studio – Coverage</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+      }
+
+      body {
+        background-color: "bg0";
+        color: "g32";
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        line-height: 1.875;
+        margin: 0;
+        font-weight: 300;
+        font-size: 18px;
+      }
+
+      @media (max-width: 1023.98px) {
+        body {
+          margin-top: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        body {
+          margin-top: 64px;
+        }
+      }
+
+      h1 {
+        margin-bottom: 32px;
+      }
+
+      h2,
+      h3,
+      p {
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2,
+      h3,
+      th {
+        color: "b36";
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+
+      @media (max-width: 1023.98px) {
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      a {
+        color: "b28";
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: "b32";
+      }
+
+      main {
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1055.98px) {
+        main {
+          padding: 0 16px;
+        }
+      }
+
+      section {
+        margin-bottom: 64px;
+      }
+
+      pre {
+        line-height: 1.375;
+      }
+
+      code {
+        font-family: "Dank Mono", "Roboto Mono", SFMono-Regular, Consolas,
+          Liberation Mono, Menlo, Courier, monospace;
+        color: "g36";
+        font-size: 15px;
+      }
+
+      .k {
+        color: "b26";
+      }
+
+      .ka {
+        color: "b34";
+      }
+
+      .n {
+        color: "greenLighter";
+      }
+
+      .s {
+        color: "deepOrangeLight";
+      }
+
+      .p {
+        color: "purpleLight";
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Syntax</h1>
+      <section>
+        <pre><code><span class="k">using</span> System;
+<span class="k">using</span> System.Collections.Generic;
+<span class="k">using</span> System.ComponentModel.DataAnnotations;
+<span class="k">using</span> System.Linq;
+<span class="k">using</span> System.Threading.Tasks;
+
+<span class="k">namespace</span> TestingMVC.Models.ManageViewModels
+{
+<span class="k">public class</span> <span class="ka">SetPasswordViewModel</span>
+  {
+    <span class="ka">[Required]</span>
+      [<span class="ka">StringLength</span>(<span class="n">100</span>, ErrorMessage = <span class="s">"The {0} must be at least {2} and at max {1} characters long."</span>, MinimumLength = <span class="n">6</span>)]
+      [<span class="ka">DataType</span>(<span class="p">DataType</span>.Password)]
+      [<span class="ka">Display</span>(Name = <span class="s">"New password"</span>)]
+      <span class="k">public string</span> NewPassword { <span class="k">get</span>; <span class="k">set</span>; }
+
+      [<span class="ka">DataType</span>(<span class="p">DataType</span>.Password)]
+      [<span class="ka">Display</span>(Name = <span class="s">"Confirm new password"</span>)]
+      [<span class="ka">Compare</span>(<span class="s">"NewPassword"</span>, ErrorMessage = <span class="s">"The new password and confirmation password do not match."</span>)]
+      <span class="k">public string</span> ConfirmPassword { <span class="k">get</span>; <span class="k">set</span>; }
+
+      <span class="k">public string</span> StatusMessage { <span class="k">get</span>; <span class="k">set</span>; }
+  }
+}</code></pre>
+      </section>
+    </main>
+  </body>
+</html>

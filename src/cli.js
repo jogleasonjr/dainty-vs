@@ -1,5 +1,10 @@
 const { getConfigurationJson } = require("./configuration");
-const { buildThemeFiles, buildIndex, buildCoverage } = require("./build");
+const {
+  buildThemeFiles,
+  buildIndex,
+  buildSyntax,
+  buildCoverage
+} = require("./build");
 const { defaultColors, generateColorPalette } = require("./colors");
 
 (async () => {
@@ -14,7 +19,8 @@ const { defaultColors, generateColorPalette } = require("./colors");
 
   await Promise.all([
     buildThemeFiles(configuration, colors),
-    buildIndex(colors)
+    buildIndex(colors),
+    buildSyntax(colors)
   ]);
 
   await buildCoverage(colors);
