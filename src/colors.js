@@ -11,7 +11,7 @@ const defaultColors = {
     // Material Theme Ocean
     "#0f111a",
     // Material Blue 50
-    desaturate("#e3f2fd", 0.0625)
+    desaturate("#e3f2fd", 0.125)
   ],
   blues: [
     // Custom
@@ -30,7 +30,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Material Deep Orange 200
-  deepOrangeLight: desaturate("#ffab91", 0.875),
+  deepOrangeLight: brighten(desaturate("#ffab91", 0.75), 0.15625),
 
   // Material Purple 200
   purpleLight: "#ce93d8",
@@ -42,6 +42,12 @@ const defaultColors = {
 function desaturate(color, amount) {
   return chroma(color)
     .desaturate(amount)
+    .hex();
+}
+
+function brighten(color, amount) {
+  return chroma(color)
+    .brighten(amount)
     .hex();
 }
 
