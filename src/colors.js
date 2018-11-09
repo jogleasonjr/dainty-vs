@@ -30,7 +30,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Material Deep Orange 200
-  deepOrangeLight: brighten(desaturate("#ffab91", 0.875), 0.25),
+  deepOrangeLight: brighten(desaturate("#ffab91", 1.375), 0.0625),
 
   // Material Purple 200
   purpleLight: "#ce93d8",
@@ -58,19 +58,54 @@ function generateScale(colors, n = 40) {
     .colors(n);
 }
 
-function generateColorPalette(colors = defaultColors) {
+function generateColorPalette(colors, configuration) {
+  const newGrays = [
+    generateScale(colors.grays)[configuration.colors.process.brighten]
+  ].concat(colors.grays.slice(1));
+  const newBlueGrays = [
+    generateScale(colors.blueGrays)[configuration.colors.process.brighten]
+  ].concat(colors.blueGrays.slice(1));
+
   return {
-    grays: generateScale(colors.grays),
-    blueGrays: generateScale(colors.blueGrays),
-    blues: generateScale(colors.blues),
-    blueLighter: colors.blueLighter,
-    greenLighter: colors.greenLighter,
-    deepOrangeLight: colors.deepOrangeLight,
-    purpleLight: colors.purpleLight,
-    amberLighter: colors.amberLighter
+    grays: generateScale(
+      newGrays.map(c =>
+        desaturate(c, configuration.colors.process.desaturate * 0.125)
+      )
+    ),
+    blueGrays: generateScale(
+      newBlueGrays.map(c =>
+        desaturate(c, configuration.colors.process.desaturate * 0.125)
+      )
+    ),
+    blues: generateScale(
+      colors.blues.map(c =>
+        desaturate(c, configuration.colors.process.desaturate * 0.25)
+      )
+    ),
+    blueLighter: desaturate(
+      colors.blueLighter,
+      configuration.colors.process.desaturate * 0.25
+    ),
+    greenLighter: desaturate(
+      colors.greenLighter,
+      configuration.colors.process.desaturate * 0.5
+    ),
+    deepOrangeLight: desaturate(
+      colors.deepOrangeLight,
+      configuration.colors.process.desaturate * 0.125
+    ),
+    purpleLight: desaturate(
+      colors.purpleLight,
+      configuration.colors.process.desaturate * 0.25
+    ),
+    amberLighter: desaturate(
+      colors.amberLighter,
+      configuration.colors.process.desaturate * 0.25
+    )
   };
 }
 
 module.exports = {
+  defaultColors,
   generateColorPalette
 };

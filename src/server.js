@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { getConfiguration } = require("./configuration");
+const { defaultColors, generateColorPalette } = require("./colors");
 const { buildThemeZip } = require("./build");
 const app = express();
 
@@ -10,7 +11,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/dainty-vs-latest.zip", async (_req, res) => {
   const [_, configuration] = await getConfiguration({});
-  res.type("zip").end(await buildThemeZip(configuration), "binary");
+  const colors = generateColorPalette(defaultColors, configuration);
+  res.type("zip").end(await buildThemeZip(configuration, colors), "binary");
 });
 
 app.post("/dainty-vs-latest-configured.zip", async (req, res) => {
@@ -21,7 +23,9 @@ app.post("/dainty-vs-latest-configured.zip", async (req, res) => {
     return;
   }
 
-  res.type("zip").end(await buildThemeZip(configuration), "binary");
+  const colors = generateColorPalette(defaultColors, configuration);
+
+  res.type("zip").end(await buildThemeZip(configuration, colors), "binary");
 });
 
 app.use((err, _req, res, _next) => {

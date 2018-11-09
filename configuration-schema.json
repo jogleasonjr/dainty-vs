@@ -119,6 +119,40 @@
           }
         }
       }
+    },
+    "colors": {
+      "$id": "#/properties/colors",
+      "type": "object",
+      "title": "Dainty colors",
+      "default": {},
+      "required": ["process"],
+      "properties": {
+        "process": {
+          "$id": "#/properties/colors/properties/process",
+          "type": "object",
+          "title": "Colors processing",
+          "default": {},
+          "required": ["brighten", "desaturate"],
+          "properties": {
+            "brighten": {
+              "$id": "#/properties/colors/properties/process/properties/brighten",
+              "type": "integer",
+              "title": "Brighten colors",
+              "default": 0,
+              "minimum": 0,
+              "maximum": 7
+            },
+            "desaturate": {
+              "$id": "#/properties/colors/properties/process/properties/desaturate",
+              "type": "integer",
+              "title": "Desaturate colors",
+              "default": 0,
+              "minimum": 0,
+              "maximum": 7
+            }
+          }
+        }
+      }
     }
   }
 }

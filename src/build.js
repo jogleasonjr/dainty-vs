@@ -9,14 +9,11 @@ const {
   transformCoverage
 } = require("./transform");
 const { zip, writeFileLog } = require("./utils");
-const { generateColorPalette } = require("./colors");
 
 const exists = util.promisify(fs.exists);
 const mkdir = util.promisify(fs.mkdir);
 
-const colors = generateColorPalette();
-
-async function buildThemeZip(configuration) {
+async function buildThemeZip(configuration, colors) {
   const [[_, vstheme], vssettings] = await Promise.all([
     transformTheme(configuration, colors),
     transformSettings(configuration, colors)
@@ -25,7 +22,7 @@ async function buildThemeZip(configuration) {
   return zip([["dainty.vstheme", vstheme], ["dainty.vssettings", vssettings]]);
 }
 
-async function buildThemeFiles(configuration) {
+async function buildThemeFiles(configuration, colors) {
   const vsthemeTarget = path.join(__dirname, "../dist/dainty.vstheme");
   const vssettingsTarget = path.join(__dirname, "../dist/dainty.vssettings");
 
@@ -55,7 +52,7 @@ async function createDistDirectory() {
   }
 }
 
-async function buildIndex() {
+async function buildIndex(colors) {
   const indexTarget = path.join(__dirname, "../public/index.html");
 
   const index = await transformIndex(colors);
@@ -70,21 +67,7 @@ async function buildIndex() {
   );
 }
 
-async function buildIndex() {
-  const target = path.join(__dirname, "../public/index.html");
-  const data = await transformIndex(colors);
-
-  writeFileLog(
-    target,
-    minify(data, {
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true
-    })
-  );
-}
-
-async function buildCoverage() {
+async function buildCoverage(colors) {
   const target = path.join(__dirname, "../public/coverage.html");
   const data = await transformCoverage(colors);
 
