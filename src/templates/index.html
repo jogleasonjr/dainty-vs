@@ -33,7 +33,6 @@
       line-height: 1.875;
       margin: 0;
       font-weight: 300;
-      font-size: 18px;
     }
 
     body.no-scroll {
@@ -45,12 +44,14 @@
     @media (max-width: 1023.98px) {
       body {
         margin-top: 32px;
+        font-size: 16px;
       }
     }
 
     @media (min-width: 1024px) {
       body {
         margin-top: 64px;
+      font-size: 18px;
       }
     }
 
@@ -80,29 +81,51 @@
       h1 {
         font-size: 32px;
       }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
     }
 
     @media (min-width: 1024px) {
       h1 {
         font-size: 48px;
       }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
     }
 
-    h2 {
-      font-size: 24px;
+    @media (max-width: 1023.98px) {
+      p.small {
+        font-size: 14px;
+      }
+
+      p.small code {
+        font-size: 13px;
+      }
     }
 
-    h3 {
-      font-size: 20px;
+    @media (min-width: 1024px) {
+      p.small {
+        font-size: 16px;
+      }
+
+      p.small code {
+        font-size: 14px;
+      }
     }
 
-    p.small {
-      font-size: 16px;
-    }
-
-    p.small code {
-      font-size: 14px;
-    }
 
     a {
       color: "blueLighter";
@@ -131,8 +154,20 @@
 
     code {
       font-family: 'Roboto Mono', SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-      font-size: 16px;
     }
+
+    @media (max-width: 1023.98px) {
+      code {
+        font-size: 14px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      code {
+        font-size: 16px;
+      }
+    }
+
 
     .table-scroll-container {
       overflow-x: auto;
@@ -187,17 +222,31 @@
     button.primary {
       background-color: "b8";
       color: "bg36";
-      font-size: 18px;
-    }
-
-    button.large {
-      font-size: 18px;
     }
 
     button:not(.large) {
-      font-size: 16px;
       position: relative;
       top: -1px;
+    }
+
+    @media (max-width: 1023.98px) {
+      button.large {
+        font-size: 16px;
+      }
+
+      button:not(.large) {
+        font-size: 14px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      button.large {
+        font-size: 18px;
+      }
+
+      button:not(.large) {
+        font-size: 16px;
+      }
     }
 
     button:not(.primary) {
@@ -266,9 +315,16 @@
       opacity: 0;
     }
 
+    @media (max-width: 1023.98px) {
+      form {
+        font-size: 14px;
+      }
+    }
 
-    form {
-      font-size: 16px;
+    @media (min-width: 1024px) {
+      form {
+        font-size: 16px;
+      }
     }
 
     .form-section {
