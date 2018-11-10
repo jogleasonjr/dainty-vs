@@ -55,18 +55,40 @@ function generateScale(colors, n = 40) {
     .colors(n);
 }
 
-function generateColorPalette(colors, configuration) {
-  const newGrays = [
-    generateScale(colors.grays)[configuration.colors.process.brighten]
-  ].concat(colors.grays.slice(1));
-  const newBlueGrays = [
-    generateScale(colors.blueGrays)[configuration.colors.process.brighten]
-  ].concat(colors.blueGrays.slice(1));
+function mergeColors(defaults, overrides = {}) {
+  let result = {};
+
+  for (const key of Object.keys(defaults)) {
+    if (overrides[key]) {
+      result[key] = overrides[key];
+    } else {
+      result[key] = defaults[key];
+    }
+  }
+
+  return result;
+}
+
+function brightenScale(colors, steps) {
+  return [generateScale(colors)[steps]].concat(colors.slice(1));
+}
+
+function generateColorPalette(configuration) {
+  const colors = mergeColors(defaultColors, configuration.colors.overrides);
+
+  const grays = brightenScale(
+    colors.grays,
+    configuration.colors.process.brighten
+  );
+  const blueGrays = brightenScale(
+    colors.blueGrays,
+    configuration.colors.process.brighten
+  );
 
   return {
-    grays: generateScale(newGrays),
+    grays: generateScale(grays),
     blueGrays: generateScale(
-      newBlueGrays.map(c =>
+      blueGrays.map(c =>
         desaturate(c, configuration.colors.process.desaturate * 0.03125)
       )
     ),

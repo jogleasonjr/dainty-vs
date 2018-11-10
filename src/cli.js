@@ -5,7 +5,7 @@ const {
   buildSyntax,
   buildCoverage
 } = require("./build");
-const { defaultColors, generateColorPalette } = require("./colors");
+const { generateColorPalette } = require("./colors");
 
 (async () => {
   const [error, configuration] = await getConfigurationJson();
@@ -15,12 +15,7 @@ const { defaultColors, generateColorPalette } = require("./colors");
     return;
   }
 
-  const colors = generateColorPalette(
-    configuration.colors.overrides
-      ? configuration.colors.overrides
-      : defaultColors,
-    configuration
-  );
+  const colors = generateColorPalette(configuration);
 
   await Promise.all([
     buildThemeFiles(configuration, colors),
