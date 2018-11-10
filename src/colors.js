@@ -9,7 +9,7 @@ const defaultColors = {
     "#fafafa"
   ],
   blueGrays: [
-    // Material Theme Ocean
+    // Custom
     "#070b18",
 
     // Material Blue 50
