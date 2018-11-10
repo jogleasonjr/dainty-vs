@@ -4,6 +4,22 @@ Dainty is a configurable modern and balanced color theme drawing inspiration fro
 
 For more information, see https://dainty-vs.now.sh.
 
+## Features
+
+- Font of editor, console, and output windows can be set
+- Active file tab, file tab border, and status bar background can be set to either gray, blue, or transparent
+- Contrast for environment background can be added
+- Contrast for environment text can be added
+- Contrast for comments can be added
+- Contrast for scrollbars can be added
+- Monochromatic (instead of grayscale) environment text can be set
+- Transparent environment borders can be set
+- Transparent scrollbar containers can be set
+- Transparent tool window grip handles can be set
+- Settings for Indent Guides extension can be included
+- Colors can be brightened or desaturated
+- Colors can be overridden
+
 ## Setup
 
     npm install
