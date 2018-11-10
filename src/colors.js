@@ -86,33 +86,33 @@ function generateColorPalette(configuration) {
     grays: generateScale(grays),
     blueGrays: generateScale(
       blueGrays.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.0625)
+        desaturate(c, configuration.process.desaturate * 0.125)
       )
     ),
     blues: generateScale(
       colors.blues.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.0625)
+        desaturate(c, configuration.process.desaturate * 0.125)
       )
     ),
     blueLighter: desaturate(
       colors.blueLighter,
-      configuration.process.desaturate * 0.0625
+      configuration.process.desaturate * 0.125
     ),
     greenLighter: desaturate(
       colors.greenLighter,
-      configuration.process.desaturate * 0.0625
+      configuration.process.desaturate * 0.125
     ),
     deepOrangeLighter: desaturate(
       colors.deepOrangeLighter,
-      configuration.process.desaturate * 0.0625
+      configuration.process.desaturate * 0.125
     ),
     purpleLight: desaturate(
       colors.purpleLight,
-      configuration.process.desaturate * 0.0625
+      configuration.process.desaturate * 0.125
     ),
     amberLighter: desaturate(
       colors.amberLighter,
-      configuration.process.desaturate * 0.0625
+      configuration.process.desaturate * 0.125
     )
   };
 }
