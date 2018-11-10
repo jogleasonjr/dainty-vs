@@ -85,9 +85,7 @@ function generateColorPalette(configuration) {
   return {
     grays: generateScale(grays),
     blueGrays: generateScale(
-      blueGrays.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.03125)
-      )
+      blueGrays.map(c => desaturate(c, configuration.process.desaturate * 0.25))
     ),
     blues: generateScale(
       colors.blues.map(c =>
