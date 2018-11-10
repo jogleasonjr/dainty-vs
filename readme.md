@@ -27,6 +27,23 @@ Run `npm run start` to start Express server. These are the available routes:
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
+## Overriding colors
+
+Colors can be overridden by adding the following object to `"colors"` in `configuration.json`:
+
+    "overrides": {
+      "grays": ["#212121", "#fafafa"],
+      "blueGrays": ["#0f111a", "#e3f2fd"],
+      "blues": ["#082847", "#1976d2", "#e3f2fd"],
+      "blueLighter": "#82b1ff",
+      "greenLighter": "#b9f6ca",
+      "deepOrangeLighter": "#e4b8a9",
+      "purpleLight": "#ce93d8",
+      "amberLighter": "#ffecb3"
+    }
+
+`grays`, `blueGrays`, and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The scale is evenly distributed between the points.
+
 ## License
 
 Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).

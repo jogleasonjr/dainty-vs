@@ -15,7 +15,12 @@ const { defaultColors, generateColorPalette } = require("./colors");
     return;
   }
 
-  const colors = generateColorPalette(defaultColors, configuration);
+  const colors = generateColorPalette(
+    configuration.colors.overrides
+      ? configuration.colors.overrides
+      : defaultColors,
+    configuration
+  );
 
   await Promise.all([
     buildThemeFiles(configuration, colors),

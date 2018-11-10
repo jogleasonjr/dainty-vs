@@ -152,6 +152,94 @@
             }
           }
         }
+      },
+      "overrides": {
+        "$id": "#/properties/colors/properties/overrides",
+        "type": "object",
+        "title": "Dainty colors overrides",
+        "required": [
+          "grays",
+          "blueGrays",
+          "blues",
+          "blueLighter",
+          "greenLighter",
+          "deepOrangeLighter",
+          "purpleLight",
+          "amberLighter"
+        ],
+        "properties": {
+          "grays": {
+            "$id": "#/properties/colors/properties/overrides/properties/grays",
+            "type": "array",
+            "title": "Grays",
+            "items": {
+              "$id": "#/properties/colors/properties/overrides/properties/grays/items",
+              "type": "string",
+              "title": "Scale of grays",
+              "examples": ["#212121", "#fafafa"],
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            }
+          },
+          "blueGrays": {
+            "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
+            "type": "array",
+            "title": "Blue-grays",
+            "items": {
+              "$id": "#/properties/colors/properties/overrides/properties/blueGrays/items",
+              "type": "string",
+              "title": "Scale of blue-grays",
+              "examples": ["#0f111a", "#e3f2fd"],
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            }
+          },
+          "blues": {
+            "$id": "#/properties/colors/properties/overrides/properties/blues",
+            "type": "array",
+            "title": "Blues",
+            "items": {
+              "$id": "#/properties/colors/properties/overrides/properties/blues/items",
+              "type": "string",
+              "title": "Scale of blues",
+              "examples": ["#082847", "#1976d2", "#e3f2fd"],
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            }
+          },
+          "blueLighter": {
+            "$id": "#/properties/colors/properties/overrides/properties/blueLighter",
+            "type": "string",
+            "title": "Lighter blue",
+            "examples": ["#82b1ff"],
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          },
+          "greenLighter": {
+            "$id": "#/properties/colors/properties/overrides/properties/greenLighter",
+            "type": "string",
+            "title": "Lighter green",
+            "examples": ["#b9f6ca"],
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          },
+          "deepOrangeLighter": {
+            "$id": "#/properties/colors/properties/overrides/properties/deepOrangeLighter",
+            "type": "string",
+            "title": "Lighter deep orange",
+            "examples": ["#f5cfc4"],
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          },
+          "purpleLight": {
+            "$id": "#/properties/colors/properties/overrides/properties/purpleLight",
+            "type": "string",
+            "title": "Light purple",
+            "examples": ["#ce93d8"],
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          },
+          "amberLighter": {
+            "$id": "#/properties/colors/properties/overrides/properties/amberLighter",
+            "type": "string",
+            "title": "Lighter amber",
+            "examples": ["#ffecb3"],
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          }
+        }
       }
     }
   }
