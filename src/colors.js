@@ -74,48 +74,45 @@ function brightenScale(colors, steps) {
 }
 
 function generateColorPalette(configuration) {
-  const colors = mergeColors(defaultColors, configuration.colors.overrides);
+  const colors = mergeColors(defaultColors, configuration.overrides);
 
-  const grays = brightenScale(
-    colors.grays,
-    configuration.colors.process.brighten
-  );
+  const grays = brightenScale(colors.grays, configuration.process.brighten);
   const blueGrays = brightenScale(
     colors.blueGrays,
-    configuration.colors.process.brighten
+    configuration.process.brighten
   );
 
   return {
     grays: generateScale(grays),
     blueGrays: generateScale(
       blueGrays.map(c =>
-        desaturate(c, configuration.colors.process.desaturate * 0.03125)
+        desaturate(c, configuration.process.desaturate * 0.03125)
       )
     ),
     blues: generateScale(
       colors.blues.map(c =>
-        desaturate(c, configuration.colors.process.desaturate * 0.25)
+        desaturate(c, configuration.process.desaturate * 0.25)
       )
     ),
     blueLighter: desaturate(
       colors.blueLighter,
-      configuration.colors.process.desaturate * 0.25
+      configuration.process.desaturate * 0.25
     ),
     greenLighter: desaturate(
       colors.greenLighter,
-      configuration.colors.process.desaturate * 0.25
+      configuration.process.desaturate * 0.25
     ),
     deepOrangeLighter: desaturate(
       colors.deepOrangeLighter,
-      configuration.colors.process.desaturate * 0.25
+      configuration.process.desaturate * 0.25
     ),
     purpleLight: desaturate(
       colors.purpleLight,
-      configuration.colors.process.desaturate * 0.25
+      configuration.process.desaturate * 0.25
     ),
     amberLighter: desaturate(
       colors.amberLighter,
-      configuration.colors.process.desaturate * 0.25
+      configuration.process.desaturate * 0.25
     )
   };
 }

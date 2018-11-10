@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/dainty-vs-latest.zip", async (_req, res) => {
   const [_, configuration] = await getConfiguration({});
-  const colors = generateColorPalette(configuration);
+  const colors = generateColorPalette(configuration.colors);
   res.type("zip").end(await buildThemeZip(configuration, colors), "binary");
 });
 
@@ -23,7 +23,7 @@ app.post("/dainty-vs-latest-configured.zip", async (req, res) => {
     return;
   }
 
-  const colors = generateColorPalette(configuration);
+  const colors = generateColorPalette(configuration.colors);
 
   res.type("zip").end(await buildThemeZip(configuration, colors), "binary");
 });
