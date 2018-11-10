@@ -10,7 +10,7 @@ const defaultColors = {
   ],
   blueGrays: [
     // Material Theme Ocean
-    "#0f111a",
+    "#070b18",
 
     // Material Blue 50
     desaturate("#e3f2fd", 0.15625)
@@ -33,7 +33,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Custom
-  deepOrangeLighter: "#e4b8a9",
+  deepOrangeLighter: "#f1c0af",
 
   // Material Purple 200
   purpleLight: "#ce93d8",
