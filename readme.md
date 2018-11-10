@@ -58,7 +58,7 @@ Colors can be overridden by adding the following object to `"colors"` in `config
       "amberLighter": "#ffecb3"
     }
 
-`grays`, `blueGrays`, and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The scale is evenly distributed between the points.
+`grays`, `blueGrays`, and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The colors of the scale are evenly distributed between the points.
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 
