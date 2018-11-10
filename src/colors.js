@@ -33,7 +33,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Custom
-  deepOrangeLighter: "#f5cfc4",
+  deepOrangeLighter: "#e4b8a9",
 
   // Material Purple 200
   purpleLight: "#ce93d8",
