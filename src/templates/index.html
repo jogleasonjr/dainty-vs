@@ -100,6 +100,10 @@
       font-size: 16px;
     }
 
+    p.small code {
+      font-size: 14px;
+    }
+
     a {
       color: "blueLighter";
       text-decoration: none;
@@ -126,7 +130,6 @@
 
     code {
       font-family: 'Roboto Mono', SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-      color: "g36";
       font-size: 16px;
     }
 
@@ -383,6 +386,26 @@
       }
     }
 
+
+    .configuration-info {
+      font-style: italic;
+      color: "bg16";
+      text-align: center;
+    }
+
+    .configuration-info a {
+      color: "bg24";
+    }
+
+    .configuration-info a:hover {
+      color: "bg28";
+    }
+
+    .configuration-info code {
+      color: "bg16";
+      font-size: 14px;
+    }
+
     .swatch-group {
       margin-bottom: 16px;
     }
@@ -540,24 +563,6 @@
 
     .swatch.purple-light {
       background-color: "purpleLight"
-    }
-
-    .configuration-info {
-      font-style: italic;
-      color: "bg16";
-      text-align: center;
-    }
-
-    .configuration-info a {
-      color: "bg24";
-    }
-
-    .configuration-info a:hover {
-      color: "bg28";
-    }
-
-    .configuration-info code {
-      color: "bg16";
     }
 
     /* https://github.com/tholman/github-corners */
@@ -885,17 +890,17 @@
         <li>Contrast for environment text can be added</li>
         <li>Contrast for comments can be added</li>
         <li>Contrast for scrollbars can be added</li>
-        <li>Monochromatic (instead of grayscale) environment text can be set</li>
-        <li>Transparent environment borders can be set</li>
-        <li>Transparent scrollbar containers can be set</li>
+        <li>Monochromatic (instead of grayscale) environment text can be set<sup>[1]</sup></li>
+        <li>Transparent environment borders can be set<sup>[1]</sup></li>
+        <li>Transparent scrollbar containers can be set<sup>[1]</sup></li>
         <li>Transparent tool window grip handles can be set</li>
         <li>Settings for Indent Guides extension can be included</li>
-        <li>Colors can be brightened or desaturated</li>
-        <li>Colors can be overridden (see <code>readme.md</code>)</li>
+        <li>Colors can be brightened or desaturated<sup>[1]</sup></li>
+        <li>Colors can be overridden (see <a href="https://github.com/alexanderte/dainty-vs"><code>readme.md</code></a>)<sup>[1]</sup></li>
       </ul>
       <p class="small">
-        <i>Some of these can be set using “Configure and download” on this page. For additional settings, <a href="https://github.com/alexanderte/dainty-vs">clone the
-          repository</a> and edit <code>configuration.json</code>.</i>
+        <i>1. In order to use these features, <a href="https://github.com/alexanderte/dainty-vs">clone the
+          repository</a> and edit <code>configuration.json</code>. If you only need the remaining, then you can use “Configure and download” on this page.</i>
       </p>
     </section>
     <section>
@@ -921,7 +926,7 @@
               <td><a href="https://marketplace.visualstudio.com/items?itemName=OmarRwemi.LinePress">Line
                   Press</a></td>
               </td>
-              <td>Enables custom line height</td>
+              <td>Enables custom line height<sup>[1]</sup></td>
             </tr>
             <tr>
               <td><a href="https://marketplace.visualstudio.com/items?itemName=OmarRwemi.BetterComments">Better
@@ -949,6 +954,7 @@
         able to export settings for this extension either, so until that is in place set Size Offset to
         <code>0</code> and Opacity to <code>1</code>. Tokens can be disabled by setting each value to a UUID.
       </p>
+      <p class="small"><i>1. I currently do not recommend using this extension as its line spacings can be unpredictable (2018-11-10).</i></p>
     </section>
     <section>
       <h2>Color palette</h2>
