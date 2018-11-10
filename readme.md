@@ -60,6 +60,8 @@ Colors can be overridden by adding the following object to `"colors"` in `config
 
 `grays`, `blueGrays`, and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The scale is evenly distributed between the points.
 
+Use `public/syntax.html` to quickly test new settings after running `npm run build`.
+
 ## License
 
 Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).
