@@ -107,6 +107,7 @@
     a {
       color: "blueLighter";
       text-decoration: none;
+      cursor: pointer;
     }
 
     a:hover {
@@ -253,6 +254,11 @@
 
     .screenshot-dainty {
       position: relative;
+    }
+
+    .screenshot-dainty-remix {
+      position: absolute;
+      opacity: 0;
     }
 
     .screenshot-dark {
@@ -871,12 +877,13 @@
     <section>
       <h2>Screenshot</h2>
       <p>
-        <i>Click to toggle comparison with the default theme. You can configure Dainty to increase the brightness or descrease the saturation – or even override its colors – turning it into <em style="font-style: normal;">any</em> color theme.</i>
+        <i>Click to toggle comparison with the default theme. You can configure Dainty to increase the brightness or descrease the saturation – or even override its colors – turning it into <a onclick="toggleDaintyRemixScreenshot(event);">something completely different</a>.
       </p>
       <style>
       </style>
       <div class="screenshot-container">
         <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
+        <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-dainty-remix" id="screenshotDaintyRemix" />
         <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-dark" id="screenshotDark"
           onClick="toggleThemes();" />
       </div>
@@ -1044,12 +1051,31 @@
     var $ = document.querySelector.bind(document);
 
     function toggleThemes() {
+      if ($("#screenshotDaintyRemix").style.opacity === "1") {
+        $("#screenshotDaintyRemix").style.opacity = 0;
+      }
+
       if ($("#screenshotDainty").style.opacity === "1" || $("#screenshotDainty").style.opacity === "") {
         $("#screenshotDainty").style.opacity = 0;
         $("#screenshotDark").style.opacity = 1;
       } else {
         $("#screenshotDainty").style.opacity = 1;
         $("#screenshotDark").style.opacity = 0;
+      }
+    }
+
+    function toggleDaintyRemixScreenshot(event) {
+      event.preventDefault();
+
+      if ($("#screenshotDark").style.opacity === "1") {
+        $("#screenshotDark").style.opacity = 0;
+        $("#screenshotDainty").style.opacity = 1;
+      }
+
+      if ($("#screenshotDaintyRemix").style.opacity === "0" || $("#screenshotDaintyRemix").style.opacity === "") {
+        $("#screenshotDaintyRemix").style.opacity = 1;
+      } else {
+        $("#screenshotDaintyRemix").style.opacity = 0;
       }
     }
 
