@@ -226,10 +226,10 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0097fb", blueGrays[32 + c]],
 
     // launchSettings.json property
-    ["#d7ba7d", blueGrays[32]],
+    ["#d7ba7d", blueGrays[33]],
 
     // Punctuation, method names
-    ["#dcdcdc", blueGrays[32]],
+    ["#dcdcdc", blueGrays[33]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
     ["#ffffff", blues[36]],
