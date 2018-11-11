@@ -217,6 +217,42 @@
       color: "BLUE_GRAYS_16";
     }
 
+    .button-group {
+      display: flex;
+    }
+
+    @media (max-width: 767.98px) {
+      .button-group {
+        flex-direction: column;
+      }
+
+      .button-group:not(.center) {
+        align-items: flex-start;
+      }
+
+      .button-group.center {
+        align-items: center;
+      }
+
+      .button-group button:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .button-group {
+        flex-direction: row;
+      }
+
+      .button-group.center {
+        justify-content: center;
+      }
+
+      .button-group button:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+
     button {
       border: 0;
       font-family: inherit;
@@ -278,10 +314,6 @@
 
     button:active {
       transform: scale(0.985);
-    }
-
-    .button-group button {
-      margin-right: 8px;
     }
 
     .feather-download {
@@ -924,8 +956,8 @@
                   repository</a> and edit <code>configuration.json</code>.
               </div>
             </div>
-            <div class="form-section" style="text-align: center;">
-              <div class="button-group">
+            <div class="form-section">
+              <div class="button-group center">
                 <button type="button" class="primary large" onclick="downloadConfiguredTheme()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
@@ -1092,6 +1124,9 @@
     </section>
     <section>
       <h2>Color palette</h2>
+      <p>
+        The Dainty color palette consists of three scales with 40 shades for each scale. Usually an index divisible by 4 is used for accessing the colors. The scales below only shows indexes divisible by 4.
+      </p>
       <h3>Grays</h3>
       <div class="swatch-group">
         <div class="swatch g0" label="Grays 0"></div>
