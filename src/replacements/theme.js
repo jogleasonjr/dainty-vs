@@ -8,8 +8,11 @@ function getCategoryReplacements(colors) {
       urlformat: [null, colors.blueLighter]
     },
     "Text Editor Text Marker Items": {
-      "Current Statement": ["#eff284", null], // Revert
-      "Brace Matching (Rectangle)": [null, colors.blues[36]]
+      "Current Statement": ["#eff284", null] // Revert
+    },
+    StartPage: {
+      StartPageHeadingText: [null, colors.blues[34]],
+      StartPageTitleText: [null, colors.blues[34]]
     }
   };
 }
