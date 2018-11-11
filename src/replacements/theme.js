@@ -29,8 +29,8 @@ function getSearchReplaceReplacements(configuration, colors) {
       : configuration.environment.accentColor === "blue"
       ? blues[8]
       : configuration.environment.additionalBackgroundContrast
-      ? blueGrays[6 + cb]
-      : blueGrays[5 + cb];
+      ? blueGrays[4 + cb]
+      : blueGrays[3 + cb];
 
   return [
     // # Backgrounds
@@ -120,7 +120,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     // Package Manger border
     ["#434346", blueGrays[8]],
 
-    // Active line border
+    // Current line border
     ["#464646", blueGrays[2]],
 
     // Grip – inactive tool window
@@ -226,13 +226,13 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0097fb", blueGrays[32 + c]],
 
     // launchSettings.json property
-    ["#d7ba7d", blueGrays[33]],
+    ["#d7ba7d", blueGrays[32]],
 
     // Punctuation, method names
-    ["#dcdcdc", blueGrays[33]],
+    ["#dcdcdc", blueGrays[32]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
-    ["#ffffff", blues[36]],
+    ["#ffffff", colors.blueLighter],
 
     ["#d0e6f5", blues[36]], // Close and pin icons on active tab
 
