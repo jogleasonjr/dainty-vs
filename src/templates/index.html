@@ -463,6 +463,14 @@
       color: "GREEN_LIGHTER";
     }
 
+    .p {
+      color: "BLUE_GRAYS_24";
+    }
+
+    .v {
+      color: "BLUE_GRAYS_32";
+    }
+
     .string {
       color: "DEEP_ORANGE_LIGHTER";
     }
@@ -918,32 +926,32 @@
         <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-additional" id="screenshotDaintyRemix" />
         <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-additional" id="screenshotDark" />
         <div class="screenshot-configuration" id="screenshotDaintyBrighterConfiguration">
-<pre><code>"colors": {
-  "process": {
-    "brighten": <span class="integer">2</span>,
-    "desaturate": <span class="integer">0</span>
-  }
-}</code></pre>
+<pre><code><span class="v">"colors"</span><span class="p">: {</span>
+  <span class="v">"process"</span><span class="v"></span><span class="p">: {</span>
+      <span class="v">"brighten"</span><span class="p">:</span> <span class="integer">2</span>,
+      <span class="v">"desaturate"</span><span class="p">:</span> <span class="integer">0</span>
+    <span class="p">}
+}</span></code></pre>
         </div>
         <div class="screenshot-configuration" id="screenshotDaintyDesaturatedConfiguration">
-<pre><code>"colors": {
-  "process": {
-    "brighten": <span class="integer">2</span>,
-    "desaturate": <span class="integer">4</span>
-  }
-}</code></pre>
+<pre><code><span class="v">"colors"</span><span class="p">: {</span>
+  <span class="v">"process"</span><span class="v"></span><span class="p">: {</span>
+      <span class="v">"brighten"</span><span class="p">:</span> <span class="integer">2</span>,
+      <span class="v">"desaturate"</span><span class="p">:</span> <span class="integer">4</span>
+    <span class="p">}
+}</span></code></pre>
         </div>
         <div class="screenshot-configuration" id="screenshotDaintyRemixConfiguration">
-<pre><code>"colors": {
-  "overrides": {
-    "blueGrays": [<span class="string">"#001313"</span>, <span class="string">"#fff"</span>],
-    "blues": [<span class="string">"#00251a"</span>, <span class="string">"#00796b"</span>, <span class="string">"#fff"</span>],
-    "blueLighter": <span class="string">"#a7ffeb"</span>,
-    "greenLighter": <span class="string">"#ea80fc</span>",
-    "deepOrangeLighter": <span class="string">"#9fffe0</span>",
-    "purpleLight": <span class="string">"#f4b2ff</span>"
-  }
-}</code></pre>
+<pre><code><span class="v">"colors"</span><span class="p">: {</span>
+    <span class="v">"overrides"</span><span class="p">: {</span>
+      <span class="v">"blueGrays"</span><span class="p">: [</span><span class="string">"#001313"</span><span class="p">, </span><span class="string">"#fff"</span><span class="p">],</span>
+      <span class="v">"blues"</span><span class="p">: [</span><span class="string">"#00251a"</span><span class="p">, </span><span class="string">"#00796b"</span><span class="p">, </span><span class="string">"#fff"</span><span class="p">],</span>
+      <span class="v">"blueLighter"</span><span class="p">: </span><span class="string">"#a7ffeb"</span><span class="p">,</span>
+      <span class="v">"greenLighter"</span><span class="p">: </span><span class="string">"#ea80fc"</span><span class="p">,</span>
+      <span class="v">"deepOrangeLighter"</span><span class="p">: </span><span class="string">"#9fffe0"</span><span class="p">,</span>
+      <span class="v">"purpleLight"</span><span class="p">: </span><span class="string">"#f4b2ff"</span>
+  <span class="p">}
+}</span></code></pre>
         </div>
       </div>
     </section>
