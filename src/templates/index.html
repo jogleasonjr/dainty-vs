@@ -79,7 +79,7 @@
 
     @media (max-width: 1023.98px) {
       h1 {
-        font-size: 32px;
+        font-size: 24px;
       }
 
       h2 {
@@ -168,7 +168,6 @@
       }
     }
 
-
     .table-scroll-container {
       overflow-x: auto;
       margin-bottom: 32px;
@@ -177,7 +176,18 @@
     table {
       border-collapse: collapse;
       width: 1024px;
-      font-size: 16px;
+    }
+
+    @media (max-width: 1023.98px) {
+      table {
+        font-size: 14px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      table {
+        font-size: 16px;
+      }
     }
 
     tr {
@@ -335,6 +345,12 @@
       box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
       opacity: 0;
       transition: opacity 0.5s ease;
+    }
+
+    @media (max-width: 1023.98px) {
+      .screenshot-configuration {
+        display: none;
+      }
     }
 
     .screenshot-configuration pre {
