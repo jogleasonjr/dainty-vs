@@ -36,9 +36,7 @@
     }
 
     body.no-scroll {
-      position: fixed;
-      overflow-y: scroll;
-      width: 100%;
+      overflow-y: hidden;
     }
 
     @media (max-width: 1023.98px) {
@@ -59,12 +57,12 @@
       margin-bottom: 32px;
     }
 
-    h2, h3, p, ul {
+    h2, h3, p {
       margin-bottom: 16px;
     }
 
-    ul ul {
-      margin-bottom: 0;
+    ul {
+      margin-bottom: 32px;
     }
 
     h1, h2, h3, th {
@@ -206,15 +204,75 @@
 
     ul {
       list-style: none;
+    }
+
+    ul:not(.nav) {
       padding-left: 16px;
     }
 
-    ul>li:before {
+    ul.nav {
+      display: flex;
+      padding-left: 0;
+    }
+
+    @media (max-width: 1023.98px) {
+      ul.nav {
+        flex-direction: column;
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      ul.nav {
+        flex-direction: row;
+        font-size: 17px;
+      }
+    }
+
+    ul:not(.nav)>li:before {
       display: inline-block;
       content: "–";
       width: 18px;
       margin-left: -18px;
       color: "BLUE_GRAYS_16";
+    }
+
+    ul ul {
+      margin-bottom: 0;
+    }
+
+    ul.nav li {
+      display: inline-block;
+    }
+
+    @media (max-width: 1023.98px) {
+      ul.nav li:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      ul.nav li:not(:last-child) {
+        margin-right: 40px;
+      }
+    }
+
+    ul.nav li a {
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    ul.nav li.active a {
+      color: "BLUES_36";
+      background-color: "BLUE_GRAYS_2";
+    }
+
+    ul.nav li:not(.active) a {
+      color: "BLUE_GRAYS_24";
+    }
+
+    ul.nav li:not(.active) a:hover {
+      color: "BLUE_GRAYS_28";
     }
 
     .button-group {
@@ -374,8 +432,16 @@
       line-height: 1.5;
     }
 
-    .screenshot-configuration pre code {
-      font-size: 12px;
+    @media (max-width: 1023.98px) {
+      .screenshot-configuration pre code {
+        font-size: 11px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .screenshot-configuration pre code {
+        font-size: 12px;
+      }
     }
 
     .integer {
@@ -861,10 +927,55 @@
       </p>
     </section>
     <section>
+      <h2>Screenshots</h2>
+      <ul class="nav">
+        <li class="active" id="tabScreenshotDainty"><a onclick="showScreenshot(event, '#tabScreenshotDainty', '#screenshotDainty');">Dainty</a></li>
+        <li id="tabScreenshotDaintyBrighter"><a onclick="showScreenshot(event, '#tabScreenshotDaintyBrighter', '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">Dainty – brighter</a></li>
+        <li id="tabScreenshotDaintyDesaturated"><a onclick="showScreenshot(event, '#tabScreenshotDaintyDesaturated', '#screenshotDaintyDesaturated', '#screenshotDaintyDesaturatedConfiguration');">Dainty – brighter, desaturated</a></li>
+        <li id="tabScreenshotDaintyRemix"><a onclick="showScreenshot(event, '#tabScreenshotDaintyRemix', '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">Dainty – color overrides</a></li>
+        <li id="tabScreenshotDark"><a onclick="showScreenshot(event, '#tabScreenshotDark', '#screenshotDark');">Dark – for comparison</a></li>
+      </ul>
+      <div class="screenshot-container">
+        <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
+        <img alt="Screenshot of Dainty brighter" src="screenshot-dainty-brighter.png" class="screenshot screenshot-additional" id="screenshotDaintyBrighter" />
+        <img alt="Screenshot of Dainty desaturated" src="screenshot-dainty-desaturated.png" class="screenshot screenshot-additional" id="screenshotDaintyDesaturated" />
+        <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-additional" id="screenshotDaintyRemix" />
+        <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-additional" id="screenshotDark" />
+        <div class="screenshot-configuration" id="screenshotDaintyBrighterConfiguration">
+<pre><code>"colors": {
+  "process": {
+    "brighten": <span class="integer">2</span>,
+    "desaturate": <span class="integer">0</span>
+  }
+}</code></pre>
+        </div>
+        <div class="screenshot-configuration" id="screenshotDaintyDesaturatedConfiguration">
+<pre><code>"colors": {
+  "process": {
+    "brighten": <span class="integer">2</span>,
+    "desaturate": <span class="integer">4</span>
+  }
+}</code></pre>
+        </div>
+        <div class="screenshot-configuration" id="screenshotDaintyRemixConfiguration">
+<pre><code>"colors": {
+  "overrides": {
+    "blueGrays": [<span class="string">"#142d2c"</span>, <span class="string">"#fff"</span>],
+    "blues": [<span class="string">"#00251a"</span>, <span class="string">"#00796b"</span>, <span class="string">"#fff"</span>],
+    "blueLighter": <span class="string">"#a7ffeb"</span>,
+    "greenLighter": <span class="string">"#ea80fc</span>",
+    "deepOrangeLighter": <span class="string">"#9fffe0</span>",
+    "purpleLight": <span class="string">"#f4b2ff</span>"
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+    <section>
       <h2>Prerequisites</h2>
       <ul>
         <li>Visual Studio 2017</li>
-        <li class="animated delay-1s shake"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.VisualStudio2017ColorThemeEditor">Color
+        <li id="colorThemeEditor"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.VisualStudio2017ColorThemeEditor">Color
             Theme Editor</a> extension</li>
       </ul>
     </section>
@@ -1000,52 +1111,6 @@
           <li>Select <code>dainty.vssettings</code></li>
         </ul>
       </ul>
-    </section>
-    <section>
-      <h2>Screenshot</h2>
-      <p>
-        <i>
-            Click to toggle comparison with the default theme. You can configure Dainty to <a onclick="toggleScreenshots(event, '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">increase the brightness</a>
-            or <a onclick="toggleScreenshots(event, '#screenshotDaintyDesaturated', '#screenshotDaintyDesaturatedConfiguration');">descrease the saturation</a> –
-            or even override its colors – turning it into <a onclick="toggleScreenshots(event, '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">something completely different</a>.
-        </i>
-      </p>
-      <div class="screenshot-container">
-        <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
-        <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-additional" id="screenshotDaintyRemix" />
-        <img alt="Screenshot of Dainty brighter by 2 steps" src="screenshot-dainty-brighter.png" class="screenshot screenshot-additional" id="screenshotDaintyBrighter" />
-        <img alt="Screenshot of Dainty desaturated by 3 steps" src="screenshot-dainty-desaturated.png" class="screenshot screenshot-additional" id="screenshotDaintyDesaturated" />
-        <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-additional" id="screenshotDark"
-          onclick="toggleScreenshots(event);" />
-        <div class="screenshot-configuration" id="screenshotDaintyBrighterConfiguration">
-<pre><code>"colors": {
-  "process": {
-    "brighten": <span class="integer">2</span>,
-    "desaturate": <span class="integer">0</span>
-  }
-}</code></pre>
-        </div>
-        <div class="screenshot-configuration" id="screenshotDaintyDesaturatedConfiguration">
-<pre><code>"colors": {
-  "process": {
-    "brighten": <span class="integer">2</span>,
-    "desaturate": <span class="integer">4</span>
-  }
-}</code></pre>
-        </div>
-        <div class="screenshot-configuration" id="screenshotDaintyRemixConfiguration">
-<pre><code>"colors": {
-  "overrides": {
-    "blueGrays": [<span class="string">"#142d2c"</span>, <span class="string">"#fff"</span>],
-    "blues": [<span class="string">"#00251a"</span>, <span class="string">"#00796b"</span>, <span class="string">"#fff"</span>],
-    "blueLighter": <span class="string">"#a7ffeb"</span>,
-    "greenLighter": <span class="string">"#ea80fc</span>",
-    "deepOrangeLighter": <span class="string">"#9fffe0</span>",
-    "purpleLight": <span class="string">"#f4b2ff</span>"
-  }
-}</code></pre>
-        </div>
-      </div>
     </section>
     <section>
       <h2>Features</h2>
@@ -1212,26 +1277,23 @@
   <script>
     var $ = document.querySelector.bind(document);
 
-    function toggleScreenshots(event, screenshot, screenshotConfiguration) {
+    function showScreenshot(event, tab, screenshot, screenshotConfiguration) {
       event.preventDefault();
 
-      if (screenshot) {
-        if ($(screenshot).style.opacity === "0" || $(screenshot).style.opacity === "") {
-          showScreenshot(screenshot, screenshotConfiguration);
-        } else {
-          showScreenshot("#screenshotDainty");
-        }
-        return;
-      }
+      [
+        "#tabScreenshotDainty",
+        "#tabScreenshotDaintyBrighter",
+        "#tabScreenshotDaintyDesaturated",
+        "#tabScreenshotDaintyRemix",
+        "#tabScreenshotDark"
+      ].filter(function(t) {
+        return t !== tab;
+      }).map(function(t) {
+        $(t).classList.remove("active");
+      });
 
-      if ($("#screenshotDainty").style.opacity === "1" || $("#screenshotDainty").style.opacity === "") {
-        showScreenshot("#screenshotDark");
-      } else {
-        showScreenshot("#screenshotDainty");
-      }
-    }
-
-    function showScreenshot(screenshot, screenshotConfiguration) {
+      $(tab).classList.add("active");
+      
       [
         "#screenshotDaintyBrighter",
         "#screenshotDaintyBrighterConfiguration",
@@ -1328,6 +1390,16 @@
         hideConfigureSection();
       }
     });
+
+    function handleScroll(event) {
+      console.log({scrollTop: document.documentElement.scrollTop});
+      if (document.documentElement.scrollTop >= 600) {
+        $("#colorThemeEditor").className = "animated shake";
+        window.removeEventListener('scroll', handleScroll);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
   </script>
 
 </body>
