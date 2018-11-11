@@ -13,7 +13,7 @@ const defaultColors = {
     "#070b18",
 
     // Material Blue 50
-    desaturate("#e3f2fd", 0.15625)
+    "#e3f2fd"
   ],
   blues: [
     // Custom
@@ -86,7 +86,7 @@ function generateColorPalette(configuration) {
     grays: generateScale(grays),
     blueGrays: generateScale(
       blueGrays.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.125)
+        desaturate(c, configuration.process.desaturate * 0.0625)
       )
     ),
     blues: generateScale(

@@ -19,6 +19,7 @@
 							<Item Name="Selected Text" Foreground="0x01000000" Background="0x00SELECTED_TEXT_BACKGROUND" BoldFont="No"/>
 							<Item Name="RazorTagHelperElement" BoldFont="No"/>
 							<Item Name="RazorTagHelperAttribute" BoldFont="No"/>
+							<Item Name="brace matching" Foreground="0x00BRACE_MATCHING_FOREGROUND" Background="0x00BRACE_MATCHING_BACKGROUND" BoldFont="No"/>
 						</Items>
 					</Category>
 					<Category GUID="{9973EFDF-317D-431C-8BC1-5E88CBFD4F7F}" FontName="EDITOR_FONT_FAMILY" FontSize="9" CharSet="1" FontIsDefault="No">
