@@ -1,13 +1,6 @@
 const chroma = require("chroma-js");
 
 const defaultColors = {
-  grays: [
-    // Material Grey 900
-    "#212121",
-
-    // Material Grey 50
-    "#fafafa"
-  ],
   blueGrays: [
     // Custom
     "#070b18",
@@ -76,14 +69,12 @@ function brightenScale(colors, steps) {
 function generateColorPalette(configuration) {
   const colors = mergeColors(defaultColors, configuration.overrides);
 
-  const grays = brightenScale(colors.grays, configuration.process.brighten);
   const blueGrays = brightenScale(
     colors.blueGrays,
     configuration.process.brighten
   );
 
   return {
-    grays: generateScale(grays),
     blueGrays: generateScale(
       blueGrays.map(c =>
         desaturate(c, configuration.process.desaturate * 0.0625)

@@ -30,7 +30,6 @@
         "accentColor",
         "additionalBackgroundContrast",
         "additionalTextContrast",
-        "monochromaticText",
         "transparentBorders",
         "transparentScrollbarContainers",
         "transparentToolWindowGrips"
@@ -66,12 +65,6 @@
           "$id": "#/properties/environment/properties/additionalScrollbarsContrast",
           "type": "boolean",
           "title": "Additional contrast for scrollbars",
-          "default": true
-        },
-        "monochromaticText": {
-          "$id": "#/properties/environment/properties/monochromaticText",
-          "type": "boolean",
-          "title": "Monochromatic (instead of grayscale) environment text",
           "default": true
         },
         "transparentBorders": {
@@ -158,7 +151,6 @@
         "type": "object",
         "title": "Dainty colors overrides",
         "required": [
-          "grays",
           "blueGrays",
           "blues",
           "blueLighter",
@@ -168,18 +160,6 @@
           "amberLighter"
         ],
         "properties": {
-          "grays": {
-            "$id": "#/properties/colors/properties/overrides/properties/grays",
-            "type": "array",
-            "title": "Grays",
-            "items": {
-              "$id": "#/properties/colors/properties/overrides/properties/grays/items",
-              "type": "string",
-              "title": "Scale of grays",
-              "examples": ["#212121", "#fafafa"],
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            }
-          },
           "blueGrays": {
             "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
             "type": "array",

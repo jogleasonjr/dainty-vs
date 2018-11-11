@@ -430,7 +430,7 @@
       right: 16px;
       top: 16px;
       background-color: rgba(14, 18, 28, 0.875);
-      color: "GRAYS_32";
+      color: "BLUE_GRAYS_32";
       padding: 24px;
       box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
       opacity: 0;
@@ -641,46 +641,6 @@
       .swatch {
         margin-right: 16px;
       }
-    }
-
-    .swatch.g0 {
-      background-color: "GRAYS_0"
-    }
-
-    .swatch.g4 {
-      background-color: "GRAYS_4"
-    }
-
-    .swatch.g8 {
-      background-color: "GRAYS_8"
-    }
-
-    .swatch.g12 {
-      background-color: "GRAYS_12"
-    }
-
-    .swatch.g16 {
-      background-color: "GRAYS_16"
-    }
-
-    .swatch.g20 {
-      background-color: "GRAYS_20"
-    }
-
-    .swatch.g24 {
-      background-color: "GRAYS_24"
-    }
-
-    .swatch.g28 {
-      background-color: "GRAYS_28"
-    }
-
-    .swatch.g32 {
-      background-color: "GRAYS_32"
-    }
-
-    .swatch.g39 {
-      background-color: "GRAYS_39"
     }
 
     .swatch.b0 {
@@ -1137,7 +1097,6 @@
         <li>Contrast for environment text can be added</li>
         <li>Contrast for comments can be added</li>
         <li>Contrast for scrollbars can be added</li>
-        <li>Monochromatic (instead of grayscale) environment text can be set<sup>[1]</sup></li>
         <li>Transparent environment borders can be set<sup>[1]</sup></li>
         <li>Transparent scrollbar containers can be set<sup>[1]</sup></li>
         <li>Transparent tool window grip handles can be set</li>
@@ -1197,21 +1156,8 @@
     <section>
       <h2>Color palette</h2>
       <p>
-        The Dainty color palette consists of three scales with 40 shades for each scale. Usually an index divisible by 4 is used for accessing the colors. The scales below shows indexes divisible by 4.
+        The Dainty color palette consists of two scales with 40 shades for each scale. Usually an index divisible by 4 is used for accessing the colors. The scales below shows indexes divisible by 4.
       </p>
-      <h3>Grays</h3>
-      <div class="swatch-group">
-        <div class="swatch g0" label="Grays 0"></div>
-        <div class="swatch g4"></div>
-        <div class="swatch g8"></div>
-        <div class="swatch g12"></div>
-        <div class="swatch g16"></div>
-        <div class="swatch g20"></div>
-        <div class="swatch g24"></div>
-        <div class="swatch g28"></div>
-        <div class="swatch g32"></div>
-        <div class="swatch g39"></div>
-      </div>
       <h3>Blue-grays</h3>
       <div class="swatch-group">
         <div class="swatch bg0"></div>
@@ -1254,8 +1200,7 @@
       </p>
       <p>
         The colors for the environment background, indentation lines, comments, and environment text are
-        based on a blue-gray scale. There is a scale of grays used for punctuation and tokens such
-        as method names and imported namespaces. A blue scale is used for both accent and tokens such as keywords and
+        based on a blue-gray scale. A blue scale is used for both accent and tokens such as keywords and
         class names. Most colors are based on selected hues from the <a href="https://material.io/tools/color">Material
           palette</a>. <a href="https://github.com/gka/chroma.js">Chroma.js</a> is
         used for processing colors and generating scales.
@@ -1349,7 +1294,6 @@
           additionalTextContrast: $("#environment_additionalTextContrast").checked,
           additionalScrollbarsContrast: $("#environment_additionalScrollbarsContrast").checked,
           additionalCommentsContrast: $("#environment_additionalCommentsContrast").checked,
-          monochromaticText: true,
           transparentBorders: false,
           transparentScrollbarContainers: false,
           transparentToolWindowGrips: $("#environment_transparentToolWindowGrips").checked,

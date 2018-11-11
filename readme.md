@@ -12,7 +12,6 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Contrast for environment text can be added
 - Contrast for comments can be added
 - Contrast for scrollbars can be added
-- Monochromatic (instead of grayscale) environment text can be set
 - Transparent environment borders can be set
 - Transparent scrollbar containers can be set
 - Transparent tool window grip handles can be set
@@ -48,7 +47,6 @@ Custom configuration is sent as JSON using the request body, and the format is d
 Colors can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
     "overrides": {
-      "grays": ["#212121", "#fafafa"],
       "blueGrays": ["#0f111a", "#e3f2fd"],
       "blues": ["#082847", "#1976d2", "#e3f2fd"],
       "blueLighter": "#82b1ff",
@@ -58,7 +56,7 @@ Colors can be overridden by adding the following object to `"colors"` in `config
       "amberLighter": "#ffecb3"
     }
 
-`grays`, `blueGrays`, and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The colors of the scale are evenly distributed between the points.
+`blueGrays` and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The colors of the scale are evenly distributed between the points.
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 

@@ -1,5 +1,5 @@
 function getCategoryReplacements(colors) {
-  const { grays, blueGrays, blues } = colors;
+  const { blueGrays, blues } = colors;
 
   return {
     "ColorizedSignatureHelp colors": {
@@ -14,7 +14,7 @@ function getCategoryReplacements(colors) {
 }
 
 function getSearchReplaceReplacements(configuration, colors) {
-  const { grays, blueGrays, blues } = colors;
+  const { blueGrays, blues } = colors;
 
   const c = configuration.environment.additionalTextContrast ? 4 : 0;
   const cb = configuration.environment.additionalTextContrast ? 2 : 0;
@@ -223,12 +223,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#9cdcfe", blues[32]],
 
     // Active tool window tab, `Import theme`
-    [
-      "#0097fb",
-      configuration.environment.monochromaticText
-        ? blueGrays[32 + c]
-        : grays[31 + c]
-    ],
+    ["#0097fb", blueGrays[32 + c]],
 
     // launchSettings.json property
     ["#d7ba7d", blueGrays[32]],
@@ -248,39 +243,19 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#b4b4b4", blueGrays[24]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
-    [
-      "#f1f1f1",
-      configuration.environment.monochromaticText
-        ? blueGrays[28 + c]
-        : grays[27 + c]
-    ],
+    ["#f1f1f1", blueGrays[28 + c]],
 
     // Inactive tabs in tool windows, tool window titles
-    [
-      "#d0d0d0",
-      configuration.environment.monochromaticText
-        ? blueGrays[24 + c]
-        : grays[23 + c]
-    ],
+    ["#d0d0d0", blueGrays[24 + c]],
 
     // `Microsoft Visual Studio`
-    [
-      "#999999",
-      configuration.environment.monochromaticText
-        ? blueGrays[20 + c]
-        : grays[19 + c]
-    ],
+    ["#999999", blueGrays[20 + c]],
 
     // Disabled menu item
     ["#656565", blueGrays[16 + c]],
 
     // Inactive tabs hover in tool windows
-    [
-      "#55aaff",
-      configuration.environment.monochromaticText
-        ? blueGrays[32 + c]
-        : grays[31 + c]
-    ],
+    ["#55aaff", blueGrays[32 + c]],
 
     // Comments
     [
