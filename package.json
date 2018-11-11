@@ -8,6 +8,7 @@
     "ajv": "6.5.4",
     "better-avj-errors": "0.4.0-alpha.3",
     "body-parser": "1.18.3",
+    "change-case": "3.0.2",
     "chroma-js": "1.4.0",
     "express": "4.16.4",
     "html-minifier": "3.5.21",

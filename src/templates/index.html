@@ -27,8 +27,8 @@
     }
 
     body {
-      background-color: "bg0";
-      color: "bg34";
+      background-color: "BLUE_GRAYS_0";
+      color: "BLUE_GRAYS_32";
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
       line-height: 1.875;
       margin: 0;
@@ -68,7 +68,7 @@
     }
 
     h1, h2, h3, th {
-      color: "b36";
+      color: "BLUES_34";
     }
 
     h1,
@@ -128,13 +128,13 @@
 
 
     a {
-      color: "blueLighter";
+      color: "BLUE_LIGHTER";
       text-decoration: none;
       cursor: pointer;
     }
 
     a:hover {
-      color: "b32";
+      color: "BLUES_32";
     }
 
     main {
@@ -181,7 +181,7 @@
     }
 
     tr {
-      border-bottom: 1px solid "bg6";
+      border-bottom: 1px solid "BLUE_GRAYS_6";
     }
 
     th {
@@ -204,7 +204,7 @@
       content: "–";
       width: 18px;
       margin-left: -18px;
-      color: "bg16";
+      color: "BLUE_GRAYS_16";
     }
 
     button {
@@ -220,8 +220,8 @@
     }
 
     button.primary {
-      background-color: "b8";
-      color: "bg36";
+      background-color: "BLUES_8";
+      color: "BLUE_GRAYS_36";
     }
 
     button:not(.large) {
@@ -251,7 +251,7 @@
 
     button:not(.primary) {
       background-color: transparent;
-      color: "bg34";
+      color: "BLUE_GRAYS_32";
     }
 
     button:focus {
@@ -259,11 +259,11 @@
     }
 
     button.primary:hover {
-      background-color: "b10";
+      background-color: "BLUES_10";
     }
 
     button:not(.primary):hover {
-      background-color: "bg2";
+      background-color: "BLUE_GRAYS_2";
     }
 
     button:active {
@@ -283,7 +283,7 @@
     .feather-chevron-right {
       position: relative;
       top: 3.5px;
-      color: "bg16";
+      color: "BLUE_GRAYS_16";
     }
 
     .screenshot-container {
@@ -310,9 +310,47 @@
       opacity: 0;
     }
 
+    .screenshot-dainty-brighter {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .screenshot-dainty-desaturated {
+      position: absolute;
+      opacity: 0;
+    }
+
     .screenshot-dark {
       position: absolute;
       opacity: 0;
+    }
+
+    .screenshot-configuration {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      background-color: rgba(14, 18, 28, 0.875);
+      color: "GRAYS_32";
+      padding: 24px;
+      box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .screenshot-configuration pre {
+      line-height: 1.5;
+    }
+
+    .screenshot-configuration pre code {
+      font-size: 12px;
+    }
+
+    .integer {
+      color: "GREEN_LIGHTER";
+    }
+
+    .string {
+      color: "DEEP_ORANGE_LIGHTER";
     }
 
     @media (max-width: 1023.98px) {
@@ -337,7 +375,7 @@
 
     .form-group {
       display: flex;
-      border-bottom: 1px solid "bg6";
+      border-bottom: 1px solid "BLUE_GRAYS_6";
       padding-bottom: 16px;
       margin-bottom: 16px;
       padding-left: 16px;
@@ -345,7 +383,7 @@
     }
 
     .form-group:first-child {
-      border-top: 1px solid "bg6";
+      border-top: 1px solid "BLUE_GRAYS_6";
       padding-top: 16px;
     }
 
@@ -363,16 +401,16 @@
       border: 0;
       padding: 8px 12px;
       position: absolute;
-      background-color: "bg2";
-      color: "bg34";
+      background-color: "BLUE_GRAYS_2";
+      color: "BLUE_GRAYS_32";
       transition: background-color 0.25s ease;
     }
 
     .form-group > .input-container > input[type="text"]:focus,
     .form-group > .input-container > select:focus {
       outline: none;
-      background-color: "bg6";
-      color: "bg36";
+      background-color: "BLUE_GRAYS_6";
+      color: "BLUE_GRAYS_36";
     }
 
     .form-group > .input-container > input[type="text"] {
@@ -429,7 +467,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
       width: 1024px;
-      background-color: "bg0";
+      background-color: "BLUE_GRAYS_0";
       overflow: auto;
       padding: 24px 32px 32px 32px;
       box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
@@ -451,20 +489,20 @@
 
     .configuration-info {
       font-style: italic;
-      color: "bg16";
+      color: "BLUE_GRAYS_16";
       text-align: center;
     }
 
     .configuration-info a {
-      color: "bg24";
+      color: "BLUE_GRAYS_24";
     }
 
     .configuration-info a:hover {
-      color: "bg28";
+      color: "BLUE_GRAYS_28";
     }
 
     .configuration-info code {
-      color: "bg16";
+      color: "BLUE_GRAYS_16";
       font-size: 14px;
     }
 
@@ -492,139 +530,139 @@
     }
 
     .swatch.g0 {
-      background-color: "g0"
+      background-color: "GRAYS_0"
     }
 
     .swatch.g4 {
-      background-color: "g4"
+      background-color: "GRAYS_4"
     }
 
     .swatch.g8 {
-      background-color: "g8"
+      background-color: "GRAYS_8"
     }
 
     .swatch.g12 {
-      background-color: "g12"
+      background-color: "GRAYS_12"
     }
 
     .swatch.g16 {
-      background-color: "g16"
+      background-color: "GRAYS_16"
     }
 
     .swatch.g20 {
-      background-color: "g20"
+      background-color: "GRAYS_20"
     }
 
     .swatch.g24 {
-      background-color: "g24"
+      background-color: "GRAYS_24"
     }
 
     .swatch.g28 {
-      background-color: "g28"
+      background-color: "GRAYS_28"
     }
 
     .swatch.g32 {
-      background-color: "g32"
+      background-color: "GRAYS_32"
     }
 
     .swatch.g39 {
-      background-color: "g39"
+      background-color: "GRAYS_39"
     }
 
     .swatch.b0 {
-      background-color: "b0"
+      background-color: "BLUES_0"
     }
 
     .swatch.b4 {
-      background-color: "b4"
+      background-color: "BLUES_4"
     }
 
     .swatch.b8 {
-      background-color: "b8"
+      background-color: "BLUES_8"
     }
 
     .swatch.b12 {
-      background-color: "b12"
+      background-color: "BLUES_12"
     }
 
     .swatch.b16 {
-      background-color: "b16"
+      background-color: "BLUES_16"
     }
 
     .swatch.b20 {
-      background-color: "b20"
+      background-color: "BLUES_20"
     }
 
     .swatch.b24 {
-      background-color: "b24"
+      background-color: "BLUES_24"
     }
 
     .swatch.b28 {
-      background-color: "b28"
+      background-color: "BLUES_28"
     }
 
     .swatch.b32 {
-      background-color: "b32"
+      background-color: "BLUES_32"
     }
 
     .swatch.b39 {
-      background-color: "b39"
+      background-color: "BLUES_39"
     }
 
     .swatch.bg0 {
-      background-color: "bg0"
+      background-color: "BLUE_GRAYS_0"
     }
 
     .swatch.bg4 {
-      background-color: "bg4"
+      background-color: "BLUE_GRAYS_4"
     }
 
     .swatch.bg8 {
-      background-color: "bg8"
+      background-color: "BLUE_GRAYS_8"
     }
 
     .swatch.bg12 {
-      background-color: "bg12"
+      background-color: "BLUE_GRAYS_12"
     }
 
     .swatch.bg16 {
-      background-color: "bg16"
+      background-color: "BLUE_GRAYS_16"
     }
 
     .swatch.bg20 {
-      background-color: "bg20"
+      background-color: "BLUE_GRAYS_20"
     }
 
     .swatch.bg24 {
-      background-color: "bg24"
+      background-color: "BLUE_GRAYS_24"
     }
 
     .swatch.bg28 {
-      background-color: "bg28"
+      background-color: "BLUE_GRAYS_28"
     }
 
     .swatch.bg32 {
-      background-color: "bg32"
+      background-color: "BLUE_GRAYS_32"
     }
 
     .swatch.bg39 {
-      background-color: "bg39"
+      background-color: "BLUE_GRAYS_39"
     }
 
     .swatch.blue-lighter {
-      background-color: "blueLighter"
+      background-color: "BLUE_LIGHTER"
     }
 
     .swatch.green-lighter {
-      background-color: "greenLighter"
+      background-color: "GREEN_LIGHTER"
     }
 
     .swatch.deep-orange-light {
-      background-color: "deepOrangeLighter"
+      background-color: "DEEP_ORANGE_LIGHTER"
     }
 
     .swatch.purple-light {
-      background-color: "purpleLight"
+      background-color: "PURPLE_LIGHT"
     }
 
     /* https://github.com/tholman/github-corners */
@@ -691,7 +729,7 @@
       height: 1em;
       left: 0.1em;
       transition: background-color 0.25s ease;
-      background-color: "bg2";
+      background-color: "BLUE_GRAYS_2";
       border-radius: 50px;
     }
 
@@ -704,12 +742,12 @@
       left: 0;
       transition: all 0.25s;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-      background-color: "bg32";
+      background-color: "BLUE_GRAYS_32";
       z-index: 2;
     }
 
     .ckbx-style-8 input[type=checkbox]:checked + label:before {
-      background: "b20";
+      background: "BLUES_20";
     }
 
     .ckbx-style-8 input[type=checkbox]:checked + label:after {
@@ -717,8 +755,8 @@
     }
 
     .github-corner {
-      fill: "b8";
-      color: "bg0";
+      fill: "BLUES_8";
+      color: "BLUE_GRAYS_0";
       position: fixed;
       top: 0;
       border: 0;
@@ -800,7 +838,7 @@
     <section id="downloadSection" class="download-section">
       <h2>Download</h2>
       <div class="button-group">
-        <button type="button" class="primary large" onClick="downloadTheme();">
+        <button type="button" class="primary large" onclick="downloadTheme();">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -808,7 +846,7 @@
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
           <code style="position: relative; top: -1px;">dainty-vs-latest.zip</code></button>
-        <button type="button" id="configureThemeButton" onClick="showConfigureSection();">
+        <button type="button" id="configureThemeButton" onclick="showConfigureSection();">
           Configure and download</button>
       </div>
     </section>
@@ -828,7 +866,7 @@
                 <label>Active file tab, file tab border, and status bar background</label>
                 <div class="input-container">
                   <select id="environment_accentColor">
-                    <option value="gray" selected>Gray</option>
+                    <option value="GRAYS_ray" selected>Gray</option>
                     <option value="blue">Blue</option>
                     <option value="transparent">Transparent</option>
                   </select>
@@ -887,7 +925,7 @@
             </div>
             <div class="form-section" style="text-align: center;">
               <div class="button-group">
-                <button type="button" class="primary large" onClick="downloadConfiguredTheme()">
+                <button type="button" class="primary large" onclick="downloadConfiguredTheme()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -895,7 +933,7 @@
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
                   <code style="position: relative; top: -1px;">dainty-vs-latest-configured.zip</code></button>
-                <button type="button" onClick="hideConfigureSection()">
+                <button type="button" onclick="hideConfigureSection()">
                   Close
                 </button>
               </div>
@@ -933,15 +971,47 @@
     <section>
       <h2>Screenshot</h2>
       <p>
-        <i>Click to toggle comparison with the default theme. You can configure Dainty to increase the brightness or descrease the saturation – or even override its colors – turning it into <a onclick="toggleDaintyRemixScreenshot(event);">something completely different</a>.
+        <i>
+            Click to toggle comparison with the default theme. You can configure Dainty to <a onclick="toggleScreenshots(event, '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">increase the brightness</a>
+            or <a onclick="toggleScreenshots(event, '#screenshotDaintyDesaturated', '#screenshotDaintyDesaturatedConfiguration');">descrease the saturation</a> –
+            or even override its colors – turning it into <a onclick="toggleScreenshots(event, '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">something completely different</a>.
+        </i>
       </p>
-      <style>
-      </style>
       <div class="screenshot-container">
         <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
         <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-dainty-remix" id="screenshotDaintyRemix" />
+        <img alt="Screenshot of Dainty brighter by 2 steps" src="screenshot-dainty-brighter.png" class="screenshot screenshot-dainty-brighter" id="screenshotDaintyBrighter" />
+        <img alt="Screenshot of Dainty desaturated by 3 steps" src="screenshot-dainty-desaturated.png" class="screenshot screenshot-dainty-desaturated" id="screenshotDaintyDesaturated" />
         <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-dark" id="screenshotDark"
-          onClick="toggleThemes();" />
+          onclick="toggleScreenshots(event);" />
+        <div class="screenshot-configuration" id="screenshotDaintyBrighterConfiguration">
+<pre><code>"colors": {
+  "process": {
+    "brighten": <span class="integer">2</span>,
+    "desaturate": <span class="integer">0</span>
+  }
+}</code></pre>
+        </div>
+        <div class="screenshot-configuration" id="screenshotDaintyDesaturatedConfiguration">
+<pre><code>"colors": {
+  "process": {
+    "brighten": <span class="integer">2</span>,
+    "desaturate": <span class="integer">4</span>
+  }
+}</code></pre>
+        </div>
+        <div class="screenshot-configuration" id="screenshotDaintyRemixConfiguration">
+<pre><code>"colors": {
+  "overrides": {
+    "blueGrays": [<span class="string">"#142d2c"</span>, <span class="string">"#fff"</span>],
+    "blues": [<span class="string">"#00251a"</span>, <span class="string">"#00796b"</span>, <span class="string">"#fff"</span>],
+    "blueLighter": <span class="string">"#a7ffeb"</span>,
+    "greenLighter": <span class="string">"#ea80fc</span>",
+    "deepOrangeLighter": <span class="string">"#9fffe0</span>",
+    "purpleLight": <span class="string">"#f4b2ff</span>"
+  }
+}</code></pre>
+        </div>
       </div>
     </section>
     <section>
@@ -1106,32 +1176,56 @@
   <script>
     var $ = document.querySelector.bind(document);
 
-    function toggleThemes() {
-      if ($("#screenshotDaintyRemix").style.opacity === "1") {
-        $("#screenshotDaintyRemix").style.opacity = 0;
+    function toggleScreenshots(event, screenshot, screenshotConfiguration) {
+      event.preventDefault();
+
+      if (screenshot) {
+        if ($(screenshot).style.opacity === "0" || $(screenshot).style.opacity === "") {
+          showScreenshot(screenshot, screenshotConfiguration);
+        } else {
+          showScreenshot("#screenshotDainty");
+        }
+        return;
       }
 
       if ($("#screenshotDainty").style.opacity === "1" || $("#screenshotDainty").style.opacity === "") {
-        $("#screenshotDainty").style.opacity = 0;
-        $("#screenshotDark").style.opacity = 1;
+        showScreenshot("#screenshotDark");
       } else {
-        $("#screenshotDainty").style.opacity = 1;
-        $("#screenshotDark").style.opacity = 0;
+        showScreenshot("#screenshotDainty");
       }
     }
 
-    function toggleDaintyRemixScreenshot(event) {
-      event.preventDefault();
+    function showScreenshot(screenshot, screenshotConfiguration) {
+      [
+        "#screenshotDaintyBrighter",
+        "#screenshotDaintyBrighterConfiguration",
+        "#screenshotDaintyDesaturated",
+        "#screenshotDaintyDesaturatedConfiguration",
+        "#screenshotDaintyRemix",
+        "#screenshotDaintyRemixConfiguration",
+        "#screenshotDainty",
+        "#screenshotDark"
+      ].filter(function(s) {
+        if (screenshotConfiguration) {
+          return s !== screenshot || s !== screenshotConfiguration;
+        } else {
+          return s !== screenshot;
+        }
+      }).map(function(s) {
+        $(s).style.opacity = 0;
 
-      if ($("#screenshotDark").style.opacity === "1") {
-        $("#screenshotDark").style.opacity = 0;
-        $("#screenshotDainty").style.opacity = 1;
-      }
+        if (s.endsWith("Configuration")) {
+          $(s).style.visibility = "hidden";
+        }
+      });
 
-      if ($("#screenshotDaintyRemix").style.opacity === "0" || $("#screenshotDaintyRemix").style.opacity === "") {
-        $("#screenshotDaintyRemix").style.opacity = 1;
-      } else {
-        $("#screenshotDaintyRemix").style.opacity = 0;
+      $(screenshot).style.opacity = 1;
+
+      if (screenshotConfiguration) {
+        setTimeout(function() {
+          $(screenshotConfiguration).style.visibility = "visible";
+          $(screenshotConfiguration).style.opacity = 1;
+        }, 250);
       }
     }
 

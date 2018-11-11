@@ -2,6 +2,7 @@ const fs = require("fs");
 const chroma = require("chroma-js");
 const util = require("util");
 const replaceOnce = require("replace-once");
+const changeCase = require("change-case");
 
 const writeFile = util.promisify(fs.writeFile);
 
@@ -90,12 +91,12 @@ function generateColorReplacements(colors) {
     if (typeof colors[key] === "object") {
       for (let i = 0; i < colors[key].length; i++) {
         replacements.push([
-          `"${key === "blueGrays" ? "bg" : key[0]}${i}"`,
+          `"${changeCase.constantCase(key)}_${i}"`,
           colors[key][i]
         ]);
       }
     } else {
-      replacements.push([`"${key}"`, colors[key]]);
+      replacements.push([`"${changeCase.constantCase(key)}"`, colors[key]]);
     }
   }
 
