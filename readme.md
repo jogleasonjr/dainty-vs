@@ -6,7 +6,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 
 ## Features
 
-- Font of editor, console, and output windows can be set
+- Font for editor, console, and output windows can be set
 - Active file tab, file tab border, and status bar background can be set to either gray, blue, or transparent
 - Contrast for environment background can be added
 - Contrast for environment text can be added
