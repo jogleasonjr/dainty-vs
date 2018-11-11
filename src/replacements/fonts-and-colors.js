@@ -22,7 +22,9 @@ function getFontsAndColorsReplacements(configuration, colors) {
     ["BRACE_MATCHING_FOREGROUND", r(colors.blueLighter)],
     ["BRACE_MATCHING_BACKGROUND", r(blueGrays[4])],
     ["CURRENT_LINE_FOREGROUND", r(blueGrays[0])],
-    ["CURRENT_LINE_BACKGROUND", r(blueGrays[6])]
+    ["CURRENT_LINE_BACKGROUND", r(blueGrays[6])],
+    ["XML_ATTRIBUTE_VALUE_FOREGROUND", r(colors.deepOrangeLighter)],
+    ["XML_ATTRIBUTE_QUOTES_FOREGROUND", r(colors.deepOrangeLighter)]
   ];
 }
 

@@ -39,7 +39,10 @@
 						<Items/>
 					</Category>
 					<Category GUID="{E0187991-B458-4F7E-8CA9-42C9A573B56C}" FontName="EDITOR_FONT_FAMILY" FontSize="10" CharSet="1" FontIsDefault="No">
-						<Items/>
+						<Items>
+							<Item Name="XML Attribute Value" Foreground="0x00XML_ATTRIBUTE_VALUE_FOREGROUND" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Attribute Quotes" Foreground="0x00XML_ATTRIBUTE_QUOTES_FOREGROUND" Background="0x02000000" BoldFont="No"/>
+						</Items>
 					</Category>
 					<Category GUID="{58E96763-1D3B-4E05-B6BA-FF7115FD0B7B}" FontName="EDITOR_FONT_FAMILY" FontSize="10" CharSet="1" FontIsDefault="No">
 						<Items/>
