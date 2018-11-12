@@ -28,7 +28,7 @@
 
     body {
       background-color: "BLUE_GRAYS_0";
-      color: "BLUE_GRAYS_32";
+      color: "BLUE_GRAYS_34";
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
       line-height: 1.875;
       margin: 0;
@@ -99,7 +99,7 @@
 
     @media (min-width: 1024px) {
       h1 {
-        font-size: 48px;
+        font-size: 40px;
       }
 
       h2 {
@@ -241,6 +241,7 @@
       ul.nav {
         flex-direction: row;
         font-size: 16px;
+        margin-left: -12px;
       }
     }
 
@@ -268,26 +269,24 @@
 
     @media (min-width: 1024px) {
       ul.nav li:not(:last-child) {
-        margin-right: 40px;
+        margin-right: 32px;
       }
     }
 
     ul.nav li a {
       padding: 8px 12px;
-      border-radius: 4px;
     }
 
     ul.nav li.active a {
       color: "BLUE_LIGHTER";
-      background-color: "BLUE_GRAYS_1";
     }
 
     ul.nav li:not(.active) a {
-      color: "BLUE_GRAYS_24";
+      color: "BLUE_GRAYS_34";
     }
 
     ul.nav li:not(.active) a:hover {
-      color: "BLUE_GRAYS_28";
+      color: "BLUE_LIGHTER";
     }
 
     .button-group {
@@ -370,7 +369,7 @@
 
     button:not(.primary) {
       background-color: transparent;
-      color: "BLUE_GRAYS_32";
+      color: "BLUE_GRAYS_34";
     }
 
     button:focus {
@@ -430,7 +429,7 @@
       right: 16px;
       top: 16px;
       background-color: rgba(19, 23, 32, 0.875);
-      color: "BLUE_GRAYS_32";
+      color: "BLUE_GRAYS_34";
       padding: 24px;
       box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
       opacity: 0;
@@ -472,7 +471,7 @@
     }
 
     .v {
-      color: "BLUE_GRAYS_32";
+      color: "BLUE_GRAYS_34";
     }
 
     .string {
@@ -528,7 +527,7 @@
       padding: 8px 12px;
       position: absolute;
       background-color: "BLUE_GRAYS_2";
-      color: "BLUE_GRAYS_32";
+      color: "BLUE_GRAYS_34";
       transition: background-color 0.25s ease;
     }
 
@@ -918,10 +917,10 @@
       <h2>Screenshots</h2>
       <ul class="nav">
         <li class="active" id="tabScreenshotDainty"><a onclick="showScreenshot(event, '#tabScreenshotDainty', '#screenshotDainty');">Dainty</a></li>
-        <li id="tabScreenshotDark"><a onclick="showScreenshot(event, '#tabScreenshotDark', '#screenshotDark');">Dark – <em>for comparison</em></a></li>
-        <li id="tabScreenshotDaintyRemix"><a onclick="showScreenshot(event, '#tabScreenshotDaintyRemix', '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">Dainty – remix</a></li>
-        <li id="tabScreenshotDaintyDarker"><a onclick="showScreenshot(event, '#tabScreenshotDaintyDarker', '#screenshotDaintyDarker', '#screenshotDaintyDarkerConfiguration');">Dainty – darker</a></li>
-        <li id="tabScreenshotDaintyBrighter"><a onclick="showScreenshot(event, '#tabScreenshotDaintyBrighter', '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">Dainty – brighter</a></li>
+        <li id="tabScreenshotDark"><a onclick="showScreenshot(event, '#tabScreenshotDark', '#screenshotDark');">Dark – <em>Comparison</em></a></li>
+        <li id="tabScreenshotDaintyRemix"><a onclick="showScreenshot(event, '#tabScreenshotDaintyRemix', '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">Dainty – Remix</a></li>
+        <li id="tabScreenshotDaintyDarker"><a onclick="showScreenshot(event, '#tabScreenshotDaintyDarker', '#screenshotDaintyDarker', '#screenshotDaintyDarkerConfiguration');">Dainty – Darker</a></li>
+        <li id="tabScreenshotDaintyBrighter"><a onclick="showScreenshot(event, '#tabScreenshotDaintyBrighter', '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">Dainty – Brighter</a></li>
       </ul>
       <div class="screenshot-container">
         <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
