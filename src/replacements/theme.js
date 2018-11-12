@@ -31,7 +31,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     configuration.environment.accentColor === "transparent"
       ? environmentBackgroundColor
       : configuration.environment.accentColor === "blue"
-      ? blues[8]
+      ? blues[0]
       : configuration.environment.additionalBackgroundContrast
       ? blueGrays[5 + cb]
       : blueGrays[4 + cb];
