@@ -1354,7 +1354,6 @@
     });
 
     function handleScroll(event) {
-      console.log({scrollTop: document.documentElement.scrollTop});
       if (document.documentElement.scrollTop >= 600) {
         $("#colorThemeEditor").className = "animated shake";
         window.removeEventListener('scroll', handleScroll);
