@@ -13,7 +13,7 @@ function getFontsAndColorsReplacements(configuration, colors) {
     ["OUTLINING_SQUARE_FOREGROUND", r(blueGrays[4])],
     ["OUTLINING_VERTICAL_RULE_FOREGROUND", r(blueGrays[4])],
     ["LINE_NUMBER_FOREGROUND", r(blueGrays[12])],
-    ["BLOCK_STRUCTURE_ADORNMENTS_BACKGROUND", r(blueGrays[2])],
+    ["BLOCK_STRUCTURE_ADORNMENTS_BACKGROUND", r(blueGrays[4])],
     ["HTML_SERVER_SIDE_SCRIPT_FOREGROUND", r(blues[24])],
     ["HTML_SERVER_SIDE_SCRIPT_BACKGROUND", r(blueGrays[4])],
     ["RAZOR_CODE_BACKGROUND", r(blueGrays[1])],
