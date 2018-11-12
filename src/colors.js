@@ -6,7 +6,7 @@ const defaultColors = {
     "#070b18",
 
     // Material Blue 50
-    "#e3f2fd"
+    desaturate("#e3f2fd", 0.5)
   ],
   blues: [
     // Custom
@@ -26,7 +26,7 @@ const defaultColors = {
   greenLighter: "#b9f6ca",
 
   // Custom
-  deepOrangeLighter: "#eac2b5",
+  deepOrangeLighter: "#fcd0ba",
 
   // Material Purple 200
   purpleLight: "#ce93d8",

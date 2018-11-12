@@ -4,7 +4,7 @@ function getCategoryReplacements(colors) {
   return {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, colors.deepOrangeLighter],
-      punctuation: [null, colors.blueGrays[24]],
+      punctuation: [null, colors.blueGrays[26]],
       urlformat: [null, colors.blueLighter]
     },
     "Text Editor Text Marker Items": {
@@ -244,7 +244,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#808080", blueGrays[24]],
 
     // Operator and HTML operator
-    ["#b4b4b4", blueGrays[28]],
+    ["#b4b4b4", blueGrays[30]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
     ["#f1f1f1", blueGrays[28 + c]],
