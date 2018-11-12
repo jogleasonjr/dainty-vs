@@ -131,7 +131,7 @@
               "$id": "#/properties/colors/properties/process/properties/brighten",
               "type": "integer",
               "title": "Brighten colors",
-              "default": 0,
+              "default": 2,
               "minimum": 0,
               "maximum": 7
             },
