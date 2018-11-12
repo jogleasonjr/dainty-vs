@@ -4,7 +4,7 @@ function getCategoryReplacements(colors) {
   return {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, colors.deepOrangeLighter],
-      punctuation: [null, colors.blueGrays[26]],
+      punctuation: [null, colors.blueGrays[32]],
       urlformat: [null, colors.blueLighter]
     },
     "Text Editor Text Marker Items": {
@@ -230,10 +230,10 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0097fb", blueGrays[32 + c]],
 
     // launchSettings.json property
-    ["#d7ba7d", blueGrays[34]],
+    ["#d7ba7d", blueGrays[36]],
 
     // Punctuation, method names
-    ["#dcdcdc", blueGrays[34]],
+    ["#dcdcdc", blueGrays[36]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
     ["#ffffff", colors.blueLighter],
@@ -241,13 +241,13 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#d0e6f5", blues[36]], // Close and pin icons on active tab
 
     // `<` and `>`
-    ["#808080", blueGrays[24]],
+    ["#808080", blueGrays[28]],
 
     // Operator and HTML operator
-    ["#b4b4b4", blueGrays[30]],
+    ["#b4b4b4", blueGrays[32]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
-    ["#f1f1f1", blueGrays[28 + c]],
+    ["#f1f1f1", blueGrays[32 + c]],
 
     // Inactive tabs in tool windows, tool window titles
     ["#d0d0d0", blueGrays[24 + c]],
