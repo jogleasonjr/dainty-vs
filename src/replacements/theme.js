@@ -25,16 +25,16 @@ function getSearchReplaceReplacements(configuration, colors) {
 
   const environmentBackgroundColor = configuration.environment
     .additionalBackgroundContrast
-    ? blueGrays[2]
-    : blueGrays[1];
+    ? blueGrays[3]
+    : blueGrays[2];
   const activeTabAndStatusbar =
     configuration.environment.accentColor === "transparent"
       ? environmentBackgroundColor
       : configuration.environment.accentColor === "blue"
       ? blues[8]
       : configuration.environment.additionalBackgroundContrast
-      ? blueGrays[4 + cb]
-      : blueGrays[3 + cb];
+      ? blueGrays[5 + cb]
+      : blueGrays[4 + cb];
 
   return [
     // # Backgrounds
