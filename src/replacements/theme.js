@@ -11,8 +11,8 @@ function getCategoryReplacements(colors) {
       "Current Statement": ["#eff284", null] // Revert
     },
     StartPage: {
-      StartPageHeadingText: [null, colors.blues[34]],
-      StartPageTitleText: [null, colors.blues[34]]
+      StartPageHeadingText: [null, colors.blues[36]],
+      StartPageTitleText: [null, colors.blues[36]]
     }
   };
 }
