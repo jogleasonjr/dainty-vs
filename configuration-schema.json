@@ -47,7 +47,7 @@
           "$id": "#/properties/environment/properties/additionalBackgroundContrast",
           "type": "boolean",
           "title": "Additional contrast for environment background",
-          "default": true
+          "default": false
         },
         "additionalTextContrast": {
           "$id": "#/properties/environment/properties/additionalTextContrast",
