@@ -131,7 +131,6 @@
       }
     }
 
-
     a {
       color: "BLUE_LIGHTER";
       text-decoration: none;
@@ -840,13 +839,19 @@
     }
 
     .github-corner {
-      fill: "BLUES_8";
-      color: "BLUE_GRAYS_0";
+      fill: "BLUE_GRAYS_4";
+      color: "BLUES_32";
       position: fixed;
       top: 0;
       border: 0;
       right: 0;
       z-index: 1;
+      transition: fill 0.1875s ease;
+    }
+
+    .github-corner:hover {
+      fill: "BLUE_GRAYS_6";
+      color: "BLUES_32";
     }
 
     /* https://daneden.github.io/animate.css/ */
