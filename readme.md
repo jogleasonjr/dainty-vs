@@ -47,15 +47,17 @@ Custom configuration is sent as JSON using the request body, and the format is d
 
 Colors can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
-    "overrides": {
-      "blueGrays": ["#0f111a", "#e3f2fd"],
-      "blues": ["#082847", "#1976d2", "#e3f2fd"],
-      "blueLighter": "#82b1ff",
-      "greenLighter": "#b9f6ca",
-      "deepOrangeLighter": "#e4b8a9",
-      "purpleLight": "#ce93d8",
-      "amberLighter": "#ffecb3"
-    }
+```json
+"overrides": {
+  "blueGrays": ["#0f111a", "#e3f2fd"],
+  "blues": ["#082847", "#1976d2", "#e3f2fd"],
+  "blueLighter": "#82b1ff",
+  "greenLighter": "#b9f6ca",
+  "deepOrangeLighter": "#e4b8a9",
+  "purpleLight": "#ce93d8",
+  "amberLighter": "#ffecb3"
+}
+```
 
 `blueGrays` and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The colors of the scale are evenly distributed between the points.
 
