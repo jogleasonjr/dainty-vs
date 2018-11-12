@@ -429,7 +429,7 @@
       position: absolute;
       right: 16px;
       top: 16px;
-      background-color: rgba(14, 18, 28, 0.875);
+      background-color: rgba(19, 23, 32, 0.875);
       color: "BLUE_GRAYS_32";
       padding: 24px;
       box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
@@ -919,40 +919,40 @@
       <ul class="nav">
         <li class="active" id="tabScreenshotDainty"><a onclick="showScreenshot(event, '#tabScreenshotDainty', '#screenshotDainty');">Dainty</a></li>
         <li id="tabScreenshotDaintyRemix"><a onclick="showScreenshot(event, '#tabScreenshotDaintyRemix', '#screenshotDaintyRemix', '#screenshotDaintyRemixConfiguration');">Dainty – color overrides</a></li>
+        <li id="tabScreenshotDaintyDarker"><a onclick="showScreenshot(event, '#tabScreenshotDaintyDarker', '#screenshotDaintyDarker', '#screenshotDaintyDarkerConfiguration');">Dainty – darker</a></li>
         <li id="tabScreenshotDaintyBrighter"><a onclick="showScreenshot(event, '#tabScreenshotDaintyBrighter', '#screenshotDaintyBrighter', '#screenshotDaintyBrighterConfiguration');">Dainty – brighter</a></li>
-        <li id="tabScreenshotDaintyDesaturated"><a onclick="showScreenshot(event, '#tabScreenshotDaintyDesaturated', '#screenshotDaintyDesaturated', '#screenshotDaintyDesaturatedConfiguration');">Dainty – brighter, desaturated</a></li>
         <li id="tabScreenshotDark"><a onclick="showScreenshot(event, '#tabScreenshotDark', '#screenshotDark');">Dark – for comparison</a></li>
       </ul>
       <div class="screenshot-container">
         <img alt="Screenshot of Dainty" src="screenshot-dainty.png" class="screenshot screenshot-dainty" id="screenshotDainty" />
         <img alt="Screenshot of Dainty brighter" src="screenshot-dainty-brighter.png" class="screenshot screenshot-additional" id="screenshotDaintyBrighter" />
-        <img alt="Screenshot of Dainty desaturated" src="screenshot-dainty-desaturated.png" class="screenshot screenshot-additional" id="screenshotDaintyDesaturated" />
+        <img alt="Screenshot of Dainty darker" src="screenshot-dainty-darker.png" class="screenshot screenshot-additional" id="screenshotDaintyDarker" />
         <img alt="Screenshot of Dainty remix" src="screenshot-dainty-remix.png" class="screenshot screenshot-additional" id="screenshotDaintyRemix" />
         <img alt="Screenshot of Dark" src="screenshot-dark.png" class="screenshot screenshot-additional" id="screenshotDark" />
         <div class="screenshot-configuration" id="screenshotDaintyBrighterConfiguration">
 <pre><code><span class="v">"colors"</span><span class="p">: {</span>
   <span class="v">"process"</span><span class="v"></span><span class="p">: {</span>
-      <span class="v">"brighten"</span><span class="p">:</span> <span class="integer">2</span>,
+      <span class="v">"brighten"</span><span class="p">:</span> <span class="integer">4</span>,
       <span class="v">"desaturate"</span><span class="p">:</span> <span class="integer">0</span>
     <span class="p">}
 }</span></code></pre>
         </div>
-        <div class="screenshot-configuration" id="screenshotDaintyDesaturatedConfiguration">
+        <div class="screenshot-configuration" id="screenshotDaintyDarkerConfiguration">
 <pre><code><span class="v">"colors"</span><span class="p">: {</span>
   <span class="v">"process"</span><span class="v"></span><span class="p">: {</span>
-      <span class="v">"brighten"</span><span class="p">:</span> <span class="integerd">2</span>,
-      <span class="v">"desaturate"</span><span class="p">:</span> <span class="integerd">4</span>
+      <span class="v">"brighten"</span><span class="p">:</span> <span class="integerd">0</span>,
+      <span class="v">"desaturate"</span><span class="p">:</span> <span class="integerd">0</span>
     <span class="p">}
 }</span></code></pre>
         </div>
         <div class="screenshot-configuration" id="screenshotDaintyRemixConfiguration">
 <pre><code><span class="v">"colors"</span><span class="p">: {</span>
-    <span class="v">"overrides"</span><span class="p">: {</span>
-      <span class="v">"blues"</span><span class="p">: [</span><span class="string">"#12005e"</span><span class="p">, </span><span class="string">"#ab47bc"</span><span class="p">, </span><span class="string">"#ffb2ff"</span><span class="p">],</span>
-      <span class="v">"blueLighter"</span><span class="p">: </span><span class="string">"#ea80fc"</span><span class="p">,</span>
-      <span class="v">"greenLighter"</span><span class="p">: </span><span class="string">"#84ffff"</span><span class="p">,</span>
-      <span class="v">"deepOrangeLighter"</span><span class="p">: </span><span class="string">"#82b1ff"</span><span class="p">,</span>
-      <span class="v">"purpleLight"</span><span class="p">: </span><span class="string">"#42a5f5"</span>
+  <span class="v">"overrides"</span><span class="p">: {</span>
+    <span class="v">"blues"</span><span class="p">: [</span><span class="string">"#12005e"</span><span class="p">, </span><span class="string">"#ab47bc"</span><span class="p">, </span><span class="string">"#ffb2ff"</span><span class="p">],</span>
+    <span class="v">"blueLighter"</span><span class="p">: </span><span class="string">"#ea80fc"</span><span class="p">,</span>
+    <span class="v">"greenLighter"</span><span class="p">: </span><span class="string">"#84ffff"</span><span class="p">,</span>
+    <span class="v">"deepOrangeLighter"</span><span class="p">: </span><span class="string">"#82b1ff"</span><span class="p">,</span>
+    <span class="v">"purpleLight"</span><span class="p">: </span><span class="string">"#42a5f5"</span>
   <span class="p">}
 }</span></code></pre>
         </div>
@@ -1246,7 +1246,7 @@
       [
         "#tabScreenshotDainty",
         "#tabScreenshotDaintyBrighter",
-        "#tabScreenshotDaintyDesaturated",
+        "#tabScreenshotDaintyDarker",
         "#tabScreenshotDaintyRemix",
         "#tabScreenshotDark"
       ].filter(function(t) {
@@ -1260,8 +1260,8 @@
       [
         "#screenshotDaintyBrighter",
         "#screenshotDaintyBrighterConfiguration",
-        "#screenshotDaintyDesaturated",
-        "#screenshotDaintyDesaturatedConfiguration",
+        "#screenshotDaintyDarker",
+        "#screenshotDaintyDarkerConfiguration",
         "#screenshotDaintyRemix",
         "#screenshotDaintyRemixConfiguration",
         "#screenshotDainty",
