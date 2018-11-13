@@ -4,7 +4,7 @@ function getCategoryReplacements(colors) {
   return {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, colors.deepOrangeLighter],
-      punctuation: [null, colors.blueGrays[32]],
+      punctuation: [null, colors.blueGrays[28]],
       urlformat: [null, colors.blueLighter]
     },
     "Text Editor Text Marker Items": {
