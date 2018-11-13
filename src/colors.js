@@ -3,7 +3,7 @@ const chroma = require("chroma-js");
 const defaultColors = {
   blueGrays: [
     // Custom
-    "#070b18",
+    "#080b16",
 
     // Material Blue 50
     desaturate("#e3f2fd", 0.375)
