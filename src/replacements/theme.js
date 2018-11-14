@@ -3,9 +3,9 @@ function getCategoryReplacements(colors) {
 
   return {
     "ColorizedSignatureHelp colors": {
-      "HTML Attribute Value": [null, colors.deepOrangeLighter],
+      "HTML Attribute Value": [null, colors.oranges[33]],
       punctuation: [null, colors.blueGrays[28]],
-      urlformat: [null, colors.blueLighter]
+      urlformat: [null, colors.accent[34]]
     },
     "Text Editor Text Marker Items": {
       "Current Statement": ["#eff284", null] // Revert
@@ -27,14 +27,10 @@ function getSearchReplaceReplacements(configuration, colors) {
     .additionalBackgroundContrast
     ? blueGrays[3]
     : blueGrays[2];
-  const activeTabAndStatusbar =
-    configuration.environment.accentColor === "transparent"
-      ? environmentBackgroundColor
-      : configuration.environment.accentColor === "blue"
-      ? blues[0]
-      : configuration.environment.additionalBackgroundContrast
-      ? blueGrays[5 + cb]
-      : blueGrays[4 + cb];
+  const activeTabAndStatusbar = configuration.environment
+    .additionalBackgroundContrast
+    ? blueGrays[5 + cb]
+    : blueGrays[4 + cb];
 
   return [
     // # Backgrounds
@@ -165,13 +161,13 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#3f3f40", blueGrays[2]],
 
     // Yellowy tooltip line
-    ["#fefcc8", colors.amberLighter],
+    ["#fefcc8", colors.oranges[39]],
 
     // Start page arrow
-    ["#4f4f53", colors.blues[16]],
+    ["#4f4f53", colors.accent[24]],
 
     // Start page arrow hover
-    ["#606060", colors.blues[20]],
+    ["#606060", colors.accent[28]],
 
     // Notification badge
     ["#8631c7", colors.blues[8]],
@@ -198,7 +194,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0079ce", colors.blues[20]],
 
     // Team Explorer `Changes` red indicator
-    ["#f05033", colors.greenLighter],
+    ["#f05033", colors.accent[34]],
 
     // Diagnostic Tools tab hover
     ["#555555", colors.blueGrays[4]],
@@ -206,10 +202,10 @@ function getSearchReplaceReplacements(configuration, colors) {
     // # Foregrounds
 
     // Start page `NEW`
-    ["#ff8c00", colors.greenLighter],
+    ["#ff8c00", colors.accent[34]],
 
     // Preview Selected Items border
-    ["#3399ff", blues[24]],
+    ["#3399ff", colors.accent[28]],
 
     // `using`, `public class`
     ["#569cd6", blues[26]],
@@ -230,18 +226,18 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0097fb", blueGrays[32 + c]],
 
     // launchSettings.json property
-    ["#d7ba7d", blueGrays[36]],
+    ["#d7ba7d", blueGrays[34]],
 
     // Punctuation, method names
-    ["#dcdcdc", blueGrays[36]],
+    ["#dcdcdc", blueGrays[34]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
-    ["#ffffff", colors.blueLighter],
+    ["#ffffff", colors.accent[34]],
 
-    ["#d0e6f5", blues[36]], // Close and pin icons on active tab
+    ["#d0e6f5", blueGrays[32 + c]], // Close and pin icons on active tab
 
     // `<` and `>`
-    ["#808080", blueGrays[28]],
+    ["#808080", blueGrays[26]],
 
     // Operator and HTML operator
     ["#b4b4b4", blueGrays[32]],
@@ -278,16 +274,16 @@ function getSearchReplaceReplacements(configuration, colors) {
     ],
 
     // Numbers
-    ["#b5cea8", colors.greenLighter],
+    ["#b5cea8", colors.greens[36]],
 
     // `IWebHostBuilder`
-    ["#b8d7a3", colors.purpleLight],
+    ["#b8d7a3", colors.purples[30]],
 
     // Less variable
-    ["#c563bd", colors.purpleLight],
+    ["#c563bd", colors.purples[30]],
 
     // Strings
-    ["#d69d85", colors.deepOrangeLighter],
+    ["#d69d85", colors.oranges[33]],
 
     // Start page heading
     ["#84ceff", colors.blueGrays[36]],

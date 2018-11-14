@@ -9,7 +9,7 @@
     "better-avj-errors": "0.4.0-alpha.3",
     "body-parser": "1.18.3",
     "change-case": "3.0.2",
-    "chroma-js": "1.4.0",
+    "culori": "0.7.3",
     "express": "4.16.4",
     "html-minifier": "3.5.21",
     "node-zip": "1.1.1",

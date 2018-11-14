@@ -1,114 +1,89 @@
-const chroma = require("chroma-js");
+const culori = require("culori");
 
-const defaultColors = {
-  blueGrays: [
-    // Custom
-    "#080b16",
+function generateScale(color, override, adjustments) {
+  const maximumLightness = 100;
+  const maximumChroma = 131.207;
+  const shadeLightnessMultiplier = 2.35;
 
-    // Material Blue 50
-    desaturate("#e3f2fd", 0.375)
-  ],
-  blues: [
-    // Custom
-    "#082847",
+  let chromaDivisor = 3.25;
+  let hue = 0;
+  let chromaAdjustment = 0;
 
-    // Material Blue 700
-    "#1976d2",
-
-    // Material Blue 50
-    "#e3f2fd"
-  ],
-
-  // Material Blue A100
-  blueLighter: "#82b1ff",
-
-  // Material Green A100
-  greenLighter: "#b9f6ca",
-
-  // Custom
-  deepOrangeLighter: "#fcd0ba",
-
-  // Material Purple 200
-  purpleLight: "#ce93d8",
-
-  // Material Amber 100
-  amberLighter: "#ffecb3"
-};
-
-function desaturate(color, amount) {
-  return chroma(color)
-    .desaturate(amount)
-    .hex();
-}
-
-function generateScale(colors, n = 40) {
-  return chroma
-    .scale(colors)
-    .mode("lch")
-    .colors(n);
-}
-
-function mergeColors(defaults, overrides = {}) {
-  let result = {};
-
-  for (const key of Object.keys(defaults)) {
-    if (overrides[key]) {
-      result[key] = overrides[key];
-    } else {
-      result[key] = defaults[key];
-    }
+  switch (color) {
+    case "BLUE_GRAYS":
+      hue = 270;
+      chromaDivisor = 25;
+      break;
+    case "BLUES":
+      hue = 270 - 90 / 16;
+      break;
+    case "PURPLES":
+      hue = 315;
+      break;
+    case "GREENS":
+      hue = 180;
+      break;
+    case "ORANGES":
+      hue = 45;
+      chromaAdjustment = -(maximumChroma / 6);
+      break;
   }
 
-  return result;
-}
+  chromaAdjustment +=
+    color === "BLUE_GRAYS" ? adjustments.chroma : adjustments.chroma * 2;
 
-function brightenScale(colors, steps) {
-  return [generateScale(colors)[steps]].concat(colors.slice(1));
+  const additionalLightness =
+    color === "BLUE_GRAYS" ? adjustments.lightness : 0;
+
+  const lchOverride = override ? culori.lch(override) : null;
+
+  let shades = [];
+
+  for (let i = 0; i < 40; i++) {
+    shades.push({
+      mode: "lch",
+      h: lchOverride ? lchOverride.h : hue,
+      l:
+        (additionalLightness / 40) * (39 - i) +
+        (maximumLightness - shadeLightnessMultiplier * (39 - i)),
+      c: lchOverride
+        ? lchOverride.c
+        : maximumChroma / chromaDivisor + chromaAdjustment
+    });
+  }
+
+  return shades.map(culori.formatter("hex"));
 }
 
 function generateColorPalette(configuration) {
-  const colors = mergeColors(defaultColors, configuration.overrides);
+  const overrides = configuration.overrides ? configuration.overrides : {};
 
-  const blueGrays = brightenScale(
-    colors.blueGrays,
-    configuration.process.brighten
-  );
+  const colorPalette = {
+    blueGrays: generateScale(
+      "BLUE_GRAYS",
+      overrides.blueGrays,
+      configuration.adjustments
+    ),
+    blues: generateScale("BLUES", overrides.blues, configuration.adjustments),
+    purples: generateScale(
+      "PURPLES",
+      overrides.purples,
+      configuration.adjustments
+    ),
+    oranges: generateScale(
+      "ORANGES",
+      overrides.oranges,
+      configuration.adjustments
+    ),
+    greens: generateScale("GREENS", overrides.greens, configuration.adjustments)
+  };
 
   return {
-    blueGrays: generateScale(
-      blueGrays.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.03125)
-      )
-    ),
-    blues: generateScale(
-      colors.blues.map(c =>
-        desaturate(c, configuration.process.desaturate * 0.125)
-      )
-    ),
-    blueLighter: desaturate(
-      colors.blueLighter,
-      configuration.process.desaturate * 0.125
-    ),
-    greenLighter: desaturate(
-      colors.greenLighter,
-      configuration.process.desaturate * 0.125
-    ),
-    deepOrangeLighter: desaturate(
-      colors.deepOrangeLighter,
-      configuration.process.desaturate * 0.125
-    ),
-    purpleLight: desaturate(
-      colors.purpleLight,
-      configuration.process.desaturate * 0.125
-    ),
-    amberLighter: desaturate(
-      colors.amberLighter,
-      configuration.process.desaturate * 0.125
-    )
+    ...colorPalette,
+    accent: colorPalette[`${configuration.accent}s`]
   };
 }
 
 module.exports = {
-  defaultColors,
   generateColorPalette
 };

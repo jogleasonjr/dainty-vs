@@ -6,7 +6,9 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 
 ## Features
 
-- Slightly dimmed punctuation marks, and editor clean ups
+- Precise and pleasant colors are generated using the CIELAB color space
+- Punctuation marks are slightly dimmed
+- The left side of the editor is less busy than in the default themes
 - Font for editor, console, and output windows can be set
 - Active file tab, file tab border, and status bar background can be set to either gray, blue, or transparent
 - Contrast for environment background can be added
@@ -18,7 +20,8 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Transparent tool window grip handles can be set
 - Settings for Indent Guides extension can be included
 - Colors can be brightened or desaturated
-- Colors can be overridden
+- Colors can be lightened, darkened or desaturated
+- Colors can be overridden and accent color can be set
 
 ## Setup
 
@@ -45,21 +48,19 @@ Custom configuration is sent as JSON using the request body, and the format is d
 
 ## Overriding colors
 
-Colors can be overridden by adding the following object to `"colors"` in `configuration.json`:
+Color scales can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
 ```json
 "overrides": {
-  "blueGrays": ["#0f111a", "#e3f2fd"],
-  "blues": ["#082847", "#1976d2", "#e3f2fd"],
-  "blueLighter": "#82b1ff",
-  "greenLighter": "#b9f6ca",
-  "deepOrangeLighter": "#e4b8a9",
-  "purpleLight": "#ce93d8",
-  "amberLighter": "#ffecb3"
+  "blueGrays": "#11181b",
+  "blues": "#ab47bc",
+  "purples": "#42a5f5",
+  "greens": "#84ffff",
+  "oranges": "#82b1ff"
 }
 ```
 
-`blueGrays` and `blues` are scales where each array item represents a point on the scale. The scale can be of any length. The colors of the scale are evenly distributed between the points.
+With a provided base color a scale of 40 shades is built. The color will be converted to LCh and its hue and chroma (saturation) will be kept.
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 

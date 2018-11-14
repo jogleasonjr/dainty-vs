@@ -27,7 +27,6 @@
       "title": "Visual Studio environment",
       "default": {},
       "required": [
-        "accentColor",
         "additionalBackgroundContrast",
         "additionalTextContrast",
         "transparentBorders",
@@ -36,13 +35,6 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "accentColor": {
-          "$id": "#/properties/environment/properties/accentColor",
-          "type": "string",
-          "enum": ["gray", "blue", "transparent"],
-          "title": "Active file tab, file tab border, and status bar background",
-          "default": "gray"
-        },
         "additionalBackgroundContrast": {
           "$id": "#/properties/environment/properties/additionalBackgroundContrast",
           "type": "boolean",
@@ -118,106 +110,75 @@
       "type": "object",
       "title": "Dainty colors",
       "default": {},
-      "required": ["process"],
+      "required": ["adjustments", "accent"],
       "properties": {
-        "process": {
-          "$id": "#/properties/colors/properties/process",
+        "adjustments": {
+          "$id": "#/properties/colors/properties/adjustments",
           "type": "object",
-          "title": "Colors processing",
+          "title": "Color adjustments",
           "default": {},
-          "required": ["brighten", "desaturate"],
+          "required": ["lightness"],
           "properties": {
-            "brighten": {
-              "$id": "#/properties/colors/properties/process/properties/brighten",
+            "lightness": {
+              "$id": "#/properties/colors/properties/process/properties/lightness",
               "type": "integer",
-              "title": "Brighten colors",
-              "default": 2,
-              "minimum": 0,
-              "maximum": 7
-            },
-            "desaturate": {
-              "$id": "#/properties/colors/properties/process/properties/desaturate",
-              "type": "integer",
-              "title": "Desaturate colors",
+              "title": "Adjust lightness to make blue-grays either darker og lighter",
               "default": 0,
-              "minimum": 0,
-              "maximum": 7
+              "minimum": -5,
+              "maximum": 5
+            },
+            "chroma": {
+              "$id": "#/properties/colors/properties/process/properties/chroma",
+              "type": "integer",
+              "title": "Adjust chroma to make colors either more or less saturated",
+              "default": 0,
+              "minimum": -5,
+              "maximum": 5
             }
           }
-        }
-      },
-      "overrides": {
-        "$id": "#/properties/colors/properties/overrides",
-        "type": "object",
-        "title": "Dainty colors overrides",
-        "required": [
-          "blueGrays",
-          "blues",
-          "blueLighter",
-          "greenLighter",
-          "deepOrangeLighter",
-          "purpleLight",
-          "amberLighter"
-        ],
-        "properties": {
-          "blueGrays": {
-            "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
-            "type": "array",
-            "title": "Blue-grays",
-            "items": {
-              "$id": "#/properties/colors/properties/overrides/properties/blueGrays/items",
+        },
+        "accent": {
+          "$id": "#/properties/colors/properties/accent",
+          "type": "string",
+          "enum": ["blue", "purple", "orange", "green"],
+          "title": "Active file tab, file tab border, and status bar background",
+          "default": "green"
+        },
+        "overrides": {
+          "$id": "#/properties/colors/properties/overrides",
+          "type": "object",
+          "title": "Dainty color overrides",
+          "properties": {
+            "blueGrays": {
+              "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
               "type": "string",
-              "title": "Scale of blue-grays",
-              "examples": ["#0f111a", "#e3f2fd"],
+              "title": "Base color for scale of blue-grays",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "blues": {
+              "$id": "#/properties/colors/properties/overrides/properties/blues",
+              "type": "string",
+              "title": "Base color for scale of blues",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "purples": {
+              "$id": "#/properties/colors/properties/overrides/properties/purples",
+              "type": "string",
+              "title": "Base color for scale of purples",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "greens": {
+              "$id": "#/properties/colors/properties/overrides/properties/greens",
+              "type": "string",
+              "title": "Base color for scale of greens",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "oranges": {
+              "$id": "#/properties/colors/properties/overrides/properties/oranges",
+              "type": "string",
+              "title": "Base color for scale of oranges",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
             }
-          },
-          "blues": {
-            "$id": "#/properties/colors/properties/overrides/properties/blues",
-            "type": "array",
-            "title": "Blues",
-            "items": {
-              "$id": "#/properties/colors/properties/overrides/properties/blues/items",
-              "type": "string",
-              "title": "Scale of blues",
-              "examples": ["#082847", "#1976d2", "#e3f2fd"],
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            }
-          },
-          "blueLighter": {
-            "$id": "#/properties/colors/properties/overrides/properties/blueLighter",
-            "type": "string",
-            "title": "Lighter blue",
-            "examples": ["#82b1ff"],
-            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          },
-          "greenLighter": {
-            "$id": "#/properties/colors/properties/overrides/properties/greenLighter",
-            "type": "string",
-            "title": "Lighter green",
-            "examples": ["#b9f6ca"],
-            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          },
-          "deepOrangeLighter": {
-            "$id": "#/properties/colors/properties/overrides/properties/deepOrangeLighter",
-            "type": "string",
-            "title": "Lighter deep orange",
-            "examples": ["#f5cfc4"],
-            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          },
-          "purpleLight": {
-            "$id": "#/properties/colors/properties/overrides/properties/purpleLight",
-            "type": "string",
-            "title": "Light purple",
-            "examples": ["#ce93d8"],
-            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-          },
-          "amberLighter": {
-            "$id": "#/properties/colors/properties/overrides/properties/amberLighter",
-            "type": "string",
-            "title": "Lighter amber",
-            "examples": ["#ffecb3"],
-            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
           }
         }
       }

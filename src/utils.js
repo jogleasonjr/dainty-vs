@@ -1,5 +1,5 @@
 const fs = require("fs");
-const chroma = require("chroma-js");
+const culori = require("culori");
 const util = require("util");
 const replaceOnce = require("replace-once");
 const changeCase = require("change-case");
@@ -29,9 +29,9 @@ async function writeFileLog(...args) {
 // In: "#00cc44"
 // Out: "0, 204, 68"
 function toRGBString(colorHex) {
-  return chroma(colorHex)
-    .rgb()
-    .join(", ");
+  const color = culori.parse(colorHex);
+
+  return `${color.r * 255}, ${color.g * 255}, ${color.b * 255}`;
 }
 
 // In: "#00cc44"
@@ -88,15 +88,11 @@ function generateColorReplacements(colors) {
   let replacements = [];
 
   for (const key of Object.keys(colors)) {
-    if (typeof colors[key] === "object") {
-      for (let i = 0; i < colors[key].length; i++) {
-        replacements.push([
-          `"${changeCase.constantCase(key)}_${i}"`,
-          colors[key][i]
-        ]);
-      }
-    } else {
-      replacements.push([`"${changeCase.constantCase(key)}"`, colors[key]]);
+    for (let i = 0; i < colors[key].length; i++) {
+      replacements.push([
+        `"${changeCase.constantCase(key)}_${i}"`,
+        colors[key][i]
+      ]);
     }
   }
 
