@@ -9,8 +9,6 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Precise and pleasant colors are generated using the CIELAB color space
 - Punctuation marks are slightly dimmed
 - The left side of the editor is less busy than in the default themes
-- Font for editor, console, and output windows can be set
-- Active file tab, file tab border, and status bar background can be set to either gray, blue, or transparent
 - Contrast for environment background can be added
 - Contrast for environment text can be added
 - Contrast for comments can be added
