@@ -120,7 +120,7 @@
           "required": ["lightness"],
           "properties": {
             "lightness": {
-              "$id": "#/properties/colors/properties/process/properties/lightness",
+              "$id": "#/properties/colors/properties/adjustments/properties/lightness",
               "type": "integer",
               "title": "Adjust lightness to make blue-grays either darker og lighter",
               "default": 0,
@@ -128,7 +128,7 @@
               "maximum": 5
             },
             "chroma": {
-              "$id": "#/properties/colors/properties/process/properties/chroma",
+              "$id": "#/properties/colors/properties/adjustments/properties/chroma",
               "type": "integer",
               "title": "Adjust chroma to make colors either more or less saturated",
               "default": 0,
