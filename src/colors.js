@@ -5,8 +5,6 @@ function generateScale(color, override, adjustments) {
   const maximumChroma = 131.207;
   const lightnessMultiplier = 2.25;
 
-  console.log({ color, override, adjustments });
-
   let chromaDivisor = 3;
   let hue = 0;
   let lightnessAdjustment = 0;
@@ -80,8 +78,6 @@ function generateColorPalette(configuration) {
       return scale.reverse();
     }
   }
-
-  console.log({ clrs: configuration.colors });
 
   const colorPalette = {
     blueGrays: handleVariant(
