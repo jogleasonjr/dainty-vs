@@ -1,0 +1,11 @@
+{
+  "colors": {
+    "accent": "purple",
+    "overrides": {
+      "blues": "#ab47bc",
+      "purples": "#84ffff",
+      "greens": "#82b1ff",
+      "oranges": "#42a5f5"
+    }
+  }
+}
