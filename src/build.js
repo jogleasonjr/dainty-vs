@@ -5,11 +5,11 @@ const minify = require("html-minifier").minify;
 const {
   transformTheme,
   transformSettings,
-  transformIndex,
-  transformSyntax,
-  transformColors,
-  transformDaintyCss,
-  transformCoverage
+  transformColorsPage,
+  transformCoveragePage,
+  transformDaintyCssPage,
+  transformIndexPage,
+  transformSyntaxPage
 } = require("./transform");
 const { zip, writeFileLog } = require("./utils");
 
@@ -55,9 +55,9 @@ async function createDistDirectory() {
   }
 }
 
-async function buildIndex(colors) {
+async function buildIndexPage(colors) {
   const target = path.join(__dirname, "../public/index.html");
-  const data = await transformIndex(colors);
+  const data = await transformIndexPage(colors);
 
   writeFileLog(
     target,
@@ -69,36 +69,36 @@ async function buildIndex(colors) {
   );
 }
 
-async function buildSyntax(colors) {
-  const target = path.join(__dirname, "../public/syntax.html");
-  const data = await transformSyntax(colors);
-  writeFileLog(target, data);
-}
-
-async function buildColors(colors) {
+async function buildColorsPage(colors) {
   const target = path.join(__dirname, "../public/colors.html");
-  const data = await transformColors(colors);
+  const data = await transformColorsPage(colors);
   writeFileLog(target, data);
 }
 
-async function buildCoverage(colors) {
+async function buildCoveragePage(colors) {
   const target = path.join(__dirname, "../public/coverage.html");
-  const data = await transformCoverage(colors);
+  const data = await transformCoveragePage(colors);
   writeFileLog(target, data);
 }
 
-async function buildDaintyCss(colors) {
+async function buildDaintyCssPage(colors) {
   const target = path.join(__dirname, "../public/dainty-css.html");
-  const data = await transformDaintyCss(colors);
+  const data = await transformDaintyCssPage(colors);
+  writeFileLog(target, data);
+}
+
+async function buildSyntaxPage(colors) {
+  const target = path.join(__dirname, "../public/syntax.html");
+  const data = await transformSyntaxPage(colors);
   writeFileLog(target, data);
 }
 
 module.exports = {
   buildThemeZip,
   buildThemeFiles,
-  buildIndex,
-  buildSyntax,
-  buildColors,
-  buildDaintyCss,
-  buildCoverage
+  buildIndexPage,
+  buildColorsPage,
+  buildCoveragePage,
+  buildDaintyCssPage,
+  buildSyntaxPage
 };

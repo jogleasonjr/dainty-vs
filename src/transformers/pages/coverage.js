@@ -6,15 +6,18 @@ const {
   toColorHex,
   applyReplacements,
   generateColorReplacements
-} = require("../utils");
+} = require("../../utils");
 
 const readFile = util.promisify(fs.readFile);
 
-async function transformCoverage(colors) {
-  const source = path.join(__dirname, "../templates/coverage.html");
-  const darkThemeSource = path.join(__dirname, "../templates/dark.vstheme");
-  const daintyThemeSource = path.join(__dirname, "../../dist/dainty.vstheme");
-  const daintyCss = path.join(__dirname, "../templates/dainty.css");
+async function transformCoveragePage(colors) {
+  const source = path.join(__dirname, "../../templates/coverage.html");
+  const darkThemeSource = path.join(__dirname, "../../templates/dark.vstheme");
+  const daintyThemeSource = path.join(
+    __dirname,
+    "../../../dist/dainty.vstheme"
+  );
+  const daintyCss = path.join(__dirname, "../../templates/dainty.css");
 
   console.log(`Transforming \`${source}\`…`);
 
@@ -272,5 +275,5 @@ async function transformCoverage(colors) {
 }
 
 module.exports = {
-  transformCoverage
+  transformCoveragePage
 };

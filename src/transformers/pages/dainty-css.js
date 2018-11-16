@@ -1,13 +1,13 @@
 const path = require("path");
 const util = require("util");
 const fs = require("fs");
-const { applyReplacements, generateColorReplacements } = require("../utils");
+const { applyReplacements, generateColorReplacements } = require("../../utils");
 
 const readFile = util.promisify(fs.readFile);
 
-async function transformIndex(colors) {
-  const source = path.join(__dirname, "../templates/index.html");
-  const daintyCss = path.join(__dirname, "../templates/dainty.css");
+async function transformDaintyCssPage(colors) {
+  const source = path.join(__dirname, "../../templates/dainty-css.html");
+  const daintyCss = path.join(__dirname, "../../templates/dainty.css");
 
   console.log(`Transforming \`${source}\`…`);
 
@@ -20,5 +20,5 @@ async function transformIndex(colors) {
 }
 
 module.exports = {
-  transformIndex
+  transformDaintyCssPage
 };

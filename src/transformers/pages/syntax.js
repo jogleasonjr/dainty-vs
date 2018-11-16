@@ -1,13 +1,13 @@
 const path = require("path");
 const util = require("util");
 const fs = require("fs");
-const { applyReplacements, generateColorReplacements } = require("../utils");
+const { applyReplacements, generateColorReplacements } = require("../../utils");
 
 const readFile = util.promisify(fs.readFile);
 
-async function transformSyntax(colors) {
-  const source = path.join(__dirname, "../templates/syntax.html");
-  const daintyCss = path.join(__dirname, "../templates/dainty.css");
+async function transformSyntaxPage(colors) {
+  const source = path.join(__dirname, "../../templates/syntax.html");
+  const daintyCss = path.join(__dirname, "../../templates/dainty.css");
 
   console.log(`Transforming \`${source}\`…`);
 
@@ -20,5 +20,5 @@ async function transformSyntax(colors) {
 }
 
 module.exports = {
-  transformSyntax
+  transformSyntaxPage
 };
