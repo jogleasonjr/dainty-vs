@@ -34,10 +34,10 @@ function generateScale(color, override, adjustments) {
 
   if (color === "BLUE_GRAYS") {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma : 0;
-    lightnessAdjustment += adjustments.lightness ? adjustments.lightness : 0;
+    lightnessAdjustment += adjustments.lightness ? adjustments.lightness : -3;
     chromaStartAdjustment = adjustments.chromaStart
       ? adjustments.chromaStart
-      : 0;
+      : 5;
     chromaEndAdjustment = adjustments.chromaEnd ? adjustments.chromaEnd : 0;
   } else {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma * 2 : 0;
