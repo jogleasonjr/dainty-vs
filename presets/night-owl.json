@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "adjustments": {
+      "lightness": -5,
+      "chroma": 0,
+      "chromaEnd": -17
+    },
+    "accent": "purple",
+    "overrides": {
+      "blueGrays": "#011627",
+      "blues": "#82aaff",
+      "greens": "#f78c6c",
+      "oranges": "#ecc48d",
+      "purples": "#addb67"
+    }
+  }
+}
