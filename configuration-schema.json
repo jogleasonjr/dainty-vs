@@ -127,16 +127,12 @@
             "chromaStart": {
               "$id": "#/properties/colors/properties/adjustments/properties/chromaStart",
               "type": "integer",
-              "title": "Adjust start of blue grays scale chroma",
-              "minimum": -10,
-              "maximum": 0
+              "title": "Adjust start of blue grays scale chroma"
             },
             "chromaEnd": {
               "$id": "#/properties/colors/properties/adjustments/properties/chromaEnd",
               "type": "integer",
-              "title": "Adjust end of blue grays scale chroma",
-              "minimum": -10,
-              "maximum": 0
+              "title": "Adjust end of blue grays scale chroma"
             }
           }
         },
