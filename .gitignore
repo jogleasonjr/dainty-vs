@@ -2,6 +2,8 @@
 dist
 node_modules
 public/index.html
-public/syntax.html
+public/colors.html
 public/coverage.html
+public/dainty-css.html
+public/syntax.html
 configuration.json
