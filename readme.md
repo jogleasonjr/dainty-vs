@@ -6,7 +6,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 
 ## Features
 
-- Precise and pleasant colors are generated using the CIELAB color space
+- Precise and pleasant colors are generated within the CIELAB color space
 - Punctuation marks are slightly dimmed
 - The left side of the editor is less busy than in the default themes
 - Contrast for environment background can be added
