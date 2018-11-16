@@ -206,6 +206,9 @@ function getSearchReplaceReplacements(configuration, colors) {
 
     // # Foregrounds
 
+    // Editor tooltip
+    ["#dadada", colors.blueGrays[32]],
+
     // Start page `NEW`
     ["#ff8c00", dark ? colors.accent[34] : colors.accent[16]],
 
@@ -237,7 +240,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#dcdcdc", blueGrays[32 + c]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
-    ["#ffffff", dark ? colors.accent[34] : colors.accent[16]],
+    ["#ffffff", dark ? colors.accent[34] : colors.accent[8]],
 
     ["#d0e6f5", blueGrays[32 + c]], // Close and pin icons on active tab
 
