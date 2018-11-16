@@ -50,7 +50,7 @@ async function transformColors(colors) {
       }
 
       html.push(
-        `<tr class="mod ${mod.join(" ")}">
+        `<tr class="mod mod-1 ${mod.join(" ")}">
           <td>${index}</td>
           <td width="20%">
             <div class="swatch" style="background-color: ${shade}"></div>
