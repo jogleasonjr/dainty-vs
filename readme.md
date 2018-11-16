@@ -19,7 +19,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Settings for Indent Guides extension can be included
 - Colors can be brightened or desaturated
 - Colors can be lightened, darkened, or desaturated
-- Colors can be overridden and accent color can be set
+- Colors can be overridden, and accent color can be set
 
 ## Setup
 
