@@ -7,6 +7,7 @@ const {
   transformSettings,
   transformIndex,
   transformSyntax,
+  transformColors,
   transformCoverage
 } = require("./transform");
 const { zip, writeFileLog } = require("./utils");
@@ -73,6 +74,12 @@ async function buildSyntax(colors) {
   writeFileLog(target, data);
 }
 
+async function buildColors(colors) {
+  const target = path.join(__dirname, "../public/colors.html");
+  const data = await transformColors(colors);
+  writeFileLog(target, data);
+}
+
 async function buildCoverage(colors) {
   const target = path.join(__dirname, "../public/coverage.html");
   const data = await transformCoverage(colors);
@@ -84,5 +91,6 @@ module.exports = {
   buildThemeFiles,
   buildIndex,
   buildSyntax,
+  buildColors,
   buildCoverage
 };

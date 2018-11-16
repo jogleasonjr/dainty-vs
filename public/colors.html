@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dainty for Visual Studio – Colors</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+      }
+
+      body {
+        background-color: #1d2027;
+        color: #dbdfe9;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        line-height: 1.875;
+        margin: 0;
+        font-weight: 300;
+        font-size: 18px;
+      }
+
+      @media (max-width: 1023.98px) {
+        body {
+          margin-top: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        body {
+          margin-top: 64px;
+        }
+      }
+
+      h1 {
+        margin-bottom: 32px;
+      }
+
+      h2,
+      h3,
+      p {
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2,
+      h3,
+      th {
+        color: #b7f1ff;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+
+      @media (max-width: 1023.98px) {
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      a {
+        color: #3ecfb8;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #5ee9d0;
+      }
+
+      main {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1055.98px) {
+        main {
+          padding: 0 16px;
+        }
+      }
+
+      section {
+        margin-bottom: 64px;
+      }
+
+      pre {
+        line-height: 1.375;
+      }
+
+      code {
+        font-family: "Dank Mono", "Roboto Mono", SFMono-Regular, Consolas,
+          Liberation Mono, Menlo, Courier, monospace;
+        color: #dbdfe9;
+        font-size: 15px;
+      }
+
+      .swatch-group {
+        margin-bottom: 16px;
+      }
+
+      .swatch {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        position: relative;
+        top: 4.5px;
+      }
+
+      @media (max-width: 1023.98px) {
+        .swatch {
+          margin-right: 4px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .swatch {
+          margin-right: 4px;
+        }
+      }
+
+      .table-scroll-container {
+        overflow-x: auto;
+        margin-bottom: 32px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 1024px;
+      }
+
+      @media (max-width: 1023.98px) {
+        table {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        table {
+          font-size: 16px;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid #3a3d45;
+      }
+
+      th {
+        text-align: left;
+        font-weight: 400;
+      }
+
+      th,
+      td {
+        padding: 8px;
+      }
+
+      @media (max-width: 1023.98px) {
+        form {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        form {
+          font-size: 16px;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        border-bottom: 1px solid #3a3d45;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .form-group:first-child {
+        border-top: 1px solid #3a3d45;
+        padding-top: 16px;
+      }
+
+      .form-group > .input-container {
+        position: relative;
+        flex: 0 0 50%;
+      }
+
+      .form-group > .input-container > select {
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        border: 0;
+        padding: 8px 12px;
+        position: absolute;
+        background-color: #262a31;
+        color: #dbdfe9;
+        transition: background-color 0.25s ease;
+      }
+
+      .form-group > .input-container > select:focus {
+        outline: none;
+        background-color: #3a3d45;
+        color: #e8ecf6;
+      }
+
+      .form-group > .input-container > input[type="text"] {
+        top: -3.5px;
+      }
+
+      .form-group > .input-container > select {
+        cursor: pointer;
+        top: -5px;
+      }
+
+      .form-group > label {
+        flex: 0 0 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Colors</h1>
+      <section>
+        <h2>Filter</h2>
+        <form>
+          <div class="form-section">
+            <div class="form-group">
+              <label>Filter color scales by index</label>
+              <div class="input-container">
+                <select onchange="filter(event)">
+                  <option value="mod-1">Mod 1</option>
+                  <option value="mod-2">Mod 2</option>
+                  <option value="mod-4">Mod 4</option>
+                  <option value="mod-8">Mod 8</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      
+      <section>
+        <h2>blueGrays</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="20%">Index</th>
+              <th width="20%">Swatch</th>
+              <th width="20%">Text</th>
+              <th width="20%">Hex</th>
+              <th width="20%">Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>0</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #1d2027"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #1d2027">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#1d2027</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_0</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>1</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #22252c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #22252c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#22252c</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_1</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>2</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #262a31"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #262a31">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#262a31</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_2</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>3</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #2b2e36"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #2b2e36">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#2b2e36</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_3</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>4</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #30333b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #30333b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#30333b</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_4</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>5</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #353840"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #353840">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#353840</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_5</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>6</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3a3d45"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3a3d45">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3a3d45</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_6</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>7</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3f424a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3f424a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3f424a</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_7</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>8</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #444750"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #444750">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#444750</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_8</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>9</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #494d55"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #494d55">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#494d55</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_9</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>10</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4e525a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4e525a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4e525a</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_10</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>11</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #545760"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #545760">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#545760</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_11</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>12</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #595d65"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #595d65">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#595d65</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_12</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>13</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5e626b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5e626b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5e626b</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_13</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>14</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #646870"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #646870">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#646870</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_14</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>15</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6a6d76"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6a6d76">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6a6d76</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_15</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>16</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6f737c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6f737c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6f737c</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_16</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>17</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #757881"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #757881">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#757881</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_17</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>18</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #7a7e87"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #7a7e87">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#7a7e87</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_18</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>19</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #80848d"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #80848d">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#80848d</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_19</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>20</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #868a93"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #868a93">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#868a93</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_20</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>21</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #8c8f99"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #8c8f99">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#8c8f99</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_21</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>22</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #92959f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #92959f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#92959f</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_22</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>23</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #979ba5"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #979ba5">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#979ba5</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_23</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>24</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #9da1ab"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #9da1ab">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#9da1ab</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_24</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>25</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #a3a7b1"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #a3a7b1">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#a3a7b1</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_25</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>26</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #a9adb7"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #a9adb7">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#a9adb7</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_26</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>27</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #afb3bd"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #afb3bd">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#afb3bd</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_27</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>28</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b6bac3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b6bac3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b6bac3</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_28</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>29</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #bcc0ca"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #bcc0ca">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#bcc0ca</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_29</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>30</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c2c6d0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c2c6d0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c2c6d0</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_30</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>31</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c8ccd6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c8ccd6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c8ccd6</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_31</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>32</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ced2dc"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ced2dc">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ced2dc</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_32</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>33</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #d5d9e3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #d5d9e3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#d5d9e3</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_33</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>34</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #dbdfe9"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #dbdfe9">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#dbdfe9</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_34</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>35</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #e1e5f0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #e1e5f0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#e1e5f0</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_35</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>36</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #e8ecf6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #e8ecf6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#e8ecf6</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_36</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>37</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #eef2fd"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #eef2fd">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#eef2fd</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_37</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>38</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #f5f9ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #f5f9ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#f5f9ff</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_38</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>39</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #fbffff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #fbffff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#fbffff</code></td>
+          <td width="20%">
+            <code>BLUE_GRAYS_39</code>
+          </td>
+        </tr>
+</tbody></table></section>
+
+      <section>
+        <h2>blues</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="20%">Index</th>
+              <th width="20%">Swatch</th>
+              <th width="20%">Text</th>
+              <th width="20%">Hex</th>
+              <th width="20%">Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>0</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00255e"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00255e">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00255e</code></td>
+          <td width="20%">
+            <code>BLUES_0</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>1</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #002963"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #002963">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#002963</code></td>
+          <td width="20%">
+            <code>BLUES_1</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>2</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #002e69"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #002e69">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#002e69</code></td>
+          <td width="20%">
+            <code>BLUES_2</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>3</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00336f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00336f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00336f</code></td>
+          <td width="20%">
+            <code>BLUES_3</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>4</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #003874"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #003874">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#003874</code></td>
+          <td width="20%">
+            <code>BLUES_4</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>5</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #003d7a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #003d7a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#003d7a</code></td>
+          <td width="20%">
+            <code>BLUES_5</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>6</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004280"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004280">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004280</code></td>
+          <td width="20%">
+            <code>BLUES_6</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>7</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004786"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004786">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004786</code></td>
+          <td width="20%">
+            <code>BLUES_7</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>8</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004c8c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004c8c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004c8c</code></td>
+          <td width="20%">
+            <code>BLUES_8</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>9</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005192"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005192">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005192</code></td>
+          <td width="20%">
+            <code>BLUES_9</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>10</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005698"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005698">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005698</code></td>
+          <td width="20%">
+            <code>BLUES_10</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>11</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005c9e"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005c9e">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005c9e</code></td>
+          <td width="20%">
+            <code>BLUES_11</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>12</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #0061a4"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #0061a4">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#0061a4</code></td>
+          <td width="20%">
+            <code>BLUES_12</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>13</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #1167aa"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #1167aa">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#1167aa</code></td>
+          <td width="20%">
+            <code>BLUES_13</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>14</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #1d6cb0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #1d6cb0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#1d6cb0</code></td>
+          <td width="20%">
+            <code>BLUES_14</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>15</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #2772b6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #2772b6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#2772b6</code></td>
+          <td width="20%">
+            <code>BLUES_15</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>16</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3077bc"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3077bc">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3077bc</code></td>
+          <td width="20%">
+            <code>BLUES_16</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>17</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #387dc3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #387dc3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#387dc3</code></td>
+          <td width="20%">
+            <code>BLUES_17</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>18</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3f83c9"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3f83c9">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3f83c9</code></td>
+          <td width="20%">
+            <code>BLUES_18</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>19</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4788cf"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4788cf">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4788cf</code></td>
+          <td width="20%">
+            <code>BLUES_19</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>20</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4e8ed6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4e8ed6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4e8ed6</code></td>
+          <td width="20%">
+            <code>BLUES_20</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>21</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5494dc"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5494dc">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5494dc</code></td>
+          <td width="20%">
+            <code>BLUES_21</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>22</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5b9ae2"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5b9ae2">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5b9ae2</code></td>
+          <td width="20%">
+            <code>BLUES_22</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>23</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #62a0e9"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #62a0e9">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#62a0e9</code></td>
+          <td width="20%">
+            <code>BLUES_23</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>24</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #69a6ef"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #69a6ef">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#69a6ef</code></td>
+          <td width="20%">
+            <code>BLUES_24</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>25</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6facf6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6facf6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6facf6</code></td>
+          <td width="20%">
+            <code>BLUES_25</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>26</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #76b2fc"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #76b2fc">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#76b2fc</code></td>
+          <td width="20%">
+            <code>BLUES_26</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>27</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #7cb8ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #7cb8ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#7cb8ff</code></td>
+          <td width="20%">
+            <code>BLUES_27</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>28</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #83beff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #83beff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#83beff</code></td>
+          <td width="20%">
+            <code>BLUES_28</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>29</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #89c4ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #89c4ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#89c4ff</code></td>
+          <td width="20%">
+            <code>BLUES_29</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>30</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #90cbff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #90cbff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#90cbff</code></td>
+          <td width="20%">
+            <code>BLUES_30</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>31</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #96d1ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #96d1ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#96d1ff</code></td>
+          <td width="20%">
+            <code>BLUES_31</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>32</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #9dd7ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #9dd7ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#9dd7ff</code></td>
+          <td width="20%">
+            <code>BLUES_32</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>33</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #a3ddff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #a3ddff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#a3ddff</code></td>
+          <td width="20%">
+            <code>BLUES_33</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>34</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #aae4ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #aae4ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#aae4ff</code></td>
+          <td width="20%">
+            <code>BLUES_34</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>35</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b1eaff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b1eaff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b1eaff</code></td>
+          <td width="20%">
+            <code>BLUES_35</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>36</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b7f1ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b7f1ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b7f1ff</code></td>
+          <td width="20%">
+            <code>BLUES_36</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>37</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #bef7ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #bef7ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#bef7ff</code></td>
+          <td width="20%">
+            <code>BLUES_37</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>38</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c4feff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c4feff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c4feff</code></td>
+          <td width="20%">
+            <code>BLUES_38</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>39</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #cbffff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #cbffff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#cbffff</code></td>
+          <td width="20%">
+            <code>BLUES_39</code>
+          </td>
+        </tr>
+</tbody></table></section>
+
+      <section>
+        <h2>purples</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="20%">Index</th>
+              <th width="20%">Swatch</th>
+              <th width="20%">Text</th>
+              <th width="20%">Hex</th>
+              <th width="20%">Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>0</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #36084c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #36084c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#36084c</code></td>
+          <td width="20%">
+            <code>PURPLES_0</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>1</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3c0e51"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3c0e51">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3c0e51</code></td>
+          <td width="20%">
+            <code>PURPLES_1</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>2</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #411457"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #411457">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#411457</code></td>
+          <td width="20%">
+            <code>PURPLES_2</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>3</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #47195c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #47195c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#47195c</code></td>
+          <td width="20%">
+            <code>PURPLES_3</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>4</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4c1f62"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4c1f62">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4c1f62</code></td>
+          <td width="20%">
+            <code>PURPLES_4</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>5</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #522467"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #522467">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#522467</code></td>
+          <td width="20%">
+            <code>PURPLES_5</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>6</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #57296d"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #57296d">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#57296d</code></td>
+          <td width="20%">
+            <code>PURPLES_6</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>7</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5d2e73"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5d2e73">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5d2e73</code></td>
+          <td width="20%">
+            <code>PURPLES_7</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>8</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #633478"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #633478">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#633478</code></td>
+          <td width="20%">
+            <code>PURPLES_8</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>9</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #69397e"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #69397e">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#69397e</code></td>
+          <td width="20%">
+            <code>PURPLES_9</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>10</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6e3e84"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6e3e84">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6e3e84</code></td>
+          <td width="20%">
+            <code>PURPLES_10</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>11</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #74448a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #74448a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#74448a</code></td>
+          <td width="20%">
+            <code>PURPLES_11</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>12</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #7a4990"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #7a4990">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#7a4990</code></td>
+          <td width="20%">
+            <code>PURPLES_12</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>13</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #804f96"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #804f96">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#804f96</code></td>
+          <td width="20%">
+            <code>PURPLES_13</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>14</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #86549c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #86549c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#86549c</code></td>
+          <td width="20%">
+            <code>PURPLES_14</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>15</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #8c5aa2"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #8c5aa2">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#8c5aa2</code></td>
+          <td width="20%">
+            <code>PURPLES_15</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>16</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #925fa8"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #925fa8">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#925fa8</code></td>
+          <td width="20%">
+            <code>PURPLES_16</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>17</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #9865ae"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #9865ae">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#9865ae</code></td>
+          <td width="20%">
+            <code>PURPLES_17</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>18</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #9e6bb4"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #9e6bb4">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#9e6bb4</code></td>
+          <td width="20%">
+            <code>PURPLES_18</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>19</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #a470ba"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #a470ba">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#a470ba</code></td>
+          <td width="20%">
+            <code>PURPLES_19</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>20</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #aa76c0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #aa76c0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#aa76c0</code></td>
+          <td width="20%">
+            <code>PURPLES_20</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>21</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b07cc7"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b07cc7">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b07cc7</code></td>
+          <td width="20%">
+            <code>PURPLES_21</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>22</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b782cd"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b782cd">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b782cd</code></td>
+          <td width="20%">
+            <code>PURPLES_22</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>23</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #bd88d3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #bd88d3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#bd88d3</code></td>
+          <td width="20%">
+            <code>PURPLES_23</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>24</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c38ed9"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c38ed9">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c38ed9</code></td>
+          <td width="20%">
+            <code>PURPLES_24</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>25</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ca93e0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ca93e0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ca93e0</code></td>
+          <td width="20%">
+            <code>PURPLES_25</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>26</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #d099e6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #d099e6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#d099e6</code></td>
+          <td width="20%">
+            <code>PURPLES_26</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>27</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #d6a0ed"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #d6a0ed">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#d6a0ed</code></td>
+          <td width="20%">
+            <code>PURPLES_27</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>28</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #dda6f3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #dda6f3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#dda6f3</code></td>
+          <td width="20%">
+            <code>PURPLES_28</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>29</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #e3acfa"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #e3acfa">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#e3acfa</code></td>
+          <td width="20%">
+            <code>PURPLES_29</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>30</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #eab2ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #eab2ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#eab2ff</code></td>
+          <td width="20%">
+            <code>PURPLES_30</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>31</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #f0b8ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #f0b8ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#f0b8ff</code></td>
+          <td width="20%">
+            <code>PURPLES_31</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>32</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #f7beff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #f7beff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#f7beff</code></td>
+          <td width="20%">
+            <code>PURPLES_32</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>33</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #fdc5ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #fdc5ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#fdc5ff</code></td>
+          <td width="20%">
+            <code>PURPLES_33</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>34</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffcbff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffcbff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffcbff</code></td>
+          <td width="20%">
+            <code>PURPLES_34</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>35</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffd1ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffd1ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffd1ff</code></td>
+          <td width="20%">
+            <code>PURPLES_35</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>36</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffd7ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffd7ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffd7ff</code></td>
+          <td width="20%">
+            <code>PURPLES_36</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>37</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffdeff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffdeff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffdeff</code></td>
+          <td width="20%">
+            <code>PURPLES_37</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>38</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffe4ff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffe4ff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffe4ff</code></td>
+          <td width="20%">
+            <code>PURPLES_38</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>39</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffebff"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffebff">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffebff</code></td>
+          <td width="20%">
+            <code>PURPLES_39</code>
+          </td>
+        </tr>
+</tbody></table></section>
+
+      <section>
+        <h2>oranges</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="20%">Index</th>
+              <th width="20%">Swatch</th>
+              <th width="20%">Text</th>
+              <th width="20%">Hex</th>
+              <th width="20%">Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>0</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #371608"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #371608">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#371608</code></td>
+          <td width="20%">
+            <code>ORANGES_0</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>1</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3c1b0f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3c1b0f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3c1b0f</code></td>
+          <td width="20%">
+            <code>ORANGES_1</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>2</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #412014"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #412014">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#412014</code></td>
+          <td width="20%">
+            <code>ORANGES_2</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>3</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #472518"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #472518">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#472518</code></td>
+          <td width="20%">
+            <code>ORANGES_3</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>4</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4c2a1d"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4c2a1d">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4c2a1d</code></td>
+          <td width="20%">
+            <code>ORANGES_4</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>5</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #522e22"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #522e22">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#522e22</code></td>
+          <td width="20%">
+            <code>ORANGES_5</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>6</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #573326"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #573326">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#573326</code></td>
+          <td width="20%">
+            <code>ORANGES_6</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>7</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5d382b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5d382b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5d382b</code></td>
+          <td width="20%">
+            <code>ORANGES_7</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>8</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #633e30"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #633e30">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#633e30</code></td>
+          <td width="20%">
+            <code>ORANGES_8</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>9</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #684335"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #684335">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#684335</code></td>
+          <td width="20%">
+            <code>ORANGES_9</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>10</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6e483a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6e483a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6e483a</code></td>
+          <td width="20%">
+            <code>ORANGES_10</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>11</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #744d3f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #744d3f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#744d3f</code></td>
+          <td width="20%">
+            <code>ORANGES_11</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>12</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #7a5344"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #7a5344">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#7a5344</code></td>
+          <td width="20%">
+            <code>ORANGES_12</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>13</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #805849"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #805849">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#805849</code></td>
+          <td width="20%">
+            <code>ORANGES_13</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>14</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #865d4f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #865d4f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#865d4f</code></td>
+          <td width="20%">
+            <code>ORANGES_14</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>15</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #8c6354"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #8c6354">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#8c6354</code></td>
+          <td width="20%">
+            <code>ORANGES_15</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>16</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #926859"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #926859">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#926859</code></td>
+          <td width="20%">
+            <code>ORANGES_16</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>17</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #986e5f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #986e5f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#986e5f</code></td>
+          <td width="20%">
+            <code>ORANGES_17</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>18</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #9e7464"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #9e7464">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#9e7464</code></td>
+          <td width="20%">
+            <code>ORANGES_18</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>19</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #a4796a"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #a4796a">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#a4796a</code></td>
+          <td width="20%">
+            <code>ORANGES_19</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>20</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #aa7f6f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #aa7f6f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#aa7f6f</code></td>
+          <td width="20%">
+            <code>ORANGES_20</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>21</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b08575"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b08575">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b08575</code></td>
+          <td width="20%">
+            <code>ORANGES_21</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>22</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #b68b7b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #b68b7b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#b68b7b</code></td>
+          <td width="20%">
+            <code>ORANGES_22</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>23</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #bd9180"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #bd9180">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#bd9180</code></td>
+          <td width="20%">
+            <code>ORANGES_23</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>24</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c39786"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c39786">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c39786</code></td>
+          <td width="20%">
+            <code>ORANGES_24</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>25</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #c99d8c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #c99d8c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#c99d8c</code></td>
+          <td width="20%">
+            <code>ORANGES_25</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>26</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #d0a392"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #d0a392">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#d0a392</code></td>
+          <td width="20%">
+            <code>ORANGES_26</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>27</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #d6a998"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #d6a998">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#d6a998</code></td>
+          <td width="20%">
+            <code>ORANGES_27</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>28</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ddaf9e"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ddaf9e">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ddaf9e</code></td>
+          <td width="20%">
+            <code>ORANGES_28</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>29</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #e3b5a4"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #e3b5a4">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#e3b5a4</code></td>
+          <td width="20%">
+            <code>ORANGES_29</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>30</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #eabbaa"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #eabbaa">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#eabbaa</code></td>
+          <td width="20%">
+            <code>ORANGES_30</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>31</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #f0c1b0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #f0c1b0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#f0c1b0</code></td>
+          <td width="20%">
+            <code>ORANGES_31</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>32</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #f7c7b6"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #f7c7b6">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#f7c7b6</code></td>
+          <td width="20%">
+            <code>ORANGES_32</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>33</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #fdcebc"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #fdcebc">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#fdcebc</code></td>
+          <td width="20%">
+            <code>ORANGES_33</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>34</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffd4c2"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffd4c2">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffd4c2</code></td>
+          <td width="20%">
+            <code>ORANGES_34</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>35</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffdac8"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffdac8">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffdac8</code></td>
+          <td width="20%">
+            <code>ORANGES_35</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>36</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffe1cf"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffe1cf">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffe1cf</code></td>
+          <td width="20%">
+            <code>ORANGES_36</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>37</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffe7d5"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffe7d5">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffe7d5</code></td>
+          <td width="20%">
+            <code>ORANGES_37</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>38</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #ffeddb"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #ffeddb">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#ffeddb</code></td>
+          <td width="20%">
+            <code>ORANGES_38</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>39</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #fff4e2"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #fff4e2">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#fff4e2</code></td>
+          <td width="20%">
+            <code>ORANGES_39</code>
+          </td>
+        </tr>
+</tbody></table></section>
+
+      <section>
+        <h2>greens</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="20%">Index</th>
+              <th width="20%">Swatch</th>
+              <th width="20%">Text</th>
+              <th width="20%">Hex</th>
+              <th width="20%">Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>0</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #002d1f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #002d1f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#002d1f</code></td>
+          <td width="20%">
+            <code>GREENS_0</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>1</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #003124"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #003124">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#003124</code></td>
+          <td width="20%">
+            <code>GREENS_1</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>2</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #003628"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #003628">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#003628</code></td>
+          <td width="20%">
+            <code>GREENS_2</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>3</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #003b2d"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #003b2d">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#003b2d</code></td>
+          <td width="20%">
+            <code>GREENS_3</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>4</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004132"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004132">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004132</code></td>
+          <td width="20%">
+            <code>GREENS_4</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>5</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004637"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004637">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004637</code></td>
+          <td width="20%">
+            <code>GREENS_5</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>6</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #004c3c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #004c3c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#004c3c</code></td>
+          <td width="20%">
+            <code>GREENS_6</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>7</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005141"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005141">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005141</code></td>
+          <td width="20%">
+            <code>GREENS_7</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>8</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005746"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005746">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005746</code></td>
+          <td width="20%">
+            <code>GREENS_8</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>9</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #005c4b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #005c4b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#005c4b</code></td>
+          <td width="20%">
+            <code>GREENS_9</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>10</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #006250"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #006250">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#006250</code></td>
+          <td width="20%">
+            <code>GREENS_10</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>11</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #006856"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #006856">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#006856</code></td>
+          <td width="20%">
+            <code>GREENS_11</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>12</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #006e5b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #006e5b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#006e5b</code></td>
+          <td width="20%">
+            <code>GREENS_12</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>13</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #007360"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #007360">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#007360</code></td>
+          <td width="20%">
+            <code>GREENS_13</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>14</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #007966"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #007966">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#007966</code></td>
+          <td width="20%">
+            <code>GREENS_14</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>15</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #007f6b"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #007f6b">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#007f6b</code></td>
+          <td width="20%">
+            <code>GREENS_15</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>16</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #008571"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #008571">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#008571</code></td>
+          <td width="20%">
+            <code>GREENS_16</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>17</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #008b77"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #008b77">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#008b77</code></td>
+          <td width="20%">
+            <code>GREENS_17</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>18</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00917c"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00917c">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00917c</code></td>
+          <td width="20%">
+            <code>GREENS_18</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>19</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #009782"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #009782">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#009782</code></td>
+          <td width="20%">
+            <code>GREENS_19</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>20</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #009d88"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #009d88">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#009d88</code></td>
+          <td width="20%">
+            <code>GREENS_20</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>21</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00a38e"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00a38e">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00a38e</code></td>
+          <td width="20%">
+            <code>GREENS_21</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>22</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00a994"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00a994">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00a994</code></td>
+          <td width="20%">
+            <code>GREENS_22</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>23</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #00b099"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #00b099">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#00b099</code></td>
+          <td width="20%">
+            <code>GREENS_23</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>24</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #10b69f"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #10b69f">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#10b69f</code></td>
+          <td width="20%">
+            <code>GREENS_24</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>25</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #20bca5"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #20bca5">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#20bca5</code></td>
+          <td width="20%">
+            <code>GREENS_25</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>26</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #2bc2ab"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #2bc2ab">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#2bc2ab</code></td>
+          <td width="20%">
+            <code>GREENS_26</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>27</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #35c9b1"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #35c9b1">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#35c9b1</code></td>
+          <td width="20%">
+            <code>GREENS_27</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>28</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #3ecfb8"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #3ecfb8">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#3ecfb8</code></td>
+          <td width="20%">
+            <code>GREENS_28</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>29</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #47d5be"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #47d5be">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#47d5be</code></td>
+          <td width="20%">
+            <code>GREENS_29</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>30</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #4fdcc4"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #4fdcc4">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#4fdcc4</code></td>
+          <td width="20%">
+            <code>GREENS_30</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>31</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #56e2ca"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #56e2ca">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#56e2ca</code></td>
+          <td width="20%">
+            <code>GREENS_31</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4 mod-8">
+          <td>32</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #5ee9d0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #5ee9d0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#5ee9d0</code></td>
+          <td width="20%">
+            <code>GREENS_32</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>33</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #65efd7"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #65efd7">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#65efd7</code></td>
+          <td width="20%">
+            <code>GREENS_33</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>34</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #6cf6dd"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #6cf6dd">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#6cf6dd</code></td>
+          <td width="20%">
+            <code>GREENS_34</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>35</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #73fce3"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #73fce3">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#73fce3</code></td>
+          <td width="20%">
+            <code>GREENS_35</code>
+          </td>
+        </tr>
+<tr class="mod mod-2 mod-4">
+          <td>36</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #7affea"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #7affea">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#7affea</code></td>
+          <td width="20%">
+            <code>GREENS_36</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>37</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #81fff0"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #81fff0">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#81fff0</code></td>
+          <td width="20%">
+            <code>GREENS_37</code>
+          </td>
+        </tr>
+<tr class="mod mod-2">
+          <td>38</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #88fff7"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #88fff7">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#88fff7</code></td>
+          <td width="20%">
+            <code>GREENS_38</code>
+          </td>
+        </tr>
+<tr class="mod ">
+          <td>39</td>
+          <td width="20%">
+            <div class="swatch" style="background-color: #8ffffd"></div>
+          </td>
+          <td width="20%">
+            <div style="color: #8ffffd">Lorem ipsum</div>
+          </td>
+          <td width="20%"><code>#8ffffd</code></td>
+          <td width="20%">
+            <code>GREENS_39</code>
+          </td>
+        </tr>
+</tbody></table></section>
+    </main>
+    <script>
+      var $ = document.querySelector.bind(document);
+      var $$ = document.querySelectorAll.bind(document);
+
+      function filter(event) {
+        var className = `.${event.target.value}`;
+
+        for (el of $$(`.mod`)) {
+          if (!el.classList.contains(className)) {
+            el.style.display = "none";
+          }
+        }
+
+        for (el of $$(className)) {
+          el.style.display = "table-row";
+        }
+      }
+    </script>
+  </body>
+</html>

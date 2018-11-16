@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dainty for Visual Studio – Colors</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+      }
+
+      body {
+        background-color: "BLUE_GRAYS_0";
+        color: "BLUE_GRAYS_34";
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        line-height: 1.875;
+        margin: 0;
+        font-weight: 300;
+        font-size: 18px;
+      }
+
+      @media (max-width: 1023.98px) {
+        body {
+          margin-top: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        body {
+          margin-top: 64px;
+        }
+      }
+
+      h1 {
+        margin-bottom: 32px;
+      }
+
+      h2,
+      h3,
+      p {
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2,
+      h3,
+      th {
+        color: "BLUES_36";
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+
+      @media (max-width: 1023.98px) {
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      a {
+        color: "ACCENT_28";
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: "ACCENT_32";
+      }
+
+      main {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1055.98px) {
+        main {
+          padding: 0 16px;
+        }
+      }
+
+      section {
+        margin-bottom: 64px;
+      }
+
+      pre {
+        line-height: 1.375;
+      }
+
+      code {
+        font-family: "Dank Mono", "Roboto Mono", SFMono-Regular, Consolas,
+          Liberation Mono, Menlo, Courier, monospace;
+        color: "BLUE_GRAYS_34";
+        font-size: 15px;
+      }
+
+      .swatch-group {
+        margin-bottom: 16px;
+      }
+
+      .swatch {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        position: relative;
+        top: 4.5px;
+      }
+
+      @media (max-width: 1023.98px) {
+        .swatch {
+          margin-right: 4px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .swatch {
+          margin-right: 4px;
+        }
+      }
+
+      .table-scroll-container {
+        overflow-x: auto;
+        margin-bottom: 32px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 1024px;
+      }
+
+      @media (max-width: 1023.98px) {
+        table {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        table {
+          font-size: 16px;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid "BLUE_GRAYS_6";
+      }
+
+      th {
+        text-align: left;
+        font-weight: 400;
+      }
+
+      th,
+      td {
+        padding: 8px;
+      }
+
+      @media (max-width: 1023.98px) {
+        form {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        form {
+          font-size: 16px;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        border-bottom: 1px solid "BLUE_GRAYS_6";
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .form-group:first-child {
+        border-top: 1px solid "BLUE_GRAYS_6";
+        padding-top: 16px;
+      }
+
+      .form-group > .input-container {
+        position: relative;
+        flex: 0 0 50%;
+      }
+
+      .form-group > .input-container > select {
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        border: 0;
+        padding: 8px 12px;
+        position: absolute;
+        background-color: "BLUE_GRAYS_2";
+        color: "BLUE_GRAYS_34";
+        transition: background-color 0.25s ease;
+      }
+
+      .form-group > .input-container > select:focus {
+        outline: none;
+        background-color: "BLUE_GRAYS_6";
+        color: "BLUE_GRAYS_36";
+      }
+
+      .form-group > .input-container > input[type="text"] {
+        top: -3.5px;
+      }
+
+      .form-group > .input-container > select {
+        cursor: pointer;
+        top: -5px;
+      }
+
+      .form-group > label {
+        flex: 0 0 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Colors</h1>
+      <section>
+        <h2>Filter</h2>
+        <form>
+          <div class="form-section">
+            <div class="form-group">
+              <label>Filter color scales by index</label>
+              <div class="input-container">
+                <select onchange="filter(event)">
+                  <option value="mod-1">Mod 1</option>
+                  <option value="mod-2">Mod 2</option>
+                  <option value="mod-4">Mod 4</option>
+                  <option value="mod-8">Mod 8</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <!-- INSERT_CONTENT -->
+    </main>
+    <script>
+      var $ = document.querySelector.bind(document);
+      var $$ = document.querySelectorAll.bind(document);
+
+      function filter(event) {
+        var className = `.${event.target.value}`;
+
+        for (el of $$(`.mod`)) {
+          if (!el.classList.contains(className)) {
+            el.style.display = "none";
+          }
+        }
+
+        for (el of $$(className)) {
+          el.style.display = "table-row";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -3,7 +3,8 @@ const {
   buildThemeFiles,
   buildIndex,
   buildSyntax,
-  buildCoverage
+  buildCoverage,
+  buildColors
 } = require("./build");
 const { generateColorPalette } = require("./colors");
 
@@ -20,7 +21,8 @@ const { generateColorPalette } = require("./colors");
   await Promise.all([
     buildThemeFiles(configuration, colors),
     buildIndex(colors),
-    buildSyntax(colors)
+    buildSyntax(colors),
+    buildColors(colors)
   ]);
 
   await buildCoverage(colors);
