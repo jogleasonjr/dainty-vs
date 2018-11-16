@@ -2,7 +2,6 @@
   "$id": "https://dainty-vs.now.sh/configuration-schema.json",
   "type": "object",
   "title": "Dainty customization",
-  "required": ["editor", "environment", "extensions"],
   "additionalProperties": false,
   "properties": {
     "editor": {
@@ -10,7 +9,6 @@
       "type": "object",
       "title": "Visual Studio editor",
       "default": {},
-      "required": ["fontFamily"],
       "additionalProperties": false,
       "properties": {
         "fontFamily": {
@@ -26,13 +24,6 @@
       "type": "object",
       "title": "Visual Studio environment",
       "default": {},
-      "required": [
-        "additionalBackgroundContrast",
-        "additionalTextContrast",
-        "transparentBorders",
-        "transparentScrollbarContainers",
-        "transparentToolWindowGrips"
-      ],
       "additionalProperties": false,
       "properties": {
         "additionalBackgroundContrast": {
@@ -84,7 +75,6 @@
       "type": "object",
       "title": "Visual Studio extensions",
       "default": {},
-      "required": ["indentGuides"],
       "additionalProperties": false,
       "properties": {
         "indentGuides": {
@@ -92,7 +82,6 @@
           "type": "object",
           "title": "Indent Guides extension",
           "default": {},
-          "required": ["includeSettings"],
           "additionalProperties": false,
           "properties": {
             "includeSettings": {
@@ -110,14 +99,14 @@
       "type": "object",
       "title": "Dainty colors",
       "default": {},
-      "required": ["adjustments", "accent"],
+      "additionalProperties": false,
       "properties": {
         "adjustments": {
           "$id": "#/properties/colors/properties/adjustments",
           "type": "object",
           "title": "Color adjustments",
           "default": {},
-          "required": ["lightness"],
+          "additionalProperties": false,
           "properties": {
             "lightness": {
               "$id": "#/properties/colors/properties/adjustments/properties/lightness",
@@ -148,6 +137,8 @@
           "$id": "#/properties/colors/properties/overrides",
           "type": "object",
           "title": "Dainty color overrides",
+          "default": {},
+          "additionalProperties": false,
           "properties": {
             "blueGrays": {
               "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
