@@ -3,16 +3,17 @@ const culori = require("culori");
 function generateScale(color, override, adjustments) {
   const maximumLightness = 100;
   const maximumChroma = 131.207;
-  const shadeLightnessMultiplier = 2.35;
+  const lightnessMultiplier = 2.25;
 
-  let chromaDivisor = 3.25;
+  let chromaDivisor = 3;
   let hue = 0;
   let chromaAdjustment = 0;
+  let lightnessAdjustment = 0;
 
   switch (color) {
     case "BLUE_GRAYS":
       hue = 270;
-      chromaDivisor = 25;
+      chromaDivisor = 24;
       break;
     case "BLUES":
       hue = 270 - 90 / 16;
@@ -25,15 +26,16 @@ function generateScale(color, override, adjustments) {
       break;
     case "ORANGES":
       hue = 45;
-      chromaAdjustment = -(maximumChroma / 6);
+      chromaAdjustment -= maximumChroma / 6;
       break;
   }
 
-  chromaAdjustment +=
-    color === "BLUE_GRAYS" ? adjustments.chroma : adjustments.chroma * 2;
-
-  const additionalLightness =
-    color === "BLUE_GRAYS" ? adjustments.lightness : 0;
+  if (color === "BLUE_GRAYS") {
+    chromaAdjustment += adjustments.chroma;
+    lightnessAdjustment += adjustments.lightness;
+  } else {
+    chromaAdjustment += adjustments.chroma * 2;
+  }
 
   const lchOverride = override ? culori.lch(override) : null;
 
@@ -44,8 +46,8 @@ function generateScale(color, override, adjustments) {
       mode: "lch",
       h: lchOverride ? lchOverride.h : hue,
       l:
-        (additionalLightness / 40) * (39 - i) +
-        (maximumLightness - shadeLightnessMultiplier * (39 - i)),
+        (lightnessAdjustment / 40) * (39 - i) +
+        (maximumLightness - lightnessMultiplier * (39 - i)),
       c: lchOverride
         ? lchOverride.c
         : maximumChroma / chromaDivisor + chromaAdjustment
