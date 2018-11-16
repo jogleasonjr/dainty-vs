@@ -33,7 +33,7 @@ async function transformTheme(configuration, colors) {
   try {
     replacedContent = applyCategoryReplacements(
       replacedContent,
-      getCategoryReplacements(colors)
+      getCategoryReplacements(configuration, colors)
     );
   } catch (error) {
     return [error, null];

@@ -5,6 +5,8 @@ function generateScale(color, override, adjustments) {
   const maximumChroma = 131.207;
   const lightnessMultiplier = 2.25;
 
+  console.log({ color, override, adjustments });
+
   let chromaDivisor = 3;
   let hue = 0;
   let lightnessAdjustment = 0;
@@ -67,31 +69,57 @@ function generateScale(color, override, adjustments) {
 }
 
 function generateColorPalette(configuration) {
-  const overrides = configuration.overrides ? configuration.overrides : {};
+  const overrides = configuration.colors.overrides
+    ? configuration.colors.overrides
+    : {};
+
+  function handleVariant(scale) {
+    if (configuration.variant === "dark") {
+      return scale;
+    } else {
+      return scale.reverse();
+    }
+  }
+
+  console.log({ clrs: configuration.colors });
 
   const colorPalette = {
-    blueGrays: generateScale(
-      "BLUE_GRAYS",
-      overrides.blueGrays,
-      configuration.adjustments
+    blueGrays: handleVariant(
+      generateScale(
+        "BLUE_GRAYS",
+        overrides.blueGrays,
+        configuration.colors.adjustments
+      )
     ),
-    blues: generateScale("BLUES", overrides.blues, configuration.adjustments),
-    purples: generateScale(
-      "PURPLES",
-      overrides.purples,
-      configuration.adjustments
+    blues: handleVariant(
+      generateScale("BLUES", overrides.blues, configuration.colors.adjustments)
     ),
-    oranges: generateScale(
-      "ORANGES",
-      overrides.oranges,
-      configuration.adjustments
+    purples: handleVariant(
+      generateScale(
+        "PURPLES",
+        overrides.purples,
+        configuration.colors.adjustments
+      )
     ),
-    greens: generateScale("GREENS", overrides.greens, configuration.adjustments)
+    oranges: handleVariant(
+      generateScale(
+        "ORANGES",
+        overrides.oranges,
+        configuration.colors.adjustments
+      )
+    ),
+    greens: handleVariant(
+      generateScale(
+        "GREENS",
+        overrides.greens,
+        configuration.colors.adjustments
+      )
+    )
   };
 
   return {
     ...colorPalette,
-    accent: colorPalette[`${configuration.accent}s`]
+    accent: colorPalette[`${configuration.colors.accent}s`]
   };
 }
 

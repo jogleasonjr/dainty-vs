@@ -4,6 +4,14 @@
   "title": "Dainty customization",
   "additionalProperties": false,
   "properties": {
+    "variant": {
+      "$id": "#/properties/variant",
+      "type": "string",
+      "enum": ["dark", "light"],
+      "title": "Color theme variant",
+      "default": "dark",
+      "additionalProperties": false
+    },
     "editor": {
       "$id": "#/properties/editor",
       "type": "object",

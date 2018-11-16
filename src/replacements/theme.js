@@ -1,11 +1,15 @@
-function getCategoryReplacements(colors) {
+function getCategoryReplacements(configuration, colors) {
   const { blueGrays, blues } = colors;
+  const dark = configuration.variant === "dark";
 
   return {
     "ColorizedSignatureHelp colors": {
-      "HTML Attribute Value": [null, colors.oranges[33]],
+      "HTML Attribute Value": [
+        null,
+        dark ? colors.oranges[33] : colors.oranges[18]
+      ],
       punctuation: [null, colors.blueGrays[28]],
-      urlformat: [null, colors.accent[34]]
+      urlformat: [null, dark ? colors.accent[34] : colors.accent[16]]
     },
     "Text Editor Text Marker Items": {
       "Current Statement": ["#eff284", null] // Revert
@@ -19,6 +23,7 @@ function getCategoryReplacements(colors) {
 
 function getSearchReplaceReplacements(configuration, colors) {
   const { blueGrays, blues } = colors;
+  const dark = configuration.variant === "dark";
 
   const c = configuration.environment.additionalTextContrast ? 4 : 0;
   const cb = configuration.environment.additionalTextContrast ? 2 : 0;
@@ -194,7 +199,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#0079ce", colors.blues[20]],
 
     // Team Explorer `Changes` red indicator
-    ["#f05033", colors.accent[34]],
+    ["#f05033", dark ? colors.accent[34] : colors.accent[16]],
 
     // Diagnostic Tools tab hover
     ["#555555", colors.blueGrays[4]],
@@ -202,25 +207,25 @@ function getSearchReplaceReplacements(configuration, colors) {
     // # Foregrounds
 
     // Start page `NEW`
-    ["#ff8c00", colors.accent[34]],
+    ["#ff8c00", dark ? colors.accent[34] : colors.accent[16]],
 
     // Preview Selected Items border
     ["#3399ff", colors.accent[28]],
 
     // `using`, `public class`
-    ["#569cd6", blues[26]],
+    ["#569cd6", dark ? blues[26] : blues[24]],
 
     // `form`, `option` (bold)
-    ["#008080", blues[26]],
+    ["#008080", dark ? blues[26] : blues[24]],
 
     // `&nbsp;`
-    ["#00a0a0", blues[32]],
+    ["#00a0a0", dark ? blues[32] : blues[20]],
 
     // `Program`, `WebHost`, `Startup`
-    ["#4ec9b0", blues[32]],
+    ["#4ec9b0", dark ? blues[32] : blues[20]],
 
     // HTML attribute
-    ["#9cdcfe", blues[32]],
+    ["#9cdcfe", dark ? blues[32] : blues[20]],
 
     // Active tool window tab, `Import theme`
     ["#0097fb", blueGrays[32 + c]],
@@ -232,7 +237,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#dcdcdc", blueGrays[32 + c]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
-    ["#ffffff", colors.accent[34]],
+    ["#ffffff", dark ? colors.accent[34] : colors.accent[16]],
 
     ["#d0e6f5", blueGrays[32 + c]], // Close and pin icons on active tab
 
@@ -274,16 +279,16 @@ function getSearchReplaceReplacements(configuration, colors) {
     ],
 
     // Numbers
-    ["#b5cea8", colors.greens[36]],
+    ["#b5cea8", dark ? colors.greens[36] : colors.greens[16]],
 
     // `IWebHostBuilder`
-    ["#b8d7a3", colors.purples[30]],
+    ["#b8d7a3", dark ? colors.purples[30] : colors.purples[20]],
 
     // Less variable
-    ["#c563bd", colors.purples[30]],
+    ["#c563bd", dark ? colors.purples[30] : colors.purples[20]],
 
     // Strings
-    ["#d69d85", colors.oranges[33]],
+    ["#d69d85", dark ? colors.oranges[33] : colors.oranges[18]],
 
     // Start page heading
     ["#84ceff", colors.blueGrays[36]],

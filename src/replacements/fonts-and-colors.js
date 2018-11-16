@@ -2,6 +2,7 @@ const { RGBToBGR } = require("../utils");
 
 function getFontsAndColorsReplacements(configuration, colors) {
   const { blueGrays, blues, oranges, accent } = colors;
+  const dark = configuration.variant === "dark";
 
   function r(str) {
     return RGBToBGR(str)
@@ -23,8 +24,14 @@ function getFontsAndColorsReplacements(configuration, colors) {
     ["BRACE_MATCHING_BACKGROUND", r(blueGrays[4])],
     ["CURRENT_LINE_FOREGROUND", r(blueGrays[0])],
     ["CURRENT_LINE_BACKGROUND", r(blueGrays[6])],
-    ["XML_ATTRIBUTE_VALUE_FOREGROUND", r(oranges[33])],
-    ["XML_ATTRIBUTE_QUOTES_FOREGROUND", r(oranges[33])]
+    [
+      "XML_ATTRIBUTE_VALUE_FOREGROUND",
+      r(dark ? colors.oranges[33] : colors.oranges[18])
+    ],
+    [
+      "XML_ATTRIBUTE_QUOTES_FOREGROUND",
+      r(dark ? colors.oranges[33] : colors.oranges[18])
+    ]
   ];
 }
 
