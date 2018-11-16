@@ -14,10 +14,14 @@ async function transformCoverage(colors) {
   const source = path.join(__dirname, "../templates/coverage.html");
   const darkThemeSource = path.join(__dirname, "../templates/dark.vstheme");
   const daintyThemeSource = path.join(__dirname, "../../dist/dainty.vstheme");
+  const daintyCss = path.join(__dirname, "../templates/dainty.css");
 
   console.log(`Transforming \`${source}\`…`);
 
-  const sourceContent = await readFile(source, "utf8");
+  const sourceContent = (await readFile(source, "utf8")).replace(
+    "/* INSERT_DAINTY_CSS */",
+    await readFile(daintyCss, "utf8")
+  );
 
   function sortCategories(a, b) {
     return b.elements.length - a.elements.length;

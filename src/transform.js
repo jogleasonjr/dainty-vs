@@ -4,6 +4,7 @@ const { transformIndex } = require("./transformers/index");
 const { transformSyntax } = require("./transformers/syntax");
 const { transformCoverage } = require("./transformers/coverage");
 const { transformColors } = require("./transformers/colors");
+const { transformDaintyCss } = require("./transformers/dainty-css");
 
 module.exports = {
   transformTheme,
@@ -11,5 +12,6 @@ module.exports = {
   transformIndex,
   transformSyntax,
   transformCoverage,
-  transformColors
+  transformColors,
+  transformDaintyCss
 };

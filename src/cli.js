@@ -4,6 +4,7 @@ const {
   buildIndex,
   buildSyntax,
   buildCoverage,
+  buildDaintyCss,
   buildColors
 } = require("./build");
 const { generateColorPalette } = require("./colors");
@@ -22,7 +23,8 @@ const { generateColorPalette } = require("./colors");
     buildThemeFiles(configuration, colors),
     buildIndex(colors),
     buildSyntax(colors),
-    buildColors(colors)
+    buildColors(colors),
+    buildDaintyCss(colors)
   ]);
 
   await buildCoverage(colors);

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dainty for Visual Studio – Syntax</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  background-color: #1d2027;
+  color: #dbdfe9;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  line-height: 1.875;
+  margin: 0;
+  font-weight: 300;
+}
+
+@media (max-width: 1023.98px) {
+  body {
+    margin-top: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    margin-top: 64px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  h1 {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    margin-bottom: 32px;
+  }
+}
+
+h2,
+h3,
+p {
+  margin-bottom: 16px;
+}
+
+ul {
+  margin-bottom: 32px;
+}
+
+h1,
+h2,
+h3,
+th {
+  color: #b7f1ff;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+}
+
+@media (max-width: 1023.98px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  p.small {
+    font-size: 14px;
+  }
+
+  p.small code {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  p.small {
+    font-size: 16px;
+  }
+
+  p.small code {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: #7affea;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #8ffffd;
+}
+
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1055.98px) {
+  main {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  section {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    margin-bottom: 64px;
+  }
+}
+
+pre {
+  line-height: 1.375;
+}
+
+code {
+  font-family: "Roboto Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo,
+    Courier, monospace;
+}
+
+@media (max-width: 1023.98px) {
+  code {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  code {
+    font-size: 15px;
+  }
+}
+
+.table-scroll-container {
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 1024px;
+}
+
+@media (max-width: 1023.98px) {
+  table {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  table {
+    font-size: 16px;
+  }
+}
+
+tr {
+  border-bottom: 1px solid #3a3d45;
+}
+
+th {
+  text-align: left;
+  font-weight: 400;
+}
+
+th,
+td {
+  padding: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul:not(.nav) {
+  padding-left: 16px;
+}
+
+ul.nav {
+  display: flex;
+  padding-left: 0;
+  margin-left: -12px;
+}
+
+@media (max-width: 1023.98px) {
+  ul.nav {
+    flex-direction: column;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  ul.nav {
+    flex-direction: row;
+    font-size: 16px;
+  }
+}
+
+ul:not(.nav) > li:before {
+  display: inline-block;
+  content: "–";
+  width: 18px;
+  margin-left: -18px;
+  color: #6f737c;
+}
+
+ul ul {
+  margin-bottom: 0;
+}
+
+ul.nav li {
+  display: inline-block;
+}
+
+@media (max-width: 1023.98px) {
+  ul.nav li:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  ul.nav li:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+ul.nav li a {
+  padding: 8px 12px;
+}
+
+ul.nav li.active a {
+  color: #7affea;
+}
+
+ul.nav li:not(.active) a {
+  color: #dbdfe9;
+}
+
+ul.nav li:not(.active) a:hover {
+  color: #8ffffd;
+}
+
+.button-group {
+  display: flex;
+}
+
+@media (max-width: 499.98px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group:not(.center) {
+    align-items: flex-start;
+  }
+
+  .button-group.center {
+    align-items: center;
+  }
+
+  .button-group button:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 500px) {
+  .button-group {
+    flex-direction: row;
+  }
+
+  .button-group.center {
+    justify-content: center;
+  }
+
+  .button-group button:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+button {
+  border: 0;
+  font-family: inherit;
+  font-weight: 300;
+  transition: transform 0.125s ease, background-color 0.125s ease,
+    color 0.125s ease;
+  padding: 0 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 52px;
+}
+
+button.primary {
+  background-color: #6e3e84;
+  color: #e8ecf6;
+}
+
+button:not(.large) {
+  position: relative;
+  top: -1px;
+}
+
+@media (max-width: 1023.98px) {
+  button.large {
+    font-size: 16px;
+  }
+
+  button:not(.large) {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  button.large {
+    font-size: 18px;
+  }
+
+  button:not(.large) {
+    font-size: 16px;
+  }
+}
+
+button:not(.primary) {
+  background-color: transparent;
+  color: #dbdfe9;
+}
+
+button:focus {
+  outline: none;
+}
+
+button.primary:hover {
+  background-color: #7a4990;
+}
+
+button:not(.primary):hover {
+  background-color: #262a31;
+}
+
+button:active {
+  transform: scale(0.985);
+}
+
+@media (max-width: 1023.98px) {
+  form {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  form {
+    font-size: 16px;
+  }
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: flex;
+  border-bottom: 1px solid #3a3d45;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.form-group:first-child {
+  border-top: 1px solid #3a3d45;
+  padding-top: 16px;
+}
+
+.form-group > .input-container {
+  position: relative;
+  flex: 0 0 50%;
+}
+
+.form-group > .input-container > input[type="text"],
+.form-group > .input-container > select {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  border: 0;
+  padding: 8px 12px;
+  position: absolute;
+  background-color: #262a31;
+  color: #dbdfe9;
+  transition: background-color 0.25s ease;
+}
+
+.form-group > .input-container > input[type="text"]:focus,
+.form-group > .input-container > select:focus {
+  outline: none;
+  background-color: #3a3d45;
+  color: #e8ecf6;
+}
+
+.form-group > .input-container > input[type="text"] {
+  top: -3.5px;
+}
+
+.form-group > .input-container > select {
+  cursor: pointer;
+  top: -5px;
+}
+
+.form-group > .ckbx-style-8 {
+  position: relative;
+  top: 4px;
+}
+
+.form-group > label {
+  flex: 0 0 50%;
+}
+
+.modal-container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transition: transform 0.1875s ease;
+  transform: scale(1);
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1024px;
+  background-color: #1d2027;
+  overflow: auto;
+  padding: 24px 32px 32px 32px;
+  box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.25);
+  max-height: 100vh;
+}
+
+@media (max-width: 1023.98px) {
+  .modal {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal {
+    width: 1024px;
+  }
+}
+
+.dim {
+  opacity: 0.25;
+}
+
+/* https://github.com/hunzaboy/CSS-Checkbox-Library.git */
+
+div[class^="ckbx-style-"] input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.ckbx-style-8 {
+  font-size: 24px;
+}
+
+.ckbx-style-8 input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.ckbx-style-8 label {
+  width: 2em;
+  height: 1em;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.ckbx-style-8 label:before {
+  content: "";
+  position: absolute;
+  width: 2em;
+  height: 1em;
+  left: 0.1em;
+  transition: background-color 0.25s ease;
+  background-color: #262a31;
+  border-radius: 50px;
+}
+
+.ckbx-style-8 label:after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: 50px;
+  left: 0;
+  transition: all 0.25s;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: #ced2dc;
+  z-index: 3;
+}
+
+.ckbx-style-8 input[type="checkbox"]:checked + label:before {
+  background: #009d88;
+}
+
+.ckbx-style-8 input[type="checkbox"]:checked + label:after {
+  left: 1.1em;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Dainty CSS</h1>
+      <section>
+        <h2>Typography</h2>
+
+        <h1>Heading 1</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <h2>Heading 2</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <h3>Heading 3</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <h3>Small paragraph</h3>
+        <p class="small">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <h3>Dimmed paragraph</h3>
+        <p class="dim">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <h3>Code</h3>
+        <p>
+          <code>
+            @media (max-width: 1023.98px) { .modal { width: 100vw; } }
+          </code>
+        </p>
+        <h3>Preformatted code</h3>
+        <p>
+        <pre><code>@media (max-width: 1023.98px) {
+  .modal {
+    width: 100vw;
+  }
+}</code></pre></p>
+      </section>
+      <section>
+        <h2>Tables</h2>
+        <div class="table-scroll-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Heading 1</th>
+                <th>Heading 2</th>
+                <th>Heading 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data cell 1</td>
+                <td>Data cell 2</td>
+                <td>Data cell 3</td>
+              </tr>
+              <tr>
+                <td>Data cell 4</td>
+                <td>Data cell 5</td>
+                <td>Data cell 6</td>
+              </tr>
+              <tr>
+                <td>Data cell 7</td>
+                <td>Data cell 8</td>
+                <td>Data cell 9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Forms</h2>
+        <form>
+          <div class="form-section">
+            <div class="form-group">
+              <label>Input 1</label>
+              <div class="input-container"><input type="text" /></div>
+            </div>
+            <div class="form-group">
+              <label>Input 2</label>
+              <div class="input-container"><input type="text" /></div>
+            </div>
+            <div class="form-group">
+              <label>Select 1</label>
+              <div class="input-container">
+                <select>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                  <option>Option 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Checkbox 1</label>
+              <div class="ckbx-style-8">
+                <input type="checkbox" id="checkbox1">
+                <label for="checkbox1"></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Checkbox 2</label>
+              <div class="ckbx-style-8">
+                <input type="checkbox" checked id="checkbox2">
+                <label for="checkbox2"></label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h2>Buttons</h2>
+        <form>
+          <div class="form-section">
+            <div class="button-group">
+              <button class="primary">Primary</button>
+              <button>Non-primary</button>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="button-group">
+              <button class="primary large">Primary large</button>
+              <button class="large">Non-primary large</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
