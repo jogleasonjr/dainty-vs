@@ -10,7 +10,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Punctuation marks are slightly dimmed
 - The left side of the editor is less busy than in the default themes
 - Contrast for environment background can be added
-- Contrast for environment text can be added
+- Contrast for environment and editor text can be added
 - Contrast for comments can be added
 - Contrast for scrollbars can be added
 - Transparent environment borders can be set
