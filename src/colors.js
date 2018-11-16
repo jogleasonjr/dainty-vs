@@ -7,8 +7,10 @@ function generateScale(color, override, adjustments) {
 
   let chromaDivisor = 3;
   let hue = 0;
-  let chromaAdjustment = 0;
   let lightnessAdjustment = 0;
+  let chromaAdjustment = 0;
+  let chromaStartAdjustment = 0;
+  let chromaEndAdjustment = 0;
 
   switch (color) {
     case "BLUE_GRAYS":
@@ -31,10 +33,14 @@ function generateScale(color, override, adjustments) {
   }
 
   if (color === "BLUE_GRAYS") {
-    chromaAdjustment += adjustments.chroma;
-    lightnessAdjustment += adjustments.lightness;
+    chromaAdjustment += adjustments.chroma ? adjustments.chroma : 0;
+    lightnessAdjustment += adjustments.lightness ? adjustments.lightness : 0;
+    chromaStartAdjustment = adjustments.chromaStart
+      ? adjustments.chromaStart
+      : 0;
+    chromaEndAdjustment = adjustments.chromaEnd ? adjustments.chromaEnd : 0;
   } else {
-    chromaAdjustment += adjustments.chroma * 2;
+    chromaAdjustment += adjustments.chroma ? adjustments.chroma * 2 : 0;
   }
 
   const lchOverride = override ? culori.lch(override) : null;
@@ -48,9 +54,12 @@ function generateScale(color, override, adjustments) {
       l:
         (lightnessAdjustment / 40) * (39 - i) +
         (maximumLightness - lightnessMultiplier * (39 - i)),
-      c: lchOverride
-        ? lchOverride.c
-        : maximumChroma / chromaDivisor + chromaAdjustment
+      c:
+        (chromaStartAdjustment / 40) * (39 - i) +
+        (chromaEndAdjustment / 40) * i +
+        (lchOverride
+          ? lchOverride.c
+          : maximumChroma / chromaDivisor + chromaAdjustment)
     });
   }
 
