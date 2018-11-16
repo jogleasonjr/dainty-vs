@@ -38,7 +38,10 @@ Run `npm run start` to start Express server. These are the available routes:
 | Method | Route                           | Description                                                       |
 | ------ | ------------------------------- | ----------------------------------------------------------------- |
 | `GET`  | `/`                             | Landing page                                                      |
+| `GET`  | `/colors.html`                  | Colors page                                                       |
 | `GET`  | `/coverage.html`                | Coverage page                                                     |
+| `GET`  | `/dainty-css.html`              | Dainty.css page                                                   |
+| `GET`  | `/syntax.html`                  | Syntax page                                                       |
 | `GET`  | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
 | `POST` | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration  |
 
