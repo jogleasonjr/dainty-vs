@@ -113,7 +113,7 @@ Environment colors and editor tokens can be overridden by adding the following o
 }
 ```
 
-Each replacement is a tuple, where the first value represents the dark variation of the theme. The second value represents the light variation. For categories there is an inner tuple representing the background color, and text color, respectively.
+Each replacement is a tuple, where the first value represents the dark variation of the theme. The second value represents the light variation. For categories there is an inner tuple representing the background and text color, respectively.
 
 ## License
 
