@@ -1,8 +1,12 @@
 {
+  "environment": {
+    "additionalTextContrast": false
+  },
   "colors": {
     "adjustments": {
-      "lightness": -5,
+      "lightness": -6,
       "chroma": 0,
+      "chromaStart": -1,
       "chromaEnd": -17
     },
     "accent": "purple",
@@ -12,6 +16,18 @@
       "greens": "#f78c6c",
       "oranges": "#ecc48d",
       "purples": "#addb67"
+    }
+  },
+  "replacements": {
+    "overrides": {
+      "searchReplace": {
+        "#b5cea8": ["#F78C6C", null]
+      },
+      "categories": {
+        "ColorizedSignatureHelp colors": {
+          "punctuation": [[null, "#C792EA"], [null, null]]
+        }
+      }
     }
   }
 }
