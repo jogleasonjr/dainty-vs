@@ -77,7 +77,7 @@ function mergeConfigurationCategoryReplacements(
         )
       ) {
         throw new Error(
-          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The value must either be a color hex value or a Dainty color constant.`
         );
       }
 
@@ -89,7 +89,7 @@ function mergeConfigurationCategoryReplacements(
         )
       ) {
         throw new Error(
-          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The value must either be a color hex value or a Dainty color constant.`
         );
       }
 
@@ -101,7 +101,7 @@ function mergeConfigurationCategoryReplacements(
         )
       ) {
         throw new Error(
-          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The value must either be a color hex value or a Dainty color constant.`
         );
       }
 
@@ -113,7 +113,7 @@ function mergeConfigurationCategoryReplacements(
         )
       ) {
         throw new Error(
-          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The value must either be a color hex value or a Dainty color constant.`
         );
       }
 
