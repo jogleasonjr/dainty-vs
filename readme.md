@@ -7,6 +7,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 ## Features
 
 - Precise and pleasant colors are generated within the CIELAB color space
+- Supports presets of configurations – i.e. other themes
 - Punctuation marks are slightly dimmed
 - The left side of the editor is less busy than in the default themes
 - Contrast for environment background can be added
@@ -20,6 +21,7 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Colors can be brightened or desaturated
 - Colors can be lightened, darkened, or desaturated
 - Colors can be overridden, and accent color can be set
+- Environment colors and editor syntax tokens can be overridden
 
 ## Setup
 
@@ -47,7 +49,17 @@ Run `npm run start` to start Express server. These are the available routes:
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
-## Overriding colors
+## Presets
+
+Presets are configuration files that you can use instead of `configuration.json`. Presets are located in the `presets` directory. You can build Dainty with the remix configuration displayed on the website by running:
+
+    npm run build -- -p dainty-remix
+
+It is currently not possible to merge `configuration.json` with the presets. This might be changed in the future.
+
+## Advanced
+
+### Overriding colors
 
 Color scales can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
@@ -65,7 +77,7 @@ With a provided base color a scale of 40 shades is built. The color will be conv
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 
-## Overriding environment colors and editor tokens
+### Overriding environment colors and editor tokens
 
 Environment colors and editor tokens can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
@@ -82,10 +94,10 @@ Environment colors and editor tokens can be overridden by adding the following o
     }
   }
 }
+```
 
 Each replacement is a tuple, where the first value represents the dark variation of the theme. The second value represents the light variation. For categories there is an inner tuple representing the background color, and text color, respectively.
 
 ## License
 
 Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).
-```

@@ -50,24 +50,32 @@ async function createConfigurationJson() {
   );
 }
 
-async function readConfigurationJson() {
-  const filename = path.join(__dirname, "../configuration.json");
+async function readConfigurationJson(filename) {
+  const filename_ = path.join(
+    __dirname,
+    "..",
+    filename ? filename : "configuration.json"
+  );
 
-  if (!(await exists(filename))) {
+  if (filename && !(await exists(filename_))) {
+    throw new Error(`Could not find configuration ${filename_}.`);
+  }
+
+  if (!(await exists(filename_))) {
     await createConfigurationJson();
     return "{}";
   } else {
-    return await readFile(filename, "utf8");
+    return await readFile(filename_, "utf8");
   }
 }
 
-async function getConfigurationJson() {
+async function getConfigurationJson(filename) {
   let configurationJson;
 
   try {
-    configurationJson = JSON.parse(await readConfigurationJson());
+    configurationJson = JSON.parse(await readConfigurationJson(filename));
   } catch (error) {
-    return ["Could not parse JSON.", null];
+    return [error, null];
   }
 
   return await getConfiguration(configurationJson);
