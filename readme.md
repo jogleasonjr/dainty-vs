@@ -4,7 +4,7 @@ Dainty is a highly configurable, refined, and balanced color theme for Visual St
 
 For more information and web-based configuration, see https://dainty-vs.now.sh.
 
-## Features
+## <a name="features" href="#features">#</a> Features
 
 - Precise and pleasant colors are generated within the CIELAB color space
 - Supports presets of configurations – i.e. other themes
@@ -21,39 +21,25 @@ For more information and web-based configuration, see https://dainty-vs.now.sh.
 - Colors can be brightened or desaturated
 - Colors can be lightened, darkened, or desaturated
 - Colors can be overridden, and accent color can be set
-- Environment colors and editor syntax tokens can be overridden
+- Usages of colors can be overridden
 
-## Setup
+## <a name="setup" href="#setup">#</a> Setup
 
+    git clone https://github.com/alexanderte/dainty-vs.git
+    cd dainty-vs
     npm install
 
-## CLI usage
+## <a name="cli-usage" href="#cli-usage">#</a> CLI usage
 
 Run `npm run build` to generate the color theme files. This produces `dist/dainty.vstheme` and `dist/dainty.vssettings`.
 
 `configuration.json` is used for configuration, and the file is created with default values if it doesn’t exist. The format of `configuration.json` is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
-## Server usage
-
-Run `npm run start` to start Express server. These are the available routes:
-
-| Method | Route                           | Description                                                       |
-| ------ | ------------------------------- | ----------------------------------------------------------------- |
-| `GET`  | `/`                             | Landing page                                                      |
-| `GET`  | `/colors.html`                  | Colors page                                                       |
-| `GET`  | `/coverage.html`                | Coverage page                                                     |
-| `GET`  | `/dainty-css.html`              | Dainty.css page                                                   |
-| `GET`  | `/syntax.html`                  | Syntax page                                                       |
-| `GET`  | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
-| `POST` | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration  |
-
-Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
-
-## Light theme
+## <a name="light-theme" href="#light-theme">#</a> Light theme
 
 Set `"variant"` to `"light"` to enable the light theme. The light theme is currently not as complete as the dark theme.
 
-## Adjustments
+## <a name="adjustments" href="#adjustments">#</a> Adjustments
 
 These are adjustments that can be specified under `colors.adjustments` in `configuration.json`:
 
@@ -66,7 +52,7 @@ These are adjustments that can be specified under `colors.adjustments` in `confi
 
 There are currently no minimum or maximum values set. For the dark variant of Dainty somewhere between -5 to 5 should work.
 
-## Presets
+## <a name="presets" href="#presets">#</a> Presets
 
 Presets are configuration files that you can use in addition to `configuration.json`. They are mostly used for turning Dainty into another color theme. Presets are located in the `presets` directory. You can build Dainty with the remix configuration displayed on the website by running:
 
@@ -76,7 +62,7 @@ If a property is set in both `configuration.json` and the preset configuration, 
 
 ## Advanced
 
-### Overriding colors
+### <a name="overriding-colors" href="#overriding-colors">#</a> Overriding colors
 
 Color scales can be overridden by adding the following object to `"colors"` in `configuration.json`:
 
@@ -94,9 +80,9 @@ With a provided base color a scale of 40 shades is built. The color will be conv
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 
-### Overriding environment colors and editor tokens
+### <a name="overriding-usages-of-colors" href="#overriding-usages-of-colors">#</a> Overriding usages of colors
 
-Environment colors and editor tokens can be overridden by adding the following object to `"colors"` in `configuration.json`:
+Usages of environment colors and editor tokens can be overridden by adding the following object to the root of `configuration.json`:
 
 ```json
 "replacements": {
@@ -115,6 +101,22 @@ Environment colors and editor tokens can be overridden by adding the following o
 
 Each replacement is a tuple, where the first value represents the dark variation of the theme. The second value represents the light variation. For categories there is an inner tuple representing the background and text color, respectively.
 
-## License
+## <a name="server-usage" href="#server-usage">#</a> Server usage
+
+Run `npm run start` to start Express server. These are the available routes:
+
+| Method | Route                           | Description                                                       |
+| ------ | ------------------------------- | ----------------------------------------------------------------- |
+| `GET`  | `/`                             | Landing page                                                      |
+| `GET`  | `/colors.html`                  | Colors page                                                       |
+| `GET`  | `/coverage.html`                | Coverage page                                                     |
+| `GET`  | `/dainty-css.html`              | Dainty.css page                                                   |
+| `GET`  | `/syntax.html`                  | Syntax page                                                       |
+| `GET`  | `/dainty-latest.zip`            | Generates the latest version of Dainty with default configuration |
+| `POST` | `/dainty-latest-configured.zip` | Generates the latest version of Dainty with custom configuration  |
+
+Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
+
+## <a name="license" href="#license">#</a> License
 
 Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).
