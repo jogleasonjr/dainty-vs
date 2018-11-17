@@ -31,11 +31,11 @@
             <div class="form-group">
               <label>Filter color scales by index</label>
               <div class="input-container">
-                <select onchange="filter(event)">
+                <select id="selectMod" onchange="filterMod();">
                   <option value="mod-1">Mod 1</option>
                   <option value="mod-2">Mod 2</option>
                   <option value="mod-4">Mod 4</option>
-                  <option value="mod-8">Mod 8</option>
+                  <option value="mod-8" selected>Mod 8</option>
                 </select>
               </div>
             </div>
@@ -48,8 +48,11 @@
       var $ = document.querySelector.bind(document);
       var $$ = document.querySelectorAll.bind(document);
 
-      function filter(event) {
-        var className = `.${event.target.value}`;
+      function filterMod() {
+        var selectModEl = $("#selectMod");
+        var className = `.${
+          selectModEl.options[selectModEl.selectedIndex].value
+        }`;
 
         for (el of $$(`.mod`)) {
           if (!el.classList.contains(className)) {
@@ -61,6 +64,8 @@
           el.style.display = "table-row";
         }
       }
+
+      filterMod();
     </script>
   </body>
 </html>
