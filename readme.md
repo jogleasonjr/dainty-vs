@@ -64,7 +64,7 @@ These are adjustments that can be specified under `colors.adjustments` in `confi
 | `"chromaStart"` | Adjust start of blue grays scale chroma                      |
 | `"chromaEnd"`   | Adjust start of blue grays scale chroma                      |
 
-There is currently no minimum or maximum values set. For the dark variant of Dainty somewhere between -5 to 5 should work.
+There are currently no minimum or maximum values set. For the dark variant of Dainty somewhere between -5 to 5 should work.
 
 ## Presets
 
