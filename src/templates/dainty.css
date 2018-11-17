@@ -6,7 +6,7 @@
 
 body {
   background-color: "BLUE_GRAYS_0";
-  color: "BLUE_GRAYS_34";
+  color: "BLUE_GRAYS_35";
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   line-height: 1.875;
@@ -54,7 +54,7 @@ h1,
 h2,
 h3,
 th {
-  color: "BLUES_36";
+  color: "BLUES_37";
 }
 
 h1,
@@ -266,7 +266,7 @@ ul.nav li.active a {
 }
 
 ul.nav li:not(.active) a {
-  color: "BLUE_GRAYS_34";
+  color: "BLUE_GRAYS_35";
 }
 
 ul.nav li:not(.active) a:hover {
@@ -353,7 +353,7 @@ button:not(.large) {
 
 button:not(.primary) {
   background-color: transparent;
-  color: "BLUE_GRAYS_34";
+  color: "BLUE_GRAYS_35";
 }
 
 button:focus {
@@ -421,7 +421,7 @@ button:active {
   padding: 8px 12px;
   position: absolute;
   background-color: "BLUE_GRAYS_2";
-  color: "BLUE_GRAYS_34";
+  color: "BLUE_GRAYS_35";
   transition: background-color 0.25s ease;
 }
 
