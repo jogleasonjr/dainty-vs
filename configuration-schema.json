@@ -120,17 +120,13 @@
               "$id": "#/properties/colors/properties/adjustments/properties/lightness",
               "type": "integer",
               "title": "Adjust lightness to make blue-grays either darker og lighter",
-              "default": 0,
-              "minimum": -5,
-              "maximum": 5
+              "default": 0
             },
             "chroma": {
               "$id": "#/properties/colors/properties/adjustments/properties/chroma",
               "type": "integer",
               "title": "Adjust chroma to make colors either more or less saturated",
-              "default": 0,
-              "minimum": -5,
-              "maximum": 5
+              "default": 0
             },
             "chromaStart": {
               "$id": "#/properties/colors/properties/adjustments/properties/chromaStart",

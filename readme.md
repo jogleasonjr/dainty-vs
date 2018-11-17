@@ -53,12 +53,14 @@ Custom configuration is sent as JSON using the request body, and the format is d
 
 These are adjustments that can be specified under `colors.adjustments` in `configuration.json`:
 
-| Property        | Description                                                  | Minimum value | Maximum value |
-| --------------- | ------------------------------------------------------------ | ------------- | ------------- |
-| `"lightness"`   | Adjust lightness to make blue-grays either darker og lighter | -5            | 5             |
-| `"chroma"`      | Adjust chroma to make colors either more or less saturated   | -5            | 5             |
-| `"chromaStart"` | Adjust start of blue grays scale chroma                      | -5            | 5             |
-| `"chromaEnd"`   | Adjust start of blue grays scale chroma                      | Not specified | Not specified |
+| Property        | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| `"lightness"`   | Adjust lightness to make blue-grays either darker og lighter |
+| `"chroma"`      | Adjust chroma to make colors either more or less saturated   |
+| `"chromaStart"` | Adjust start of blue grays scale chroma                      |
+| `"chromaEnd"`   | Adjust start of blue grays scale chroma                      |
+
+There is currently no minimum or maximum values set. For Dainty Dark somewhere between -5 to 5 should work.
 
 ## Presets
 
