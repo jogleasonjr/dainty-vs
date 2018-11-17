@@ -159,13 +159,13 @@ code {
 
 @media (max-width: 1023.98px) {
   code {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1024px) {
   code {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
