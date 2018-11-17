@@ -1,6 +1,6 @@
 # Dainty for Visual Studio
 
-Dainty is a configurable refined and balanced color theme for Visual Studio drawing inspiration from the default dark themes of Visual Studio and Visual Studio Code. It is designed to maximize readability and reduce eye strain, making it more pleasant to work with code all day long.
+Dainty is a highly configurable, refined, and balanced color theme for Visual Studio drawing inspiration from the default dark themes of Visual Studio and Visual Studio Code. It is designed to maximize readability and reduce eye strain, making it more pleasant to work with code all day long.
 
 For more information and web-based configuration, see https://dainty-vs.now.sh.
 
