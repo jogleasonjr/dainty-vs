@@ -49,6 +49,17 @@ Run `npm run start` to start Express server. These are the available routes:
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
+## Adjustments
+
+These are adjustments that can be specified under `colors.adjustments` in `configuration.json`:
+
+| Property        | Description                                                  | Minimum value | Maximum value |
+| --------------- | ------------------------------------------------------------ | ------------- | ------------- |
+| `"lightness"`   | Adjust lightness to make blue-grays either darker og lighter | -5            | 5             |
+| `"chroma"`      | Adjust chroma to make colors either more or less saturated   | -5            | 5             |
+| `"chromaStart"` | Adjust start of blue grays scale chroma                      | -5            | 5             |
+| `"chromaEnd"`   | Adjust start of blue grays scale chroma                      | Not specified | Not specified |
+
 ## Presets
 
 Presets are configuration files that you can use in addition to `configuration.json`. They are mostly used for turning Dainty into another color theme. Presets are located in the `presets` directory. You can build Dainty with the remix configuration displayed on the website by running:
