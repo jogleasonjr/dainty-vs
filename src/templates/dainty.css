@@ -357,7 +357,7 @@ button:not(.large) {
 
 button:not(.primary) {
   background-color: transparent;
-  color: "BLUE_GRAYS_36";
+  color: "BLUE_GRAYS_32";
 }
 
 button:focus {
