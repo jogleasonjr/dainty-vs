@@ -1,4 +1,9 @@
-const { cloneDeep, generateColorReplacements } = require("../utils");
+const { cloneDeep } = require("../utils");
+const {
+  generateColorConstantReplacements,
+  applyColorConstantReplacement,
+  isHexColor
+} = require("../colors");
 
 function getCategoryReplacements(configuration, colors) {
   const dark = configuration.variant === "dark";
@@ -35,7 +40,7 @@ function mergeConfigurationCategoryReplacements(
 ) {
   let resultReplacements = cloneDeep(existingReplacements);
   const { categories } = configuration.replacements.overrides;
-  const colorReplacements = generateColorReplacements(colors, false);
+  const colorReplacements = generateColorConstantReplacements(colors, false);
   const colorReplacementsKeys = colorReplacements.map(r => r[0]);
 
   for (const categoryKey of Object.keys(categories)) {
@@ -412,24 +417,6 @@ function getSearchReplaceReplacements(configuration, colors) {
   );
 }
 
-function isHexColor(colorHex) {
-  return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(colorHex);
-}
-
-function applyColorConstantReplacement(
-  color,
-  colorReplacements,
-  colorReplacementKeys
-) {
-  if (isHexColor(color)) {
-    return color;
-  } else if (colorReplacementKeys.includes(color) !== -1) {
-    return colorReplacements[colorReplacementKeys.indexOf(color)];
-  } else {
-    throw new Error(`Dainty color constant ${color} not found.`);
-  }
-}
-
 function mergeConfigurationSearchReplaceReplacements(
   existingReplacements,
   configuration,
@@ -437,7 +424,7 @@ function mergeConfigurationSearchReplaceReplacements(
 ) {
   let resultReplacements = cloneDeep(existingReplacements);
   const { searchReplace: replacements } = configuration.replacements.overrides;
-  const colorReplacements = generateColorReplacements(colors, false);
+  const colorReplacements = generateColorConstantReplacements(colors, false);
   const colorReplacementsKeys = colorReplacements.map(c => c[0]);
   const existingReplacementsKeys = existingReplacements.map(c => c[0]);
 

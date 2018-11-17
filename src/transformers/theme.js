@@ -3,12 +3,11 @@ const util = require("util");
 const convert = require("xml-js");
 const fs = require("fs");
 const uuidv1 = require("uuid/v1");
+const { cloneDeep, applyReplacements } = require("../utils");
 const {
   toVsColorHex,
-  cloneDeep,
-  applyReplacements,
-  generateColorReplacements
-} = require("../utils");
+  generateColorConstantReplacements
+} = require("../colors");
 const {
   getSearchReplaceReplacements,
   getCategoryReplacements
@@ -39,8 +38,8 @@ async function transformTheme(configuration, colors) {
     replacedContent = applyCategoryReplacements(
       replacedContent,
       getCategoryReplacements(configuration, colors),
-      generateColorReplacements(colors, false),
-      generateColorReplacements(colors, false).map(r => r[0])
+      generateColorConstantReplacements(colors, false),
+      generateColorConstantReplacements(colors, false).map(r => r[0])
     );
   } catch (error) {
     return [error, null];

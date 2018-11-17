@@ -1,4 +1,4 @@
-const { toRGBString } = require("../utils");
+const { toRGBString } = require("../colors");
 
 function getIndentGuidesReplacements(_configuration, colors) {
   const { blueGrays } = colors;

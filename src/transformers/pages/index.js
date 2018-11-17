@@ -1,7 +1,8 @@
 const path = require("path");
 const util = require("util");
 const fs = require("fs");
-const { applyReplacements, generateColorReplacements } = require("../../utils");
+const { applyReplacements } = require("../../utils");
+const { generateColorConstantReplacements } = require("../../colors");
 
 const readFile = util.promisify(fs.readFile);
 
@@ -16,7 +17,7 @@ async function transformIndexPage(colors) {
     await readFile(daintyCss, "utf8")
   );
 
-  return applyReplacements(content, generateColorReplacements(colors));
+  return applyReplacements(content, generateColorConstantReplacements(colors));
 }
 
 module.exports = {

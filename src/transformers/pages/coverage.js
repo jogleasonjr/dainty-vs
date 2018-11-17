@@ -2,11 +2,11 @@ const path = require("path");
 const util = require("util");
 const fs = require("fs");
 const convert = require("xml-js");
+const { applyReplacements } = require("../../utils");
 const {
   toColorHex,
-  applyReplacements,
-  generateColorReplacements
-} = require("../../utils");
+  generateColorConstantReplacements
+} = require("../../colors");
 
 const readFile = util.promisify(fs.readFile);
 
@@ -270,7 +270,7 @@ async function transformCoveragePage(colors) {
 
   return applyReplacements(
     sourceContent,
-    generateColorReplacements(colors)
+    generateColorConstantReplacements(colors)
   ).replace("<!-- INSERT_CONTENT -->", html.join("\n"));
 }
 

@@ -1,4 +1,4 @@
-const { RGBToBGR } = require("../utils");
+const { RGBToBGR } = require("../colors");
 
 function getFontsAndColorsReplacements(configuration, colors) {
   const { blueGrays, blues, oranges, accent } = colors;

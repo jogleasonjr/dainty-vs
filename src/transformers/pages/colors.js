@@ -2,7 +2,8 @@ const path = require("path");
 const util = require("util");
 const fs = require("fs");
 const changeCase = require("change-case");
-const { applyReplacements, generateColorReplacements } = require("../../utils");
+const { applyReplacements } = require("../../utils");
+const { generateColorConstantReplacements } = require("../../colors");
 
 const readFile = util.promisify(fs.readFile);
 
@@ -75,10 +76,10 @@ async function transformColorsPage(colors) {
     await readFile(daintyCss, "utf8")
   );
 
-  return applyReplacements(content, generateColorReplacements(colors)).replace(
-    "<!-- INSERT_CONTENT -->",
-    html.join("\n")
-  );
+  return applyReplacements(
+    content,
+    generateColorConstantReplacements(colors)
+  ).replace("<!-- INSERT_CONTENT -->", html.join("\n"));
 }
 
 module.exports = {
