@@ -1,7 +1,7 @@
 const culori = require("culori");
 const changeCase = require("change-case");
 
-function generateScale(color, override, adjustments) {
+function generateScale(color, override, adjustments, lessChrome) {
   const maximumLightness = 100;
   const maximumChroma = 131.207;
   const lightnessMultiplier = 2.25;
@@ -31,6 +31,10 @@ function generateScale(color, override, adjustments) {
       hue = 45;
       chromaAdjustment -= maximumChroma / 6;
       break;
+  }
+
+  if (lessChrome) {
+    chromaDivisor = 4.5;
   }
 
   if (color === "BLUE_GRAYS") {
@@ -90,6 +94,14 @@ function generateColorPalette(configuration) {
     ),
     blues: handleVariant(
       generateScale("BLUES", overrides.blues, configuration.colors.adjustments)
+    ),
+    bluesLessChrome: handleVariant(
+      generateScale(
+        "BLUES",
+        overrides.blues,
+        configuration.colors.adjustments,
+        true
+      )
     ),
     purples: handleVariant(
       generateScale(
