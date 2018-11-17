@@ -49,6 +49,10 @@ Run `npm run start` to start Express server. These are the available routes:
 
 Custom configuration is sent as JSON using the request body, and the format is defined by [`configuration-schema.json`](https://github.com/alexanderte/dainty-vs/blob/master/configuration-schema.json).
 
+## Light theme
+
+Set `"variant"` to `"light"` to enable the light theme. The light theme is currently not as complete as the dark theme.
+
 ## Adjustments
 
 These are adjustments that can be specified under `colors.adjustments` in `configuration.json`:
@@ -60,7 +64,7 @@ These are adjustments that can be specified under `colors.adjustments` in `confi
 | `"chromaStart"` | Adjust start of blue grays scale chroma                      |
 | `"chromaEnd"`   | Adjust start of blue grays scale chroma                      |
 
-There is currently no minimum or maximum values set. For Dainty Dark somewhere between -5 to 5 should work.
+There is currently no minimum or maximum values set. For the dark variant of Dainty somewhere between -5 to 5 should work.
 
 ## Presets
 
