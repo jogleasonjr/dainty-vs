@@ -330,7 +330,7 @@ button {
 }
 
 button.primary {
-  background-color: "PURPLES_10";
+  background-color: "ACCENT_10";
   color: "BLUE_GRAYS_36";
 }
 
@@ -369,7 +369,7 @@ button:focus {
 }
 
 button.primary:hover {
-  background-color: "PURPLES_12";
+  background-color: "ACCENT_12";
 }
 
 button:not(.primary):hover {
