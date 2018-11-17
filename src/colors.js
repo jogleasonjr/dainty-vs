@@ -43,9 +43,7 @@ function generateScale(color, override, adjustments, lessChrome) {
     chromaStartAdjustment = adjustments.chromaStart
       ? adjustments.chromaStart
       : 5;
-    chromaEndAdjustment = adjustments.chromaEnd
-      ? adjustments.chromaEnd
-      : -3.125;
+    chromaEndAdjustment = adjustments.chromaEnd ? adjustments.chromaEnd : -3.75;
   } else {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma * 2 : 0;
   }
