@@ -191,6 +191,36 @@
           }
         }
       }
+    },
+    "replacements": {
+      "$id": "#/properties/replacements",
+      "type": "object",
+      "title": "Replacements of environment and editor tokens",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "overrides": {
+          "$id": "#/properties/replacements/properties/overrides",
+          "type": "object",
+          "title": "Overrides",
+          "default": {},
+          "additionalProperties": false,
+          "properties": {
+            "searchReplace": {
+              "$id": "#/properties/replacements/properties/overrides/properties/searchReplace",
+              "type": "object",
+              "title": "Search–replace overrides",
+              "default": {}
+            },
+            "categories": {
+              "$id": "#/properties/replacements/properties/overrides/properties/categories",
+              "type": "object",
+              "title": "Category overrides",
+              "default": {}
+            }
+          }
+        }
+      }
     }
   }
 }

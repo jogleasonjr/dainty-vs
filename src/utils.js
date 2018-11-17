@@ -84,15 +84,22 @@ function applyReplacements(
   return replaceOnce(content, find, replace, "g");
 }
 
-function generateColorReplacements(colors) {
+function generateColorReplacements(colors, quotedKeys = true) {
   let replacements = [];
 
   for (const key of Object.keys(colors)) {
     for (let i = 0; i < colors[key].length; i++) {
-      replacements.push([
-        `"${changeCase.constantCase(key)}_${i}"`,
-        colors[key][i]
-      ]);
+      if (quotedKeys) {
+        replacements.push([
+          `"${changeCase.constantCase(key)}_${i}"`,
+          colors[key][i]
+        ]);
+      } else {
+        replacements.push([
+          `${changeCase.constantCase(key)}_${i}`,
+          colors[key][i]
+        ]);
+      }
     }
   }
 

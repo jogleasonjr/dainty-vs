@@ -1,8 +1,9 @@
+const { cloneDeep, generateColorReplacements } = require("../utils");
+
 function getCategoryReplacements(configuration, colors) {
-  const { blueGrays, blues } = colors;
   const dark = configuration.variant === "dark";
 
-  return {
+  const replacements = {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [
         null,
@@ -19,6 +20,109 @@ function getCategoryReplacements(configuration, colors) {
       StartPageTitleText: [null, colors.blues[36]]
     }
   };
+
+  return mergeConfigurationCategoryReplacements(
+    replacements,
+    configuration,
+    colors
+  );
+}
+
+function mergeConfigurationCategoryReplacements(
+  existingReplacements,
+  configuration,
+  colors
+) {
+  let resultReplacements = cloneDeep(existingReplacements);
+  const { categories } = configuration.replacements.overrides;
+  const colorReplacements = generateColorReplacements(colors, false);
+  const colorReplacementsKeys = colorReplacements.map(r => r[0]);
+
+  for (const categoryKey of Object.keys(categories)) {
+    const category = categories[categoryKey];
+
+    if (!resultReplacements[categoryKey]) {
+      resultReplacements[categoryKey] = {};
+    }
+
+    for (const colorGroupKey of Object.keys(category)) {
+      const colorGroup = category[colorGroupKey];
+
+      if (!(Array.isArray(colorGroup) && colorGroup.length === 2)) {
+        throw new Error(
+          `Value of category replacement \`${colorGroupKey}\` in \`configuration.json\` must be an array with length of 2. The first value is a tuple with background and text color for the dark variant. The second value is a tuple with background and text color for the light variant. Each colors must either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      const darkColors = colorGroup[0];
+      const lightColors = colorGroup[1];
+
+      if (!(Array.isArray(darkColors) && darkColors.length === 2)) {
+        throw new Error(
+          `Array index 0 of category replacement color group \`${colorGroupKey}\` in \`configuration.json\` must be an array with length of 2. The first value is the background color for the dark variant. The second value is the text color for the dark variant. Each colors must either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      if (!(Array.isArray(lightColors) && lightColors.length === 2)) {
+        throw new Error(
+          `Array index 1 of category replacement color group \`${colorGroupKey}\` in \`configuration.json\` must be an array with length of 2. The first value is the background color for the light variant. The second value is the text color for the light variant. Each colors must either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      if (
+        darkColors[0] !== null &&
+        !(
+          isHexColor(darkColors[0]) ||
+          colorReplacementsKeys.includes(darkColors[0])
+        )
+      ) {
+        throw new Error(
+          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      if (
+        darkColors[1] !== null &&
+        !(
+          isHexColor(darkColors[1]) ||
+          colorReplacementsKeys.includes(darkColors[1])
+        )
+      ) {
+        throw new Error(
+          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for dark variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      if (
+        lightColors[0] !== null &&
+        !(
+          isHexColor(lightColors[0]) ||
+          colorReplacementsKeys.includes(lightColors[0])
+        )
+      ) {
+        throw new Error(
+          `Array index 0 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      if (
+        lightColors[1] !== null &&
+        !(
+          isHexColor(lightColors[1]) ||
+          colorReplacementsKeys.includes(lightColors[1])
+        )
+      ) {
+        throw new Error(
+          `Array index 1 of category replacement color group  \`${colorGroupKey}\` for light variant in \`configuration.json\` is not valid. The valuemust either be a color hex value or a Dainty color constant.`
+        );
+      }
+
+      const variantIndex = configuration.variant === "dark" ? 0 : 1;
+      resultReplacements[categoryKey][colorGroupKey] = colorGroup[variantIndex];
+    }
+  }
+
+  return resultReplacements;
 }
 
 function getSearchReplaceReplacements(configuration, colors) {
@@ -32,12 +136,13 @@ function getSearchReplaceReplacements(configuration, colors) {
     .additionalBackgroundContrast
     ? blueGrays[3]
     : blueGrays[2];
+
   const activeTabAndStatusbar = configuration.environment
     .additionalBackgroundContrast
     ? blueGrays[5 + cb]
     : blueGrays[4 + cb];
 
-  return [
+  const replacements = [
     // # Backgrounds
 
     // Active tab, statusbar
@@ -299,6 +404,105 @@ function getSearchReplaceReplacements(configuration, colors) {
     // `Import Theme` hover
     ["#88ccfe", colors.blueGrays[36]]
   ];
+
+  return mergeConfigurationSearchReplaceReplacements(
+    replacements,
+    configuration,
+    colors
+  );
+}
+
+function isHexColor(colorHex) {
+  return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(colorHex);
+}
+
+function applyColorConstantReplacement(
+  color,
+  colorReplacements,
+  colorReplacementKeys
+) {
+  if (isHexColor(color)) {
+    return color;
+  } else if (colorReplacementKeys.includes(color) !== -1) {
+    return colorReplacements[colorReplacementKeys.indexOf(color)];
+  } else {
+    throw new Error(`Dainty color constant ${color} not found.`);
+  }
+}
+
+function mergeConfigurationSearchReplaceReplacements(
+  existingReplacements,
+  configuration,
+  colors
+) {
+  let resultReplacements = cloneDeep(existingReplacements);
+  const { searchReplace: replacements } = configuration.replacements.overrides;
+  const colorReplacements = generateColorReplacements(colors, false);
+  const colorReplacementsKeys = colorReplacements.map(c => c[0]);
+  const existingReplacementsKeys = existingReplacements.map(c => c[0]);
+
+  for (const replacement of Object.keys(replacements)) {
+    if (!isHexColor(replacement)) {
+      throw new Error(
+        `Search–replace-replacement \`${replacement}\` in \`configuration.json\` is not a valid color hex value.`
+      );
+    }
+
+    if (
+      !(
+        Array.isArray(replacements[replacement]) &&
+        replacements[replacement].length === 2
+      )
+    ) {
+      throw new Error(
+        `Value of search–replace replacement \`${replacement}\` in \`configuration.json\` must be an array with length of 2. The first value is a color hex value or Dainty color constant for the dark variant. The second value is a color hex value or Dainty color constant for the light variant.`
+      );
+    }
+
+    if (
+      !(
+        isHexColor(replacements[replacement][0]) ||
+        colorReplacementsKeys.includes(replacements[replacement][0])
+      )
+    ) {
+      throw new Error(
+        `Array index 0 of search–replace replacement \`${replacement}\` in \`configuration.json\` must either be a hex color value or a Dainty color constant.`
+      );
+    }
+
+    if (
+      !(
+        isHexColor(replacements[replacement][1]) ||
+        colorReplacementsKeys.includes(replacements[replacement][1])
+      )
+    ) {
+      throw new Error(
+        `Array index 1 of search–replace-replacement \`${replacement}\` in \`configuration.json\` must either be a hex color value or a Dainty color constant.`
+      );
+    }
+
+    const variantIndex = configuration.variant === "dark" ? 0 : 1;
+
+    if (existingReplacementsKeys.includes(replacement)) {
+      const index = resultReplacements.findIndex(r => r[0] === replacement);
+      resultReplacements[index] = applyColorConstantReplacement(
+        replacements[replacement][variantIndex],
+        colorReplacements,
+        colorReplacementsKeys
+      );
+    } else {
+      resultReplacements.push([
+        replacement,
+        applyColorConstantReplacement(
+          replacements[replacement][variantIndex],
+          colorReplacements,
+          colorReplacementsKeys
+        )
+      ]);
+    }
+  }
+
+  return resultReplacements;
 }
 
 module.exports = {

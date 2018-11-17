@@ -45,10 +45,10 @@ function generateScale(color, override, adjustments) {
 
   const lchOverride = override ? culori.lch(override) : null;
 
-  let shades = [];
+  let scale = [];
 
   for (let i = 0; i < 40; i++) {
-    shades.push({
+    scale.push({
       mode: "lch",
       h: lchOverride ? lchOverride.h : hue,
       l:
@@ -63,7 +63,7 @@ function generateScale(color, override, adjustments) {
     });
   }
 
-  return shades.map(culori.formatter("hex"));
+  return scale.map(culori.formatter("hex"));
 }
 
 function generateColorPalette(configuration) {

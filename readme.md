@@ -65,6 +65,27 @@ With a provided base color a scale of 40 shades is built. The color will be conv
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 
+## Overriding environment colors and editor tokens
+
+Environment colors and editor tokens can be overridden by adding the following object to `"colors"` in `configuration.json`:
+
+```json
+"replacements": {
+  "overrides": {
+    "searchReplace": {
+      "#b5cea8": ["PURPLES_20", "PURPLES_20"]
+    },
+    "categories": {
+      "ColorizedSignatureHelp colors": {
+        "HTML Attribute Value": [[null, "BLUES_0"], [null, "BLUES_32"]]
+      }
+    }
+  }
+}
+
+Each replacement is a tuple, where the first value represents the dark variation of the theme. The second value represents the light variation. For categories there is an inner tuple representing the background color, and text color, respectively.
+
 ## License
 
 Dainty for Visual Studio is licensed under the [MIT License](https://github.com/alexanderte/dainty-vs/blob/master/license.md).
+```

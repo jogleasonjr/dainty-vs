@@ -3,7 +3,12 @@ const util = require("util");
 const convert = require("xml-js");
 const fs = require("fs");
 const uuidv1 = require("uuid/v1");
-const { toVsColorHex, cloneDeep, applyReplacements } = require("../utils");
+const {
+  toVsColorHex,
+  cloneDeep,
+  applyReplacements,
+  generateColorReplacements
+} = require("../utils");
 const {
   getSearchReplaceReplacements,
   getCategoryReplacements
@@ -33,7 +38,9 @@ async function transformTheme(configuration, colors) {
   try {
     replacedContent = applyCategoryReplacements(
       replacedContent,
-      getCategoryReplacements(configuration, colors)
+      getCategoryReplacements(configuration, colors),
+      generateColorReplacements(colors, false),
+      generateColorReplacements(colors, false).map(r => r[0])
     );
   } catch (error) {
     return [error, null];
@@ -42,7 +49,24 @@ async function transformTheme(configuration, colors) {
   return [null, replacedContent];
 }
 
-function applyCategoryReplacements(xmlContent, categoryReplacements) {
+function applyColorConstantReplacement(
+  color,
+  colorReplacements,
+  colorReplacementKeys
+) {
+  if (colorReplacementKeys.includes(color)) {
+    return colorReplacements[colorReplacementKeys.indexOf(color)][1];
+  } else {
+    return color;
+  }
+}
+
+function applyCategoryReplacements(
+  xmlContent,
+  categoryReplacements,
+  colorReplacements,
+  colorReplacementKeys
+) {
   let jsContent = convert.xml2js(xmlContent);
   let replacements = cloneDeep(categoryReplacements);
 
@@ -89,7 +113,11 @@ function applyCategoryReplacements(xmlContent, categoryReplacements) {
         colorsGroupReplacements[0] !== null
       ) {
         backgroundElement.attributes.Source = toVsColorHex(
-          colorsGroupReplacements[0]
+          applyColorConstantReplacement(
+            colorsGroupReplacements[0],
+            colorReplacements,
+            colorReplacementKeys
+          )
         );
       }
 
@@ -109,7 +137,11 @@ function applyCategoryReplacements(xmlContent, categoryReplacements) {
         colorsGroupReplacements[1] !== null
       ) {
         foregroundElement.attributes.Source = toVsColorHex(
-          colorsGroupReplacements[1]
+          applyColorConstantReplacement(
+            colorsGroupReplacements[1],
+            colorReplacements,
+            colorReplacementKeys
+          )
         );
       }
 
