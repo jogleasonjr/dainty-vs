@@ -2,6 +2,7 @@ const fs = require("fs");
 const util = require("util");
 const path = require("path");
 const Ajv = require("ajv");
+const merge = require("lodash.merge");
 const betterAjvErrors = require("better-avj-errors");
 const { cloneDeep, writeFileLog } = require("./utils");
 
@@ -50,32 +51,45 @@ async function createConfigurationJson() {
   );
 }
 
-async function readConfigurationJson(filename) {
-  const filename_ = path.join(
-    __dirname,
-    "..",
-    filename ? filename : "configuration.json"
-  );
+async function readConfigurationJson() {
+  const filename = path.join(__dirname, "../configuration.json");
 
-  if (filename && !(await exists(filename_))) {
-    throw new Error(`Could not find configuration ${filename_}.`);
-  }
-
-  if (!(await exists(filename_))) {
+  if (!(await exists(filename))) {
     await createConfigurationJson();
     return "{}";
   } else {
-    return await readFile(filename_, "utf8");
+    return await readFile(filename, "utf8");
   }
 }
 
-async function getConfigurationJson(filename) {
+async function readPresetJson(preset) {
+  const filename = path.join(__dirname, "..", preset);
+
+  if (!(await exists(filename))) {
+    throw new Error(`Could not find configuration preset ${filename}.`);
+  } else {
+    return await readFile(filename, "utf8");
+  }
+}
+
+async function getConfigurationJson(preset) {
   let configurationJson;
+  let configurationPresetJson;
 
   try {
-    configurationJson = JSON.parse(await readConfigurationJson(filename));
+    configurationJson = JSON.parse(await readConfigurationJson());
   } catch (error) {
     return [error, null];
+  }
+
+  if (preset) {
+    try {
+      configurationPresetJson = JSON.parse(await readPresetJson(preset));
+    } catch (error) {
+      return [error, null];
+    }
+
+    configurationJson = merge(configurationPresetJson, configurationJson);
   }
 
   return await getConfiguration(configurationJson);

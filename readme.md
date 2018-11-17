@@ -51,11 +51,11 @@ Custom configuration is sent as JSON using the request body, and the format is d
 
 ## Presets
 
-Presets are configuration files that you can use instead of `configuration.json`. Presets are located in the `presets` directory. You can build Dainty with the remix configuration displayed on the website by running:
+Presets are configuration files that you can use in addition to `configuration.json`. They are mostly used for turning Dainty into another color theme. Presets are located in the `presets` directory. You can build Dainty with the remix configuration displayed on the website by running:
 
     npm run build -- -p dainty-remix
 
-It is currently not possible to merge `configuration.json` with the presets. This might be changed in the future.
+If a property is set in both `configuration.json` and the preset configuration, then the one in `configuration.json` is used.
 
 ## Advanced
 
