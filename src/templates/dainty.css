@@ -331,7 +331,7 @@ button {
 
 button.primary {
   background-color: "PURPLES_10";
-  color: "BLUE_GRAYS_32";
+  color: "BLUE_GRAYS_36";
 }
 
 button:not(.large) {
@@ -361,7 +361,7 @@ button:not(.large) {
 
 button:not(.primary) {
   background-color: transparent;
-  color: "BLUE_GRAYS_32";
+  color: "BLUE_GRAYS_36";
 }
 
 button:focus {
@@ -429,7 +429,7 @@ button:active {
   padding: 8px 12px;
   position: absolute;
   background-color: "BLUE_GRAYS_2";
-  color: "BLUE_GRAYS_32";
+  color: "BLUE_GRAYS_34";
   transition: background-color 0.25s ease;
 }
 
@@ -437,7 +437,7 @@ button:active {
 .form-group > .input-container > select:focus {
   outline: none;
   background-color: "BLUE_GRAYS_6";
-  color: "BLUE_GRAYS_32";
+  color: "BLUE_GRAYS_36";
 }
 
 .form-group > .input-container > input[type="text"] {
