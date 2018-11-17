@@ -34,7 +34,7 @@ function generateScale(color, override, adjustments, lessChrome) {
   }
 
   if (lessChrome) {
-    chromaDivisor = 4.5;
+    chromaDivisor = 9;
   }
 
   if (color === "BLUE_GRAYS") {
