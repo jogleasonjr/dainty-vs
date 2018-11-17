@@ -17,6 +17,12 @@ function generateScale(color, override, adjustments, lessChrome) {
     case "BLUE_GRAYS":
       hue = 270;
       chromaDivisor = 24;
+
+      if (!override) {
+        lightnessAdjustment = -3;
+        chromaStartAdjustment = 5;
+        chromaEndAdjustment = -3.75;
+      }
       break;
     case "BLUES":
       hue = 270 - 90 / 16;
@@ -39,11 +45,11 @@ function generateScale(color, override, adjustments, lessChrome) {
 
   if (color === "BLUE_GRAYS") {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma : 0;
-    lightnessAdjustment += adjustments.lightness ? adjustments.lightness : -3;
-    chromaStartAdjustment = adjustments.chromaStart
+    lightnessAdjustment += adjustments.lightness ? adjustments.lightness : 0;
+    chromaStartAdjustment += adjustments.chromaStart
       ? adjustments.chromaStart
-      : 5;
-    chromaEndAdjustment = adjustments.chromaEnd ? adjustments.chromaEnd : -3.75;
+      : 0;
+    chromaEndAdjustment += adjustments.chromaEnd ? adjustments.chromaEnd : 0;
   } else {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma * 2 : 0;
   }
