@@ -75,8 +75,8 @@ function mergeConfigurationCategoryReplacements(
       }
 
       if (
-        darkColors[0] !== null &&
         !(
+          darkColors[0] === null ||
           isHexColor(darkColors[0]) ||
           colorReplacementsKeys.includes(darkColors[0])
         )
@@ -87,8 +87,8 @@ function mergeConfigurationCategoryReplacements(
       }
 
       if (
-        darkColors[1] !== null &&
         !(
+          darkColors[1] === null ||
           isHexColor(darkColors[1]) ||
           colorReplacementsKeys.includes(darkColors[1])
         )
@@ -99,8 +99,8 @@ function mergeConfigurationCategoryReplacements(
       }
 
       if (
-        lightColors[0] !== null &&
         !(
+          lightColors[0] === null ||
           isHexColor(lightColors[0]) ||
           colorReplacementsKeys.includes(lightColors[0])
         )
@@ -111,8 +111,8 @@ function mergeConfigurationCategoryReplacements(
       }
 
       if (
-        lightColors[1] !== null &&
         !(
+          lightColors[1] === null ||
           isHexColor(lightColors[1]) ||
           colorReplacementsKeys.includes(lightColors[1])
         )
@@ -448,6 +448,7 @@ function mergeConfigurationSearchReplaceReplacements(
 
     if (
       !(
+        replacements[replacement][0] === null ||
         isHexColor(replacements[replacement][0]) ||
         colorReplacementsKeys.includes(replacements[replacement][0])
       )
@@ -459,6 +460,7 @@ function mergeConfigurationSearchReplaceReplacements(
 
     if (
       !(
+        replacements[replacement][1] === null ||
         isHexColor(replacements[replacement][1]) ||
         colorReplacementsKeys.includes(replacements[replacement][1])
       )
@@ -472,11 +474,15 @@ function mergeConfigurationSearchReplaceReplacements(
 
     if (existingReplacementsKeys.includes(replacement)) {
       const index = resultReplacements.findIndex(r => r[0] === replacement);
-      resultReplacements[index] = applyColorConstantReplacement(
-        replacements[replacement][variantIndex],
-        colorReplacements,
-        colorReplacementsKeys
-      );
+
+      resultReplacements[index] = [
+        replacement,
+        applyColorConstantReplacement(
+          replacements[replacement][variantIndex],
+          colorReplacements,
+          colorReplacementsKeys
+        )
+      ];
     } else {
       resultReplacements.push([
         replacement,
