@@ -7,9 +7,8 @@
 body {
   background-color: "BLUE_GRAYS_0";
   color: "BLUE_GRAYS_34";
-  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   line-height: 1.875;
   margin: 0;
   font-weight: 300;
@@ -158,7 +157,7 @@ pre {
 }
 
 code {
-  font-family: "IBM Plex Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo,
+  font-family: "Roboto Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo,
     Courier, monospace;
 }
 
@@ -332,7 +331,7 @@ button {
 
 button.primary {
   background-color: "PURPLES_10";
-  color: "BLUE_GRAYS_36";
+  color: "BLUE_GRAYS_34";
 }
 
 button:not(.large) {
@@ -438,7 +437,7 @@ button:active {
 .form-group > .input-container > select:focus {
   outline: none;
   background-color: "BLUE_GRAYS_6";
-  color: "BLUE_GRAYS_36";
+  color: "BLUE_GRAYS_34";
 }
 
 .form-group > .input-container > input[type="text"] {
