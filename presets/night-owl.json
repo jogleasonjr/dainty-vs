@@ -1,7 +1,4 @@
 {
-  "environment": {
-    "textContrast": -2
-  },
   "colors": {
     "adjustments": {
       "chromaEnd": -10
