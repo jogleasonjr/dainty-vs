@@ -258,7 +258,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#9cdcfe", dark ? blues[32] : blues[20]],
 
     // Active tool window tab, `Import theme`
-    ["#0097fb", blueGrays[envfc(34)]],
+    ["#0097fb", blueGrays[envfc(32)]],
 
     // launchSettings.json property
     ["#d7ba7d", blueGrays[edfc(34)]],
@@ -279,7 +279,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#b4b4b4", blueGrays[edfc(32)]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
-    ["#f1f1f1", blueGrays[envfc(34)]],
+    ["#f1f1f1", blueGrays[envfc(32)]],
 
     // Inactive tabs in tool windows, tool window titles
     ["#d0d0d0", blueGrays[envfc(26)]],
@@ -291,7 +291,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#656565", blueGrays[envfc(18)]],
 
     // Inactive tabs hover in tool windows
-    ["#55aaff", blueGrays[envfc(34)]],
+    ["#55aaff", blueGrays[envfc(32)]],
 
     // Comments
     [
