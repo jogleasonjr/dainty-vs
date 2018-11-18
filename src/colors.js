@@ -220,6 +220,20 @@ function applyColorConstantReplacement(
   }
 }
 
+function checkScaleRange(index) {
+  if (!Number.isInteger(index)) {
+    throw new Error(
+      `Index \`${index}\` is not a valid index for Dainty color scale.`
+    );
+  }
+
+  if (index < 0 || index > 39) {
+    throw new Error(`Index \`${index}\` is not valid for Dainty color scale.`);
+  }
+
+  return index;
+}
+
 module.exports = {
   generateColorPalette,
   generateColorConstantReplacements,
@@ -228,5 +242,6 @@ module.exports = {
   toRGBString,
   RGBToBGR,
   toColorHex,
-  toVsColorHex
+  toVsColorHex,
+  checkScaleRange
 };

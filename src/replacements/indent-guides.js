@@ -1,4 +1,4 @@
-const { toRGBString } = require("../colors");
+const { toRGBString, checkScaleRange } = require("../colors");
 
 function getIndentGuidesReplacements(configuration, colors) {
   const { editor } = configuration;
@@ -6,7 +6,7 @@ function getIndentGuidesReplacements(configuration, colors) {
   const dark = configuration.variant === "dark";
 
   function edbc(index) {
-    return index + -editor.backgroundContrast;
+    return checkScaleRange(index - editor.backgroundContrast);
   }
 
   return [

@@ -1,4 +1,4 @@
-const { RGBToBGR } = require("../colors");
+const { RGBToBGR, checkScaleRange } = require("../colors");
 
 function getFontsAndColorsReplacements(configuration, colors) {
   const { editor } = configuration;
@@ -6,11 +6,11 @@ function getFontsAndColorsReplacements(configuration, colors) {
   const dark = configuration.variant === "dark";
 
   function edbc(index) {
-    return index + -editor.backgroundContrast;
+    return checkScaleRange(index - editor.backgroundContrast);
   }
 
   function edfc(index) {
-    return index + editor.foregroundContrast;
+    return checkScaleRange(index + editor.foregroundContrast);
   }
 
   function r(str) {

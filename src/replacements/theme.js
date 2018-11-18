@@ -2,7 +2,8 @@ const { cloneDeep } = require("../utils");
 const {
   generateColorConstantReplacements,
   applyColorConstantReplacement,
-  isHexColor
+  isHexColor,
+  checkScaleRange
 } = require("../colors");
 
 function getCategoryReplacements(configuration, colors) {
@@ -11,13 +12,13 @@ function getCategoryReplacements(configuration, colors) {
   const { blueGrays, oranges, accent } = colors;
 
   function edfc(index) {
-    return index + editor.foregroundContrast;
+    return checkScaleRange(index + editor.foregroundContrast);
   }
 
   const replacements = {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, dark ? oranges[33] : oranges[18]],
-      punctuation: [null, edfc(blueGrays[28])],
+      punctuation: [null, blueGrays[edfc(28)]],
       urlformat: [null, dark ? accent[34] : accent[16]]
     },
     "Text Editor Text Marker Items": {
@@ -46,19 +47,19 @@ function getSearchReplaceReplacements(configuration, colors) {
   const dark = configuration.variant === "dark";
 
   function envbc(index) {
-    return index + -environment.backgroundContrast;
+    return checkScaleRange(index - environment.backgroundContrast);
   }
 
   function envfc(index) {
-    return index + environment.foregroundContrast;
+    return checkScaleRange(index + environment.foregroundContrast);
   }
 
   function edbc(index) {
-    return index + -editor.backgroundContrast;
+    return checkScaleRange(index - editor.backgroundContrast);
   }
 
   function edfc(index) {
-    return index + editor.foregroundContrast;
+    return checkScaleRange(index + editor.foregroundContrast);
   }
 
   const replacements = [
