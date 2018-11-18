@@ -4,7 +4,9 @@ const path = require("path");
 const Ajv = require("ajv");
 const merge = require("lodash.merge");
 const betterAjvErrors = require("better-avj-errors");
-const { cloneDeep, writeFileLog } = require("./utils");
+const decomment = require("decomment");
+
+const { cloneDeep, writeFileLog, removeComments } = require("./utils");
 
 const readFile = util.promisify(fs.readFile);
 const exists = util.promisify(fs.exists);
@@ -58,7 +60,7 @@ async function readConfigurationJson() {
     await createConfigurationJson();
     return "{}";
   } else {
-    return await readFile(filename, "utf8");
+    return decomment(await readFile(filename, "utf8"));
   }
 }
 
@@ -68,7 +70,7 @@ async function readPresetJson(preset) {
   if (!(await exists(filename))) {
     throw new Error(`Could not find configuration preset ${filename}.`);
   } else {
-    return await readFile(filename, "utf8");
+    return decomment(await readFile(filename, "utf8"));
   }
 }
 
