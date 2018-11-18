@@ -41,7 +41,7 @@ Set `"variant"` to `"light"` to enable the light theme. The light theme is curre
 
 ## Adjustments
 
-These are adjustments that can be specified under `colors.adjustments` in `configuration.json`:
+These are adjustments that can be specified under `"colors"."adjustments"` in `configuration.json`:
 
 | Property        | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
