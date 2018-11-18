@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Libre+Franklin:300,300i");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300");
 
 * {
@@ -10,9 +9,8 @@
 body {
   background-color: "BLUE_GRAYS_0";
   color: "BLUE_GRAYS_32";
-  font-family: "Libre Franklin", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   line-height: 1.875;
   margin: 0;
   font-weight: 300;
