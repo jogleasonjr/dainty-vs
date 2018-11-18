@@ -21,8 +21,8 @@ function getCategoryReplacements(configuration, colors) {
       "Current Statement": ["#eff284", null] // Revert
     },
     StartPage: {
-      StartPageHeadingText: [null, colors.bluesLessChrome[36]],
-      StartPageTitleText: [null, colors.bluesLessChrome[36]]
+      StartPageHeadingText: [null, colors.bluesLessChrome[34]],
+      StartPageTitleText: [null, colors.bluesLessChrome[34]]
     }
   };
 
@@ -134,7 +134,7 @@ function getSearchReplaceReplacements(configuration, colors) {
   const { blueGrays, blues } = colors;
   const dark = configuration.variant === "dark";
 
-  const c = configuration.environment.additionalTextContrast ? 4 : 0;
+  const c = configuration.environment.additionalTextContrast ? 2 : 0;
   const cb = configuration.environment.additionalTextContrast ? 2 : 0;
 
   const environmentBackgroundColor = configuration.environment
