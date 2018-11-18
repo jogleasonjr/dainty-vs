@@ -29,14 +29,14 @@
           "$id": "#/properties/editor/properties/foregroundContrast",
           "type": "integer",
           "title": "Contrast for editor background",
-          "default": 2,
+          "default": 0,
           "maximum": 0
         },
         "foregroundContrast": {
           "$id": "#/properties/editor/properties/foregroundContrast",
           "type": "integer",
           "title": "Contrast for editor foreground",
-          "default": 2
+          "default": 0
         }
       }
     },
@@ -51,14 +51,14 @@
           "$id": "#/properties/environment/properties/backgroundContrast",
           "type": "integer",
           "title": "Contrast for environment background",
-          "default": 2,
+          "default": 0,
           "maximum": 1
         },
         "foregroundContrast": {
           "$id": "#/properties/environment/properties/foregroundContrast",
           "type": "integer",
           "title": "Contrast for environment foreground",
-          "default": 2
+          "default": 0
         },
         "additionalCommentsContrast": {
           "$id": "#/properties/environment/properties/additionalCommentsContrast",
