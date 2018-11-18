@@ -3,7 +3,7 @@ const changeCase = require("change-case");
 
 function generateScale(color, override, adjustments, lessChrome) {
   const maximumLightness = 100;
-  const lightnessMultiplier = 2.25;
+  const lightnessMultiplier = 2 + 5 / 16;
   let lightnessAdjustment = 0;
 
   const maximumChroma = 131.207;
@@ -18,13 +18,11 @@ function generateScale(color, override, adjustments, lessChrome) {
 
   switch (color) {
     case "BLUE_GRAYS":
-      hue = 270;
-      chromaDivisor = 24;
+      hue = 270 - 90 / 16;
+      chromaDivisor = 10;
 
       if (!lchOverride) {
-        lightnessAdjustment = -3;
-        chromaStartAdjustment = 5;
-        chromaEndAdjustment = -3.75;
+        chromaEndAdjustment = -12.5;
       }
       break;
     case "BLUES":
