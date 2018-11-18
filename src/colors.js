@@ -101,7 +101,7 @@ function generateColorPalette(configuration) {
     blues: handleVariant(
       generateScale("BLUES", overrides.blues, configuration.colors.adjustments)
     ),
-    bluesLessChrome: handleVariant(
+    bluesLessChroma: handleVariant(
       generateScale(
         "BLUES",
         overrides.blues,

@@ -1,13 +1,19 @@
 const { toRGBString } = require("../colors");
 
-function getIndentGuidesReplacements(_configuration, colors) {
-  const { blueGrays } = colors;
+function getIndentGuidesReplacements(configuration, colors) {
+  const { editor } = configuration;
+  const { blueGrays, purples } = colors;
+  const dark = configuration.variant === "dark";
+
+  function edbc(index) {
+    return index + -editor.backgroundContrast;
+  }
 
   return [
-    ["DEFAULT_DEFAULT_LINE_COLOR", toRGBString(blueGrays[4])],
-    ["DEFAULT_DEFAULT_HIGHLIGHT_COLOR", toRGBString(blueGrays[6])],
-    ["DEFAULT_UNALIGNED_LINE_COLOR", toRGBString(colors.purples[39])],
-    ["DEFAULT_UNALIGNED_HIGHLIGHT_COLOR", toRGBString(colors.purples[39])]
+    ["DEFAULT_DEFAULT_LINE_COLOR", toRGBString(blueGrays[edbc(4)])],
+    ["DEFAULT_DEFAULT_HIGHLIGHT_COLOR", toRGBString(blueGrays[edbc(6)])],
+    ["DEFAULT_UNALIGNED_LINE_COLOR", toRGBString(purples[39])],
+    ["DEFAULT_UNALIGNED_HIGHLIGHT_COLOR", toRGBString(purples[39])]
   ];
 }
 

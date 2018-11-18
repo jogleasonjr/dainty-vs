@@ -1,6 +1,6 @@
 {
   "environment": {
-    "additionalTextContrast": false
+    "textContrast": -2
   },
   "colors": {
     "adjustments": {
