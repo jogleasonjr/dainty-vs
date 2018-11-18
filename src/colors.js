@@ -19,10 +19,10 @@ function generateScale(color, override, adjustments, lessChrome) {
   switch (color) {
     case "BLUE_GRAYS":
       hue = 270 - 90 / 16;
-      chromaDivisor = 10;
+      chromaDivisor = 10 + 50 / 16;
 
       if (!lchOverride) {
-        chromaEndAdjustment = -13.75;
+        chromaEndAdjustment = -12.5;
       }
       break;
     case "BLUES":
