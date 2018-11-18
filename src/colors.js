@@ -223,12 +223,14 @@ function applyColorConstantReplacement(
 function checkScaleRange(index) {
   if (!Number.isInteger(index)) {
     throw new Error(
-      `Index \`${index}\` is not a valid index for Dainty color scale.`
+      `Index \`${index}\` is not a valid index for a Dainty color scale.`
     );
   }
 
   if (index < 0 || index > 39) {
-    throw new Error(`Index \`${index}\` is not valid for Dainty color scale.`);
+    throw new Error(
+      `Index \`${index}\` is not a valid index for a Dainty color scale.`
+    );
   }
 
   return index;

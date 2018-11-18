@@ -258,7 +258,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#9cdcfe", dark ? blues[32] : blues[20]],
 
     // Active tool window tab, `Import theme`
-    ["#0097fb", blueGrays[envbc(34)]],
+    ["#0097fb", blueGrays[envfc(34)]],
 
     // launchSettings.json property
     ["#d7ba7d", blueGrays[edfc(34)]],
