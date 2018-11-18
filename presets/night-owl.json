@@ -4,28 +4,27 @@
   },
   "colors": {
     "adjustments": {
-      "lightness": -6,
-      "chroma": 0,
-      "chromaStart": -1,
-      "chromaEnd": -17
+      "chromaEnd": -10
     },
     "accent": "purple",
     "overrides": {
       "blueGrays": "#011627",
       "blues": "#82aaff",
-      "greens": "#f78c6c",
+      "greens": "#f78c6c", // Deep orange
       "oranges": "#ecc48d",
-      "purples": "#addb67"
+      "purples": "#addb67" // Green
     }
   },
   "replacements": {
     "overrides": {
       "searchReplace": {
-        "#b5cea8": ["#F78C6C", null]
+        "#b5cea8": ["#f78c6c", null], // Numbers
+        "#d69d85": ["#ecc48d", null] // Strings
       },
       "categories": {
         "ColorizedSignatureHelp colors": {
-          "punctuation": [[null, "#C792EA"], [null, null]]
+          "punctuation": [[null, "#c792ea"], [null, "#c792ea"]],
+          "HTML Attribute Value": [[null, "#ecc48d"], [null, "#ecc48d"]]
         }
       }
     }

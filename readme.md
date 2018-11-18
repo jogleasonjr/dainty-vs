@@ -76,7 +76,7 @@ Color scales can be overridden by adding the following object to `"colors"` in `
 }
 ```
 
-With a provided base color a scale of 40 shades is built. The color will be converted to LCh and its hue and chroma (saturation) will be kept.
+With a provided base color a scale of 40 shades is built. The color will be converted to LCh and its hue and chroma (saturation) are used while the lightness is calculated. For the blue-grays scale the exact lightness is used for the darkest shade.
 
 Use `public/syntax.html` to quickly test new settings after running `npm run build`.
 

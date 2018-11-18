@@ -3,22 +3,25 @@ const changeCase = require("change-case");
 
 function generateScale(color, override, adjustments, lessChrome) {
   const maximumLightness = 100;
-  const maximumChroma = 131.207;
   const lightnessMultiplier = 2.25;
-
-  let chromaDivisor = 3;
-  let hue = 0;
   let lightnessAdjustment = 0;
+
+  const maximumChroma = 131.207;
+  let chromaDivisor = 3;
   let chromaAdjustment = 0;
   let chromaStartAdjustment = 0;
   let chromaEndAdjustment = 0;
+
+  let hue = 0;
+
+  const lchOverride = override ? culori.lch(override) : null;
 
   switch (color) {
     case "BLUE_GRAYS":
       hue = 270;
       chromaDivisor = 24;
 
-      if (!override) {
+      if (!lchOverride) {
         lightnessAdjustment = -3;
         chromaStartAdjustment = 5;
         chromaEndAdjustment = -3.75;
@@ -26,6 +29,10 @@ function generateScale(color, override, adjustments, lessChrome) {
       break;
     case "BLUES":
       hue = 270 - 90 / 16;
+
+      if (lessChrome) {
+        chromaDivisor = 6;
+      }
       break;
     case "PURPLES":
       hue = 315;
@@ -35,12 +42,8 @@ function generateScale(color, override, adjustments, lessChrome) {
       break;
     case "ORANGES":
       hue = 45;
-      chromaAdjustment -= maximumChroma / 6;
+      chromaAdjustment = -(maximumChroma / 6);
       break;
-  }
-
-  if (lessChrome) {
-    chromaDivisor = 6;
   }
 
   if (color === "BLUE_GRAYS") {
@@ -54,8 +57,6 @@ function generateScale(color, override, adjustments, lessChrome) {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma * 2 : 0;
   }
 
-  const lchOverride = override ? culori.lch(override) : null;
-
   let scale = [];
 
   for (let i = 0; i < 40; i++) {
@@ -63,14 +64,15 @@ function generateScale(color, override, adjustments, lessChrome) {
       mode: "lch",
       h: lchOverride ? lchOverride.h : hue,
       l:
-        (lightnessAdjustment / 40) * (39 - i) +
-        (maximumLightness - lightnessMultiplier * (39 - i)),
+        (lchOverride && color === "BLUE_GRAYS"
+          ? lchOverride.l + ((maximumLightness - lchOverride.l) / 40) * i
+          : maximumLightness - lightnessMultiplier * (39 - i)) +
+        (lightnessAdjustment / 40) * (39 - i),
       c:
+        (lchOverride ? lchOverride.c : maximumChroma / chromaDivisor) +
+        chromaAdjustment +
         (chromaStartAdjustment / 40) * (39 - i) +
-        (chromaEndAdjustment / 40) * i +
-        (lchOverride
-          ? lchOverride.c
-          : maximumChroma / chromaDivisor + chromaAdjustment)
+        (chromaEndAdjustment / 40) * i
     });
   }
 
