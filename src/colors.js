@@ -22,7 +22,7 @@ function generateScale(color, override, adjustments, lessChrome) {
       chromaDivisor = 10;
 
       if (!lchOverride) {
-        chromaEndAdjustment = -12.5;
+        chromaEndAdjustment = -13.75;
       }
       break;
     case "BLUES":
