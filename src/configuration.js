@@ -5,6 +5,7 @@ const Ajv = require("ajv");
 const merge = require("lodash.merge");
 const betterAjvErrors = require("better-avj-errors");
 const decomment = require("decomment");
+const parseJson = require("parse-json");
 
 const { cloneDeep, writeFileLog, removeComments } = require("./utils");
 
@@ -22,7 +23,7 @@ async function readConfigurationSchema() {
 
 async function getConfigurationSchema() {
   try {
-    return JSON.parse(await readConfigurationSchema());
+    return parseJson(await readConfigurationSchema());
   } catch (error) {
     throw Error("Could not parse JSON.");
   }
@@ -74,24 +75,139 @@ async function readPresetJson(preset) {
   }
 }
 
-async function getConfigurationJson(preset) {
+async function readVscodeThemeJson(theme) {
+  const filename = path.join(__dirname, "..", theme);
+
+  if (!(await exists(filename))) {
+    throw new Error(`Could not find VS Code theme ${filename}.`);
+  } else {
+    return decomment(await readFile(filename, "utf8"));
+  }
+}
+
+function transformVscodeTheme(theme) {
+  function c(property) {
+    return theme.colors[property];
+  }
+
+  function tc(...scopes) {
+    console.log({ scopes });
+    for (const scope of scopes) {
+      const tokenColor = theme.tokenColors.find(tc => {
+        return tc.scope && tc.scope.includes(scope);
+      });
+
+      if (!tokenColor) {
+        console.log(
+          `Token color for scope \`${scope}\` not found in VS Code theme.`
+        );
+        continue;
+      }
+
+      if (!tokenColor.settings) {
+        console.log(
+          `\`"settings"\` for scope \`${scope}\` not found in VS Code theme.`
+        );
+        continue;
+      }
+
+      console.log(`Token for scope \`${scope}\` found.`);
+
+      return tokenColor.settings;
+    }
+
+    throw new Error(`Token color for scope not found in VS Code theme.`);
+  }
+
+  let configuration = {
+    colors: {
+      overrides: {
+        blueGrays: c("editor.background")
+        // blues: tc("storage.type").foreground
+      }
+    },
+    replacements: {
+      overrides: {
+        searchReplace: {
+          // Strings
+          "#d69d85": [
+            tc("string.quoted", "string").foreground,
+            tc("string.quoted", "string").foreground
+          ],
+
+          // Numbers
+          "#b5cea8": [
+            tc("constant.numeric").foreground,
+            tc("constant.numeric").foreground
+          ],
+
+          // `using`, `public class`
+          "#569cd6": [tc("keyword").foreground, tc("keyword").foreground],
+
+          // `form`, `option` (bold)
+          "#008080": [tc("keyword").foreground, tc("keyword").foreground],
+
+          // `Program`, `WebHost`, `Startup`
+          "#4ec9b0": [
+            tc("support.type").foreground,
+            tc("support.type").foreground
+          ],
+
+          // `IWebHostBuilder`
+          "#b8d7a3": [
+            tc("storage.type").foreground,
+            tc("storage.type").foreground
+          ],
+
+          // Comment
+          "#57a64a": [tc("comment").foreground, tc("comment").foreground]
+        },
+        categories: {
+          "ColorizedSignatureHelp colors": {
+            "HTML Attribute Value": [
+              [null, tc("string.quoted", "string").foreground],
+              [null, tc("string.quoted", "string").foreground]
+            ]
+            // punctuation: [null, blueGrays[edfc(28)]],
+            // urlformat: [null, dark ? accent[34] : accent[16]]
+          }
+        }
+      }
+    }
+  };
+
+  console.dir({ configuration }, { depth: null });
+  // console.dir({ theme }, { depth: null });
+
+  return configuration;
+}
+
+async function getConfigurationJson(type, filename) {
   let configurationJson;
-  let configurationPresetJson;
 
   try {
-    configurationJson = JSON.parse(await readConfigurationJson());
+    configurationJson = parseJson(await readConfigurationJson());
   } catch (error) {
     return [error, null];
   }
 
-  if (preset) {
-    try {
-      configurationPresetJson = JSON.parse(await readPresetJson(preset));
-    } catch (error) {
-      return [error, null];
-    }
-
-    configurationJson = merge(configurationPresetJson, configurationJson);
+  switch (type) {
+    case "CONFIGURATION_PRESET":
+      try {
+        const json = parseJson(await readPresetJson(filename));
+        configurationJson = merge(json, configurationJson);
+      } catch (error) {
+        return [error, null];
+      }
+    case "VSCODE_THEME":
+      try {
+        const json = transformVscodeTheme(
+          parseJson(await readVscodeThemeJson(filename))
+        );
+        configurationJson = merge(json, configurationJson);
+      } catch (error) {
+        return [error, null];
+      }
   }
 
   return await getConfiguration(configurationJson);
