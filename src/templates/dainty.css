@@ -98,10 +98,6 @@ h3 {
     font-size: 14px;
   }
 
-  p.small code {
-    font-size: 13px;
-  }
-
   p.big {
     font-size: 16px;
   }
@@ -110,10 +106,6 @@ h3 {
 @media (min-width: 1024px) {
   p.small {
     font-size: 16px;
-  }
-
-  p.small code {
-    font-size: 14px;
   }
 
   p.big {
@@ -161,18 +153,7 @@ pre {
 code {
   font-family: "Roboto Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo,
     Courier, monospace;
-}
-
-@media (max-width: 1023.98px) {
-  code {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 1024px) {
-  code {
-    font-size: 17px;
-  }
+  font-size: 0.875em;
 }
 
 .table-scroll-container {
@@ -315,55 +296,32 @@ ul.nav li:not(.active) a:hover {
   }
 
   .button-group button:not(:last-child) {
-    margin-right: 8px;
+    margin-right: 16px;
   }
 }
 
 button {
   border: 0;
+  background-color: transparent;
   font-family: inherit;
-  font-weight: 300;
-  transition: transform 0.125s ease, background-color 0.125s ease,
-    color 0.125s ease;
+  font-weight: inherit;
+  font-size: inherit;
+  transition: transform 0.125s ease, border-color 0.125s ease, color 0.125s ease;
   padding: 0 24px;
-  border-radius: 4px;
   cursor: pointer;
   height: 52px;
+  border-radius: 5px;
 }
 
 button.primary {
-  background-color: "ACCENT_10";
-  color: "BLUE_GRAYS_36";
-}
-
-button:not(.large) {
-  position: relative;
-  top: -1px;
-}
-
-@media (max-width: 1023.98px) {
-  button.large {
-    font-size: 16px;
-  }
-
-  button:not(.large) {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1024px) {
-  button.large {
-    font-size: 18px;
-  }
-
-  button:not(.large) {
-    font-size: 16px;
-  }
+  border: 0.5px solid "ACCENT_16";
+  color: "ACCENT_34";
 }
 
 button:not(.primary) {
-  background-color: transparent;
-  color: "BLUE_GRAYS_34";
+  border: 0.5px solid "BLUES_LESS_CHROMA_16";
+  color: "BLUES_LESS_CHROMA_34";
+  font-size: 0.875em;
 }
 
 button:focus {
@@ -371,11 +329,13 @@ button:focus {
 }
 
 button.primary:hover {
-  background-color: "ACCENT_12";
+  color: "ACCENT_36";
+  border-color: "ACCENT_36";
 }
 
 button:not(.primary):hover {
-  background-color: "BLUE_GRAYS_2";
+  color: "BLUES_LESS_CHROMA_36";
+  border-color: "BLUES_LESS_CHROMA_36";
 }
 
 button:active {
