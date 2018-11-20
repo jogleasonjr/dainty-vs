@@ -397,6 +397,12 @@ button:active {
   transition: background-color 0.25s ease;
 }
 
+.form-group > .input-container > input[type="text"]:hover,
+.form-group > .input-container > select:hover {
+  background-color: "BLUE_GRAYS_4";
+  color: "BLUE_GRAYS_35";
+}
+
 .form-group > .input-container > input[type="text"]:focus,
 .form-group > .input-container > select:focus {
   outline: none;
@@ -512,4 +518,12 @@ div[class^="ckbx-style-"] input[type="checkbox"] {
 
 .ckbx-style-8 input[type="checkbox"]:checked + label:after {
   left: 1.1em;
+}
+
+.ckbx-style-8 input[type="checkbox"]:hover + label:before {
+  background-color: "BLUE_GRAYS_6";
+}
+
+.ckbx-style-8 input[type="checkbox"]:checked:hover + label:before {
+  background-color: "ACCENT_24";
 }
