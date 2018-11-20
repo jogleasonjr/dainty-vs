@@ -154,6 +154,12 @@ code {
   font-family: "Roboto Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo,
     Courier, monospace;
   font-size: 0.875em;
+  color: "BLUE_GRAYS_36";
+}
+
+a > code,
+button > code {
+  color: inherit;
 }
 
 .table-scroll-container {
