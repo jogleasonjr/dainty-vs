@@ -210,7 +210,6 @@ ul.nav {
   display: flex;
   padding-left: 0;
   margin-left: -12px;
-  letter-spacing: 0.5px;
 }
 
 @media (max-width: 1023.98px) {
@@ -317,7 +316,6 @@ button {
   cursor: pointer;
   height: 52px;
   border-radius: 4px;
-  letter-spacing: 0.5px;
 }
 
 button.primary {
