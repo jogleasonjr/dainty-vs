@@ -14,7 +14,7 @@ These are things I would like to see in the future:
 - Better support for tokens such as XML CDATA
 - Support for converting VS Code themes
   - One of my ideas is to make the conversion of VS Code themes into VS themes complete enough so that Dainty for VS Code can be used for generating Dainty for VS.
-- Support for ReShaper
-- Support for Visual Studio 2019
+- Add support for ReShaper
+- Add support for Visual Studio 2019
 
 If you have anything you’d like to see, then feel free to open an issue at GitHub.
