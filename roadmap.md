@@ -10,18 +10,18 @@ Dainty for Visual Studio currently supports presets making it easy to turn it in
 
 These are things I would like to see in the future:
 
-- Support everything in the “Show Common Elements” listing of the Color Themes extension
-- Better support tokens such as C# regions or XML CDATA
-- Add support for converting VS Code themes
+- Support everything in the “Show Common Elements” listing of the Color Themes extension _(high priority)_
+- Better support tokens such as C# regions or XML CDATA _(high priority)_
+- Add support for ReShaper _(high priority)_
+- Add support for Visual Studio 2019 _(high priority)_
+- Add integration tests especially for downloading the ZIP files _(high priority)_
+- Add unit tests especially for the colors module _(high priority)_
+- Add support for converting VS Code themes _(high priority)_
   - One of my ideas is to make the conversion of VS Code themes into VS themes complete enough so that Dainty for VS Code can be used for generating Dainty for VS.
-- Add support for ReShaper
-- Add support for Visual Studio 2019
-- Make it possible to run an `npm` script to build the theme for making it available through the VS Marketplace
-- Add integration tests especially for downloading the ZIP files
-- Add unit tests especially for the colors module
-- Consider using something like ImageMagick to improve the screenshot workflow
-- Consider rewriting pages in React to enable more interactive features (wait until hooks are out of alpha)
-- Consider extracting color scale code into an `npm` package
-- Consider turning Dainty.css into its own project
+- Make it possible to run an `npm` script to build the theme for making it available through the VS Marketplace _(high priority)_
+- Consider using something like ImageMagick to improve the screenshot workflow _(low priority)_
+- Consider rewriting pages in React to enable more interactive features (wait until hooks are out of alpha) _(low priority)_
+- Consider extracting color scale code into an `npm` package _(low priority)_
+- Consider turning Dainty.css into its own project _(low priority)_
 
 If you have anything you’d like to see, then feel free to open an issue at GitHub.
