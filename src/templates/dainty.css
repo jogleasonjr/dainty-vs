@@ -179,7 +179,7 @@ table {
 }
 
 tr {
-  border-bottom: 1px solid "BLUE_GRAYS_6";
+  border-bottom: 0.5px solid "BLUE_GRAYS_12";
 }
 
 th {
@@ -310,17 +310,17 @@ button {
   padding: 0 24px;
   cursor: pointer;
   height: 52px;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 button.primary {
-  border: 0.5px solid "ACCENT_16";
+  border: 0.5px solid "BLUE_GRAYS_16";
   color: "ACCENT_34";
 }
 
 button:not(.primary) {
-  border: 0.5px solid "BLUES_LESS_CHROMA_16";
-  color: "BLUES_LESS_CHROMA_34";
+  border: 0.5px solid "BLUE_GRAYS_16";
+  color: "BLUE_GRAYS_34";
   font-size: 0.875em;
 }
 
@@ -329,13 +329,15 @@ button:focus {
 }
 
 button.primary:hover {
-  color: "ACCENT_36";
-  border-color: "ACCENT_36";
+  border-color: "BLUE_GRAYS_20";
+  color: "ACCENT_39";
+  background-color: "BLUE_GRAYS_1";
 }
 
 button:not(.primary):hover {
-  color: "BLUES_LESS_CHROMA_36";
-  border-color: "BLUES_LESS_CHROMA_36";
+  border-color: "BLUE_GRAYS_20";
+  color: "BLUE_GRAYS_39";
+  background-color: "BLUE_GRAYS_1";
 }
 
 button:active {
@@ -364,7 +366,7 @@ button:active {
 
 .form-group {
   display: flex;
-  border-bottom: 1px solid "BLUE_GRAYS_6";
+  border-bottom: 0.5px solid "BLUE_GRAYS_12";
   padding-bottom: 16px;
   margin-bottom: 16px;
   padding-left: 16px;
@@ -372,7 +374,7 @@ button:active {
 }
 
 .form-group:first-child {
-  border-top: 1px solid "BLUE_GRAYS_6";
+  border-top: 0.5px solid "BLUE_GRAYS_12";
   padding-top: 16px;
 }
 
