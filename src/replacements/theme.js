@@ -18,7 +18,7 @@ function getCategoryReplacements(configuration, colors) {
   const replacements = {
     "ColorizedSignatureHelp colors": {
       "HTML Attribute Value": [null, dark ? oranges[33] : oranges[18]],
-      punctuation: [null, blueGrays[edfc(28)]],
+      punctuation: [null, blueGrays[edfc(26)]],
       urlformat: [null, dark ? accent[34] : accent[16]]
     },
     "Text Editor Text Marker Items": {
@@ -68,7 +68,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     //
 
     // Active tab, statusbar
-    ["#007acc", blueGrays[envbc(4)]],
+    ["#007acc", blueGrays[envbc(6)]],
 
     // Menu bar item hover
     ["#3e3e40", blueGrays[envbc(6)]],
@@ -276,7 +276,7 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#808080", blueGrays[edfc(26)]],
 
     // Operator and HTML operator
-    ["#b4b4b4", blueGrays[edfc(32)]],
+    ["#b4b4b4", blueGrays[edfc(30)]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
     ["#f1f1f1", blueGrays[envfc(32)]],
