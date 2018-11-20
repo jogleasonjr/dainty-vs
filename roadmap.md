@@ -11,8 +11,8 @@ Dainty for Visual Studio currently supports presets making it easy to turn it in
 These are things I would like to see in the future:
 
 - Support everything in the “Show Common Elements” listing of the Color Themes extension
-- Better support for tokens such as XML CDATA
-- Support for converting VS Code themes
+- Better support tokens such as XML CDATA
+- Add support for converting VS Code themes
   - One of my ideas is to make the conversion of VS Code themes into VS themes complete enough so that Dainty for VS Code can be used for generating Dainty for VS.
 - Add support for ReShaper
 - Add support for Visual Studio 2019
