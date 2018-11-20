@@ -179,7 +179,7 @@ table {
 }
 
 tr {
-  border-bottom: 0.5px solid "BLUE_GRAYS_12";
+  border-bottom: 0.5px solid "BLUE_GRAYS_10";
 }
 
 th {
@@ -282,7 +282,7 @@ ul.nav li:not(.active) a:hover {
   }
 
   .button-group button:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 }
 
@@ -301,7 +301,6 @@ ul.nav li:not(.active) a:hover {
 }
 
 button {
-  border: 0;
   background-color: transparent;
   font-family: inherit;
   font-weight: inherit;
@@ -314,12 +313,12 @@ button {
 }
 
 button.primary {
-  border: 0.5px solid "BLUE_GRAYS_16";
+  border: 0.5px solid "BLUE_GRAYS_12";
   color: "ACCENT_34";
 }
 
 button:not(.primary) {
-  border: 0.5px solid "BLUE_GRAYS_16";
+  border: 0.5px solid "BLUE_GRAYS_12";
   color: "BLUE_GRAYS_34";
   font-size: 0.875em;
 }
@@ -366,7 +365,7 @@ button:active {
 
 .form-group {
   display: flex;
-  border-bottom: 0.5px solid "BLUE_GRAYS_12";
+  border-bottom: 0.5px solid "BLUE_GRAYS_10";
   padding-bottom: 16px;
   margin-bottom: 16px;
   padding-left: 16px;
@@ -374,7 +373,7 @@ button:active {
 }
 
 .form-group:first-child {
-  border-top: 0.5px solid "BLUE_GRAYS_12";
+  border-top: 0.5px solid "BLUE_GRAYS_10";
   padding-top: 16px;
 }
 
