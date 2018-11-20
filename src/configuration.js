@@ -91,7 +91,6 @@ function transformVscodeTheme(theme) {
   }
 
   function tc(...scopes) {
-    console.log({ scopes });
     for (const scope of scopes) {
       const tokenColor = theme.tokenColors.find(tc => {
         return tc.scope && tc.scope.includes(scope);
@@ -177,7 +176,6 @@ function transformVscodeTheme(theme) {
   };
 
   console.dir({ configuration }, { depth: null });
-  // console.dir({ theme }, { depth: null });
 
   return configuration;
 }
@@ -195,7 +193,7 @@ async function getConfigurationJson(type, filename) {
     case "CONFIGURATION_PRESET":
       try {
         const json = parseJson(await readPresetJson(filename));
-        configurationJson = merge(json, configurationJson);
+        return await getConfiguration(merge(json, configurationJson));
       } catch (error) {
         return [error, null];
       }
@@ -204,13 +202,13 @@ async function getConfigurationJson(type, filename) {
         const json = transformVscodeTheme(
           parseJson(await readVscodeThemeJson(filename))
         );
-        configurationJson = merge(json, configurationJson);
+        return await getConfiguration(merge(json, configurationJson));
       } catch (error) {
         return [error, null];
       }
+    default:
+      return await getConfiguration(configurationJson);
   }
-
-  return await getConfiguration(configurationJson);
 }
 
 module.exports = {
