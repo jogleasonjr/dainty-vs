@@ -19,5 +19,8 @@ These are things I would like to see in the future:
 - Make it possible to run an `npm` script to build the theme for making it available through the VS Marketplace
 - Add integration tests especially for downloading the ZIP files
 - Add unit tests especially for the colors module
+- Consider rewriting pages in React to enable more interactive features (wait until hooks are out of alpha)
+- Consider extracting color scale code into an `npm` package
+- Consider turning Dainty.css into its own project
 
 If you have anything you’d like to see, then feel free to open an issue at GitHub.
