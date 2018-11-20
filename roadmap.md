@@ -16,5 +16,8 @@ These are things I would like to see in the future:
   - One of my ideas is to make the conversion of VS Code themes into VS themes complete enough so that Dainty for VS Code can be used for generating Dainty for VS.
 - Add support for ReShaper
 - Add support for Visual Studio 2019
+- Make it possible to run an `npm` script to build the theme for making it available through the VS Marketplace
+- Add integration tests especially for downloading the ZIP files
+- Add unit tests especially for the colors module
 
 If you have anything you’d like to see, then feel free to open an issue at GitHub.
