@@ -68,11 +68,11 @@ Color scales can be overridden by adding the following object to `"colors"` in `
 
 ```json
 "overrides": {
-  "blueGrays": "#11181b",
-  "blues": "#ab47bc",
-  "purples": "#42a5f5",
-  "greens": "#84ffff",
-  "oranges": "#82b1ff"
+  "blueGray": "#11181b",
+  "blue": "#ab47bc",
+  "purple": "#42a5f5",
+  "green": "#84ffff",
+  "orange": "#82b1ff"
 }
 ```
 
@@ -88,11 +88,11 @@ Usages of environment colors and editor tokens can be overridden by adding the f
 "replacements": {
   "overrides": {
     "searchReplace": {
-      "#b5cea8": ["PURPLES_20", "PURPLES_20"]
+      "#b5cea8": ["PURPLE_20", "PURPLE_20"]
     },
     "categories": {
       "ColorizedSignatureHelp colors": {
-        "HTML Attribute Value": [[null, "BLUES_0"], [null, "BLUES_32"]]
+        "HTML Attribute Value": [[null, "BLUE_0"], [null, "BLUE_32"]]
       }
     }
   }

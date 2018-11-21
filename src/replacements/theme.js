@@ -9,7 +9,7 @@ const {
 function getCategoryReplacements(configuration, colors) {
   const { editor } = configuration;
   const dark = configuration.variant === "dark";
-  const { blueGrays, oranges, accent } = colors;
+  const { blueGray, orange, accent } = colors;
 
   function edfc(index) {
     return checkScaleRange(index + editor.foregroundContrast);
@@ -17,8 +17,8 @@ function getCategoryReplacements(configuration, colors) {
 
   const replacements = {
     "ColorizedSignatureHelp colors": {
-      "HTML Attribute Value": [null, dark ? oranges[33] : oranges[18]],
-      punctuation: [null, blueGrays[edfc(26)]],
+      "HTML Attribute Value": [null, dark ? orange[33] : orange[18]],
+      punctuation: [null, blueGray[edfc(26)]],
       urlformat: [null, dark ? accent[34] : accent[16]]
     },
     "Text Editor Text Marker Items": {
@@ -36,13 +36,13 @@ function getCategoryReplacements(configuration, colors) {
 function getSearchReplaceReplacements(configuration, colors) {
   const { environment, editor } = configuration;
   const {
-    blueGrays,
-    blues,
-    oranges,
-    purples,
-    greens,
+    blueGray,
+    blue,
+    orange,
+    purple,
+    green,
     accent,
-    bluesLessChroma
+    blueLessChroma
   } = colors;
   const dark = configuration.variant === "dark";
 
@@ -68,130 +68,130 @@ function getSearchReplaceReplacements(configuration, colors) {
     //
 
     // Active tab, statusbar
-    ["#007acc", blueGrays[envbc(6)]],
+    ["#007acc", blueGray[envbc(6)]],
 
     // Menu bar item hover
-    ["#3e3e40", blueGrays[envbc(6)]],
+    ["#3e3e40", blueGray[envbc(6)]],
 
     // Menu
-    ["#1b1b1c", blueGrays[envbc(2)]],
+    ["#1b1b1c", blueGray[envbc(2)]],
 
     // Menu item hover
-    ["#333334", blueGrays[envbc(6)]],
+    ["#333334", blueGray[envbc(6)]],
 
     // Hover tab
-    ["#1c97ea", blueGrays[envbc(4)]],
+    ["#1c97ea", blueGray[envbc(4)]],
 
     // Inactive tab hover close
-    ["#52b0ef", blueGrays[envbc(8)]],
+    ["#52b0ef", blueGray[envbc(8)]],
 
     // Inactive tab active close
-    ["#0e6198", blueGrays[envbc(10)]],
+    ["#0e6198", blueGray[envbc(10)]],
 
     // Editor
-    ["#1e1e1e", blueGrays[edbc(0)]],
+    ["#1e1e1e", blueGray[edbc(0)]],
 
     // Toolbar separator
-    ["#222222", blueGrays[edbc(0)]],
+    ["#222222", blueGray[edbc(0)]],
 
     // Solution Explorer, Properties
-    ["#252526", blueGrays[edbc(0)]],
+    ["#252526", blueGray[edbc(0)]],
 
     // Title bar, menu bar
-    ["#2d2d30", blueGrays[envbc(2)]],
+    ["#2d2d30", blueGray[envbc(2)]],
 
     // Breakpoints bar
-    ["#333333", blueGrays[envbc(1)]],
+    ["#333333", blueGray[envbc(1)]],
 
     // Search Solution Explorer, Quick Launch, Package Manager, menu separator line and borders around menu/menu item
-    ["#333337", blueGrays[edbc(0)]],
+    ["#333337", blueGray[edbc(0)]],
 
     // Scrollbar containers
     [
       "#3e3e42",
       environment.transparentScrollbarContainers
-        ? blueGrays[edbc(0)]
-        : blueGrays[edbc(1)]
+        ? blueGray[edbc(0)]
+        : blueGray[edbc(1)]
     ],
 
     // Scrollbar
     [
       "#686868",
       environment.additionalScrollbarsContrast
-        ? blueGrays[edbc(6)]
-        : blueGrays[edbc(4)]
+        ? blueGray[edbc(6)]
+        : blueGray[edbc(4)]
     ],
 
     // Scrollbar hover
     [
       "#9e9e9e",
       environment.additionalScrollbarsContrast
-        ? blueGrays[edbc(8)]
-        : blueGrays[edbc(6)]
+        ? blueGray[edbc(8)]
+        : blueGray[edbc(6)]
     ],
 
     // Scrollbar active
     [
       "#efebef",
       environment.additionalScrollbarsContrast
-        ? blueGrays[edbc(10)]
-        : blueGrays[edbc(8)]
+        ? blueGray[edbc(10)]
+        : blueGray[edbc(8)]
     ],
 
     // Scrollbar glyph disabled
-    ["#555558", blueGrays[envbc(4)]],
+    ["#555558", blueGray[envbc(4)]],
 
     // Selected item in Solution Explorer, thin borders across app
     [
       "#3f3f46",
-      environment.transparentBorders ? blueGrays[envbc(2)] : blueGrays[envbc(4)]
+      environment.transparentBorders ? blueGray[envbc(2)] : blueGray[envbc(4)]
     ],
 
     // Package Manger border
-    ["#434346", blueGrays[envbc(8)]],
+    ["#434346", blueGray[envbc(8)]],
 
     // Current line border
-    ["#464646", blueGrays[edbc(2)]],
+    ["#464646", blueGray[edbc(2)]],
 
     // Grip – inactive tool window
     [
       "#46464a",
       environment.transparentToolWindowGrips
-        ? blueGrays[envbc(2)]
-        : blueGrays[envbc(8)]
+        ? blueGray[envbc(2)]
+        : blueGray[envbc(8)]
     ],
 
     // Grip – active tool window
     [
       "#59a8de",
       environment.transparentToolWindowGrips
-        ? blueGrays[envbc(4)]
-        : blueGrays[envbc(16)]
+        ? blueGray[envbc(4)]
+        : blueGray[envbc(16)]
     ],
 
     // File changes indicator, current debugging statement
-    ["#eff284", blueGrays[edbc(2)]],
+    ["#eff284", blueGray[edbc(2)]],
 
     // File changes after save indicator
-    ["#577430", blueGrays[edbc(2)]],
+    ["#577430", blueGray[edbc(2)]],
 
     // Outline area
-    ["#232323", blueGrays[edbc(2)]],
+    ["#232323", blueGray[edbc(2)]],
 
     // File preview
-    ["#68217a", blues[0]],
+    ["#68217a", blue[0]],
 
     // Tooltip
-    ["#424245", blueGrays[edbc(2)]],
+    ["#424245", blueGray[edbc(2)]],
 
     // Tooltip border
-    ["#4d4d50", blueGrays[edbc(2)]],
+    ["#4d4d50", blueGray[edbc(2)]],
 
     // Extensions item hover
-    ["#3f3f40", blueGrays[envbc(2)]],
+    ["#3f3f40", blueGray[envbc(2)]],
 
     // Yellowy tooltip line
-    ["#fefcc8", oranges[39]],
+    ["#fefcc8", orange[39]],
 
     // Start page arrow
     ["#4f4f53", accent[24]],
@@ -200,41 +200,41 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#606060", accent[28]],
 
     // Notification badge
-    ["#8631c7", blues[8]],
+    ["#8631c7", blue[8]],
 
     // `100%` box arrow hover
-    ["#1f1f20", blueGrays[envbc(16)]],
+    ["#1f1f20", blueGray[envbc(16)]],
 
     // Inactive tool window glyph hover
-    ["#393939", blueGrays[envbc(4)]],
+    ["#393939", blueGray[envbc(4)]],
 
     // Team Explorer `Changes` label
-    ["#2d2d2d", blueGrays[envbc(4)]],
+    ["#2d2d2d", blueGray[envbc(4)]],
 
     // Team Explorer `Changes` label icon
-    ["#3d3d3d", blueGrays[envbc(8)]],
+    ["#3d3d3d", blueGray[envbc(8)]],
 
     // Team Explorer `Changes` label icon hover
-    ["#525252", blueGrays[envbc(12)]],
+    ["#525252", blueGray[envbc(12)]],
 
     // Team Explorer `Changes` icon
-    ["#c8c8c8", blues[36]],
+    ["#c8c8c8", blue[36]],
 
     // Team Explorer `Settings` blue indicator
-    ["#0079ce", blues[20]],
+    ["#0079ce", blue[20]],
 
     // Team Explorer `Changes` red indicator
     ["#f05033", dark ? accent[34] : accent[16]],
 
     // Diagnostic Tools tab hover
-    ["#555555", blueGrays[envbc(4)]],
+    ["#555555", blueGray[envbc(4)]],
 
     //
     // Foregrounds
     //
 
     // Editor tooltip
-    ["#dadada", blueGrays[edfc(32)]],
+    ["#dadada", blueGray[edfc(32)]],
 
     // Start page `NEW`
     ["#ff8c00", dark ? accent[34] : accent[16]],
@@ -243,89 +243,89 @@ function getSearchReplaceReplacements(configuration, colors) {
     ["#3399ff", accent[28]],
 
     // `using`, `public class`
-    ["#569cd6", dark ? blues[26] : blues[24]],
+    ["#569cd6", dark ? blue[26] : blue[24]],
 
     // `form`, `option` (bold)
-    ["#008080", dark ? blues[26] : blues[24]],
+    ["#008080", dark ? blue[26] : blue[24]],
 
     // `&nbsp;`
-    ["#00a0a0", dark ? blues[32] : blues[20]],
+    ["#00a0a0", dark ? blue[32] : blue[20]],
 
     // `Program`, `WebHost`, `Startup`
-    ["#4ec9b0", dark ? blues[32] : blues[20]],
+    ["#4ec9b0", dark ? blue[32] : blue[20]],
 
     // HTML attribute
-    ["#9cdcfe", dark ? blues[32] : blues[20]],
+    ["#9cdcfe", dark ? blue[32] : blue[20]],
 
     // Active tool window tab, `Import theme`
-    ["#0097fb", blueGrays[envfc(32)]],
+    ["#0097fb", blueGray[envfc(32)]],
 
     // launchSettings.json property
-    ["#d7ba7d", blueGrays[edfc(34)]],
+    ["#d7ba7d", blueGray[edfc(34)]],
 
     // Punctuation, method names
-    ["#dcdcdc", blueGrays[edfc(34)]],
+    ["#dcdcdc", blueGray[edfc(34)]],
 
     // Status bar, Visual Studio logo, active tab, selected Solution Explorer item
     ["#ffffff", dark ? accent[34] : accent[8]],
 
     // Close and pin icons on active tab
-    ["#d0e6f5", blueGrays[envfc(32)]],
+    ["#d0e6f5", blueGray[envfc(32)]],
 
     // `<` and `>`
-    ["#808080", blueGrays[edfc(26)]],
+    ["#808080", blueGray[edfc(26)]],
 
     // Operator and HTML operator
-    ["#b4b4b4", blueGrays[edfc(30)]],
+    ["#b4b4b4", blueGray[edfc(30)]],
 
     // Most UI text (menu bar items, tabs, non-selected tabs, console output, Solution Explorer item …)
-    ["#f1f1f1", blueGrays[envfc(32)]],
+    ["#f1f1f1", blueGray[envfc(32)]],
 
     // Inactive tabs in tool windows, tool window titles
-    ["#d0d0d0", blueGrays[envfc(26)]],
+    ["#d0d0d0", blueGray[envfc(26)]],
 
     // `Microsoft Visual Studio`
-    ["#999999", blueGrays[envfc(22)]],
+    ["#999999", blueGray[envfc(22)]],
 
     // Disabled menu item
-    ["#656565", blueGrays[envfc(18)]],
+    ["#656565", blueGray[envfc(18)]],
 
     // Inactive tabs hover in tool windows
-    ["#55aaff", blueGrays[envfc(32)]],
+    ["#55aaff", blueGray[envfc(32)]],
 
     // Comments
     [
       "#57a64a",
       environment.additionalCommentsContrast
-        ? blueGrays[edfc(20)]
-        : blueGrays[edfc(16)]
+        ? blueGray[edfc(20)]
+        : blueGray[edfc(16)]
     ],
 
     // XML doc comment
     [
       "#608b4e",
       environment.additionalCommentsContrast
-        ? blueGrays[edfc(20)]
-        : blueGrays[edfc(16)]
+        ? blueGray[edfc(20)]
+        : blueGray[edfc(16)]
     ],
 
     // Numbers
-    ["#b5cea8", dark ? greens[36] : greens[16]],
+    ["#b5cea8", dark ? green[36] : green[16]],
 
     // `IWebHostBuilder`
-    ["#b8d7a3", dark ? purples[30] : purples[20]],
+    ["#b8d7a3", dark ? purple[30] : purple[20]],
 
     // Less variable
-    ["#c563bd", dark ? purples[30] : purples[20]],
+    ["#c563bd", dark ? purple[30] : purple[20]],
 
     // Strings
-    ["#d69d85", dark ? oranges[33] : oranges[18]],
+    ["#d69d85", dark ? orange[33] : orange[18]],
 
     // Start page heading
-    ["#84ceff", bluesLessChroma[34]],
+    ["#84ceff", blueLessChroma[34]],
 
     // `Import Theme` hover
-    ["#88ccfe", blueGrays[envfc(36)]]
+    ["#88ccfe", blueGray[envfc(36)]]
   ];
 
   return mergeConfigurationSearchReplaceReplacements(

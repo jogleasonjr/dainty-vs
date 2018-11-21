@@ -8,11 +8,11 @@
     },
     "accent": "blue",
     "overrides": {
-      "blueGrays": "#515C6B",
-      "blues": "#0078d7",
-      "purples": "#b146c2",
-      "greens": "#00cc6a",
-      "oranges": "#ef6950"
+      "blueGray": "#515C6B",
+      "blue": "#0078d7",
+      "purple": "#b146c2",
+      "green": "#00cc6a",
+      "orange": "#ef6950"
     }
   }
 }

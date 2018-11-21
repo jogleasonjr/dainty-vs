@@ -168,32 +168,32 @@
           "default": {},
           "additionalProperties": false,
           "properties": {
-            "blueGrays": {
-              "$id": "#/properties/colors/properties/overrides/properties/blueGrays",
+            "blueGray": {
+              "$id": "#/properties/colors/properties/overrides/properties/blueGray",
               "type": "string",
               "title": "Base color for scale of blue-grays",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
             },
-            "blues": {
-              "$id": "#/properties/colors/properties/overrides/properties/blues",
+            "blue": {
+              "$id": "#/properties/colors/properties/overrides/properties/blue",
               "type": "string",
               "title": "Base color for scale of blues",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
             },
-            "purples": {
-              "$id": "#/properties/colors/properties/overrides/properties/purples",
+            "purple": {
+              "$id": "#/properties/colors/properties/overrides/properties/purple",
               "type": "string",
               "title": "Base color for scale of purples",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
             },
-            "greens": {
-              "$id": "#/properties/colors/properties/overrides/properties/greens",
+            "green": {
+              "$id": "#/properties/colors/properties/overrides/properties/green",
               "type": "string",
               "title": "Base color for scale of greens",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
             },
-            "oranges": {
-              "$id": "#/properties/colors/properties/overrides/properties/oranges",
+            "orange": {
+              "$id": "#/properties/colors/properties/overrides/properties/orange",
               "type": "string",
               "title": "Base color for scale of oranges",
               "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"

@@ -121,8 +121,8 @@ function transformVscodeTheme(theme) {
   let configuration = {
     colors: {
       overrides: {
-        blueGrays: c("editor.background")
-        // blues: tc("storage.type").foreground
+        blueGray: c("editor.background")
+        // blue: tc("storage.type").foreground
       }
     },
     replacements: {
@@ -167,7 +167,7 @@ function transformVscodeTheme(theme) {
               [null, tc("string.quoted", "string").foreground],
               [null, tc("string.quoted", "string").foreground]
             ]
-            // punctuation: [null, blueGrays[edfc(28)]],
+            // punctuation: [null, blueGray[edfc(28)]],
             // urlformat: [null, dark ? accent[34] : accent[16]]
           }
         }

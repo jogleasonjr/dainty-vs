@@ -17,7 +17,7 @@ function generateScale(color, override, adjustments, lessChrome) {
   const lchOverride = override ? culori.lch(override) : null;
 
   switch (color) {
-    case "BLUE_GRAYS":
+    case "BLUE_GRAY":
       hue = 270 - 90 / 16;
       chromaDivisor = 10 + 50 / 16;
 
@@ -25,26 +25,26 @@ function generateScale(color, override, adjustments, lessChrome) {
         chromaEndAdjustment = -10;
       }
       break;
-    case "BLUES":
+    case "BLUE":
       hue = 270 - 90 / 16;
 
       if (lessChrome) {
         chromaDivisor = 6;
       }
       break;
-    case "PURPLES":
+    case "PURPLE":
       hue = 315;
       break;
-    case "GREENS":
+    case "GREEN":
       hue = 180;
       break;
-    case "ORANGES":
+    case "ORANGE":
       hue = 45;
       chromaAdjustment = -(maximumChroma / 6);
       break;
   }
 
-  if (color === "BLUE_GRAYS") {
+  if (color === "BLUE_GRAY") {
     chromaAdjustment += adjustments.chroma ? adjustments.chroma : 0;
     lightnessAdjustment += adjustments.lightness ? adjustments.lightness : 0;
     chromaStartAdjustment += adjustments.chromaStart
@@ -62,7 +62,7 @@ function generateScale(color, override, adjustments, lessChrome) {
       mode: "lch",
       h: lchOverride ? lchOverride.h : hue,
       l:
-        (lchOverride && color === "BLUE_GRAYS"
+        (lchOverride && color === "BLUE_GRAY"
           ? lchOverride.l + ((maximumLightness - lchOverride.l) / 40) * i
           : maximumLightness - lightnessMultiplier * (39 - i)) +
         (lightnessAdjustment / 40) * (39 - i),
@@ -91,50 +91,46 @@ function generateColorPalette(configuration) {
   }
 
   const colorPalette = {
-    blueGrays: handleVariant(
+    blueGray: handleVariant(
       generateScale(
-        "BLUE_GRAYS",
-        overrides.blueGrays,
+        "BLUE_GRAY",
+        overrides.blueGray,
         configuration.colors.adjustments
       )
     ),
-    blues: handleVariant(
-      generateScale("BLUES", overrides.blues, configuration.colors.adjustments)
+    blue: handleVariant(
+      generateScale("BLUE", overrides.blue, configuration.colors.adjustments)
     ),
-    bluesLessChroma: handleVariant(
+    blueLessChroma: handleVariant(
       generateScale(
-        "BLUES",
-        overrides.blues,
+        "BLUE",
+        overrides.blue,
         configuration.colors.adjustments,
         true
       )
     ),
-    purples: handleVariant(
+    purple: handleVariant(
       generateScale(
-        "PURPLES",
-        overrides.purples,
+        "PURPLE",
+        overrides.purple,
         configuration.colors.adjustments
       )
     ),
-    oranges: handleVariant(
+    orange: handleVariant(
       generateScale(
-        "ORANGES",
-        overrides.oranges,
+        "ORANGE",
+        overrides.orange,
         configuration.colors.adjustments
       )
     ),
-    greens: handleVariant(
-      generateScale(
-        "GREENS",
-        overrides.greens,
-        configuration.colors.adjustments
-      )
+    green: handleVariant(
+      generateScale("GREEN", overrides.green, configuration.colors.adjustments)
     )
   };
 
   return {
     ...colorPalette,
-    accent: colorPalette[`${configuration.colors.accent}s`]
+    accent: colorPalette[configuration.colors.accent]
   };
 }
 

@@ -5,11 +5,11 @@
     },
     "accent": "purple",
     "overrides": {
-      "blueGrays": "#011627",
-      "blues": "#82aaff",
-      "greens": "#f78c6c", // Deep orange
-      "oranges": "#ecc48d",
-      "purples": "#addb67" // Green
+      "blueGray": "#011627",
+      "blue": "#82aaff",
+      "green": "#f78c6c", // Deep orange
+      "orange": "#ecc48d",
+      "purple": "#addb67" // Green
     }
   },
   "replacements": {
