@@ -45,7 +45,7 @@ These are adjustments that can be specified under `"colors"."adjustments"` in `c
 
 | Property        | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
-| `"lightness"`   | Adjust lightness to make blue-grays either darker og lighter |
+| `"lightness"`   | Adjust lightness to make blue-grays either darker or lighter |
 | `"chroma"`      | Adjust chroma to make colors either more or less saturated   |
 | `"chromaStart"` | Adjust start of blue grays scale chroma                      |
 | `"chromaEnd"`   | Adjust start of blue grays scale chroma                      |
